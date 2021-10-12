@@ -1,0 +1,8 @@
+#+TITLE: Notes
+#+AUTHOR: Jefter Santiago
+
+
+- For now there's next to nothing here, so
+  just look at this gif:
+
+[[./gnuplot/sinewave.gif][sine]]  
