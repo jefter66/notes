@@ -1,5 +1,5 @@
-#set term  epslatex size 10cm, 10cm
-#set output "function-growth.tex"
+set terminal  epslatex standalone size 10cm, 10cm
+set output "function-growth.tex"
 set title "Crescimento de funções"
 
 

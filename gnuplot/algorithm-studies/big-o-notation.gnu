@@ -1,4 +1,4 @@
-set term  epslatex size 10cm, 10cm
+set terminal epslatex standalone size 10cm, 10cm
 set output "big-o-notation.tex"
 set title "Notação Big O"
 set format y ""
