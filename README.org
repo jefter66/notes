@@ -4,8 +4,10 @@
 #+language: pt
 #+options: toc:nil num:nil
 
-#+HTML_HEAD: <script> var HS_STARTUP_FOLDED = true; </script>
 * [[./Fisica experimental][Física Experimental]]
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: hsCollapsed
+   :END:
 ** [[./Fisica experimental/01][Laboratório de Física I]]
    - [[./Fisica experimental/01/01.pdf][Prática 1]]
    - [[./Fisica experimental/01/02.pdf][Prática 2]]
