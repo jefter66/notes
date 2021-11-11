@@ -29,6 +29,7 @@
   - [[./Fundamentos de programacao/trabalho11.org][Trabalho 11]]
 * [[./Quimica experimental][Química experimental]]
   - [[./Quimica experimental/01.pdf][Prática 1]]
+  - [[./Quimica experimental/02.pdf][Prática 2]]
 * Gnuplot
   just look at this gif:
 
