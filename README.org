@@ -4,9 +4,7 @@
 #+language: pt
 #+options: toc:nil num:nil
 
-#+html:<details>
 * [[./Fisica experimental][Física Experimental]]
-#+html: </details>
 ** [[./Fisica experimental/01][Laboratório de Física I]]
    - [[./Fisica experimental/01/01.pdf][Prática 1]]
    - [[./Fisica experimental/01/02.pdf][Prática 2]]
