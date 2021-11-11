@@ -6,7 +6,7 @@
    - [[./Fisica experimental/01/02.pdf][Prática 2]]
    - [[./Fisica experimental/01/03.pdf][Prática 3]]
    - [[./Fisica experimental/01/04.pdf][Prática 4]]
-   - [[./Fisica experimental/02/05.pdf][Prática 5]]
+   - [[./Fisica experimental/01/05.pdf][Prática 5]]
    - [[./Fisica experimental/01/06.pdf][Prática 6]]
 ** [[./Fisica experimental/02][Laboratório de Física II]]
    - [[./Fisica experimental/02/01/01.pdf][Prática 1]]
