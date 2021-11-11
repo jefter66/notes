@@ -30,6 +30,9 @@
 * [[./Quimica experimental][Química experimental]]
   - [[./Quimica experimental/01.pdf][Prática 1]]
   - [[./Quimica experimental/02.pdf][Prática 2]]
+* [[./References/lab-lib.bib][Referências bibliográficas]]
+  Um arquivo =.bib= com todas referências usadas nos relatórios
+  de física e química experimental.
 * Gnuplot
   just look at this gif:
 
