@@ -1,0 +1,79 @@
+#+title: Trabalho 1 - Variáveis
+* Problema 1
+  #+begin_src python
+    n = input()
+    if int(n)>=1000 and int(n)<10000:
+        print(n[::-1])
+  #+end_src
+* Problema 2
+  #+begin_src python
+    txt = input()
+    txt = txt.replace("x","y")
+    txt = txt.replace("y","x",1)
+    print(txt)
+  #+end_src
+* Problema 3
+  #+begin_src python
+    x1,y1,z1=input().split()
+    x2,y2,z2=input().split()
+    x1,y1,z1=float(x1),float(z1),float(z1)
+    x2,y2,z2=float(x2),float(z2),float(z2)
+
+    soma = [ x1+x2, y1+y2, z1+z2]
+
+    produtoEscalar = ( x1*x2 + y1*y2 + z1*z2)
+
+
+    produtoVetorial = [ (y1*z2 - z1*y2) , (y1*x2 - x1*z2)  , (x1*y2 - y1*x2) ] 
+
+    print("%.2f"  %  soma[0], soma[1],soma[2])
+    print("%.2f" % produtoEscalar)
+    print("%.2f" % produtoVetorial[0], produtoVetorial[1], produtoVetorial[2])
+  #+end_src
+* Problema 4
+  #+begin_src python
+    print("{:.2f}".format((5/9)*(float(input())-32)))
+  #+end_src
+* Problema 5
+  #+begin_src python
+    x = list(map(int,input().split(":", 2)))
+    print(x[0]*3600 + x[1]*60 + x[2])
+  #+end_src
+* Problema 6
+  #+begin_src python
+    a = int(input())
+    b = int(input())
+    f = 3*((a+b)**3) + 275*b**2 - 127*a - 41
+    print(f)
+  #+end_src
+* Problema 7
+  #+begin_src python
+    n = input()
+    if int(n)>=1 and int(n)<=9:
+     out = int(n) + int(n+n) + int(n+n+n)
+     print(out) 
+  #+end_src 
+* Problema 8
+  #+begin_src python
+    x = int(input())
+    print(str(x)+'---'+str(2*x)+'---'+str(3*x)+'---'+str(4*x)+'---'+str(5*x))
+  #+end_src
+* Problema 9
+  #+begin_src python
+    n = input()
+    print("O primeiro dígito é", n[0])
+    print("O segundo dígito é", n[1])
+    print("O terceiro dígito é", n[2])
+    print("O quarto dígito é", n[3])
+  #+end_src
+* Problema 10
+#+begin_src python
+  aluno = int(input())
+  tang =  int(input())
+
+  cesta = tang%aluno
+  qtd = int((tang-cesta)/aluno)
+
+  print(qtd)
+  print(cesta)
+#+end_src

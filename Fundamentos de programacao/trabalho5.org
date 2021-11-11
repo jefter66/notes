@@ -1,0 +1,384 @@
+#+title: Trabalho 5 - Matrizes
+* Problema 1
+#+begin_src python
+l1,c1,l2,c2 = input().split()
+l1,c1,l2,c2 = int(l1), int(c1), int(l2),int(c2)
+
+M1, M2 = [], []
+
+for i in range(l1):
+    c = [float(x) for x in input().split()]
+    M1.append(c)
+
+for i in range(l2):
+    c = [float(x) for x in input().split()]
+    M2.append(c)
+
+if(c1!=l2):
+    print("Incompatíveis")
+else:
+    mTemp, mRes = [], []
+
+    for i in range(l1):
+        for j in range(c2):
+            c = 0
+            for k in range(c1):
+                c += M1[i][k]*M2[k][j]
+            mTemp.append('%.2f' % c)
+        mRes.append(mTemp)
+        mTemp = []
+
+    for i in range(len(mRes)):
+        print(' '.join(mRes[i]))
+#+end_src
+* Problema 2
+   #+begin_src python
+l1,c1 = input().split()
+l1,c1 = int(l1),int(c1)
+
+m=[]
+
+for i in range(l1):
+    mTemp = [float(x) for x in input().split()]
+    m.append(mTemp)
+
+tmpAmp = []
+
+for extRows in range(l1 - 2):
+    for extColumns in range(c1-2):
+        tmpList=[]
+        for intRows in range(3):
+            for intColumns in range(3):
+                tmpList.append(int(m[extRows+intRows][extColumns+intColumns]))
+        tmpAmp.append(tmpList)
+
+formatedList=[]
+for i in range(len(tmpAmp)):
+    tmpList=[]
+    for j in range(len(tmpAmp[i])):
+        if(j!=3 and j!=5):
+            tmpList.append(tmpAmp[i][j])
+    formatedList.append(tmpList)
+
+sumedList=[]
+for i in range(len(formatedList)):
+    sum=0
+    for j in range(7):
+        sum+= formatedList[i][j]
+    sumedList.append(sum)
+
+print(max(sumedList))
+   #+end_src   
+* Problema 3
+#+begin_src python
+  n = int(input())
+  tmpList = [int(x) for x in input().split()]
+
+  if(int(len(tmpList)/n) == n):
+
+      rList = [tmpList[i:i + n] for i in range(0, len(tmpList), n)] 
+
+      isPermut = True 
+      for i in range(n):
+          column=0
+          row=0
+          for j in range(n):
+
+              if(rList[i][j] == 1):
+                  column+=1
+              elif (rList[i][j] > 1 or rList[i][j] < 0):
+                  column+=2
+
+              if(rList[j][i] == 1):
+                  row+=1
+              elif (rList[j][i] > 1 or rList[j][i] < 0):
+                  row+=2
+          if((row+column) > 2 or (row+column) == 0):
+              isPermut = False 
+              break
+
+      for i in range(n):
+          print(*rList[i])
+      print(isPermut)
+#+end_src
+   
+* Problema 4
+   #+begin_src python
+     l,c = input().split()
+     l,c = int(l), int(c)
+
+     entrada = [int(i) for i in input().split()]
+     matriz = []
+
+     aux = 0
+     for x in range(l):
+         matriz.append(entrada[aux:aux+c])
+         aux+=c
+
+     for l1 in range(l):
+         for c1 in range(c):
+             cavidade = True
+        
+             if(l1-1>=0):
+                 if matriz[l1][c1] >= matriz[l1-1][c1]:
+                     cavidade = False
+                
+             if(c1-1>=0):
+                 if matriz[l1][c1] >= matriz[l1][c1-1]:
+                     cavidade = False
+        
+             if(l1+1<l):
+                 if matriz[l1][c1] >= matriz[l1+1][c1]: 
+                     cavidade = False
+        
+             if(c1+1<c):
+                 if matriz[l1][c1] >= matriz[l1][c1+1]: 
+                     cavidade = False 
+        
+             if(l1-1>=0) and (c1+1<c):
+                 if matriz[l1][c1] >= matriz[l1-1][c1+1]:
+                     cavidade = False
+        
+             if(l1+1<l) and (c1-1>=0):
+                 if matriz[l1][c1] >= matriz[l1+1][c1-1]:
+                     cavidade = False
+                
+             if(l1+1<l) and (c1+1<c):
+                 if matriz[l1][c1] >= matriz[l1+1][c1+1]:
+                     cavidade = False
+        
+             if(l1-1>=0) and (c1-1>=0):
+                 if matriz[l1][c1] >= matriz[l1-1][c1-1]:
+                     cavidade = False
+        
+             if(cavidade):
+                 print('(%i, %i)' % (l1,c1))
+   #+end_src
+* Problema 5
+   #+begin_src python
+n = int(input())
+m=[]
+for i in range(n):
+    mTemp = [int(x) for x in input().split()]
+    m.append(mTemp)
+     
+val = 0
+ld,rd=0,0
+for i in range(n):
+    # evitar index out of bounds
+    if(len(m[i]) != n):
+        v = -1
+        break
+    c,r=0,0
+    ld += m[i][i]
+    rd += m[i][n-i-1]
+    for j in range(n):
+        c += m[i][j]
+        r += m[j][i]
+        if((r!=c or r!=ld or r!=rd) or (c!=rd or c!=ld) or rd!=ld):
+            val = -1
+        else:
+            val = r
+print(int(val))
+
+   #+end_src
+* Problema 6
+    - Gabriel Lima
+    #+begin_src python
+l, c = input().split()
+l, c = int(l), int(c)
+
+matriz = []
+for x in range(l):
+    matriz.append([int(i) for i in input().split()])
+
+    
+for l1 in range(l):
+    for c1 in range(c):
+        if(matriz[l1][c1]==1):
+            matriz[l1][c1]=-1
+            
+for l1 in range(l):
+    for c1 in range(c):
+        bombas = 0
+        if(matriz[l1][c1]!=-1):
+            if(l1-1>=0):
+                if -1 == matriz[l1-1][c1]:
+                    bombas += 1
+
+            if(c1-1>=0):
+                if -1 == matriz[l1][c1-1]:
+                    bombas += 1
+
+            if(l1+1<l):
+                if -1 == matriz[l1+1][c1]: 
+                    bombas += 1
+
+            if(c1+1<c):
+                if -1 == matriz[l1][c1+1]: 
+                    bombas += 1 
+
+            if(l1-1>=0) and (c1+1<c):
+                if -1 == matriz[l1-1][c1+1]:
+                    bombas += 1
+
+            if(l1+1<l) and (c1-1>=0):
+                if -1 == matriz[l1+1][c1-1]:
+                    bombas += 1
+
+            if(l1+1<l) and (c1+1<c):
+                if -1 == matriz[l1+1][c1+1]:
+                    bombas += 1
+
+            if(l1-1>=0) and (c1-1>=0):
+                if -1 == matriz[l1-1][c1-1]:
+                    bombas += 1
+
+            matriz[l1][c1]= bombas
+            
+for linha in matriz:
+    print(*linha)
+    #+end_src
+* Problema 7
+Gabriel Lima
+#+begin_src python
+matriz = []
+for x in range(8):
+	matriz.append([int(i) for i in input().split()])
+    
+rainhas = []
+for l in range(8):
+    for c in range(8):
+        if(matriz[l][c]==1):
+            rainhas.append([l,c])
+            
+controle = False
+for x in rainhas:
+    aux = rainhas.copy()
+    aux.remove(x)
+    for y in aux:
+        #linhas iguais
+        if(x[0]==y[0]):
+            controle = True
+            
+        #colunas iguais    
+        if(x[1]==y[1]):
+            controle = True
+            
+        #diagonais principais iguais    
+        if(x[0]-x[1]==y[0]-y[1]):
+            controle = True
+        elif(x[1]-x[0]==y[1]-y[0]):
+            controle = True
+            
+        #diagonais secundarias iguais
+        if(x[0]+x[1]==y[0]+y[1]):
+            controle = True
+            
+if(controle):
+    print('S')
+else:
+    print('N')
+   #+end_src
+* Problema 8
+  Gabriel Lima
+    #+begin_src python
+l, c, t = input().split()
+l, c, t = int(l), int(c), int(t)
+
+mapa = []
+for x in range(l):
+    mapa.append([int(i) for i in input().split()])
+
+tiros = []
+for x in range(t):
+    tiros.append([int(i) for i in input().split()])
+
+navios = []
+for l1 in range(l):
+    for c1 in range(c):
+        if (mapa[l1][c1] == 1):
+            navios.append([l1, c1])
+n1 = 0
+while (n1 < len(navios)):
+    aux = False
+    for x in tiros:
+        if ((navios[n1][0] == x[0]) and (navios[n1][1] == x[1])):
+            navios.remove(navios[n1])
+            aux = True
+            break
+
+    if (not aux):
+        n1 += 1
+
+if (len(navios) == 0):
+    print('S')
+else:
+    print('N')
+    #+end_src
+* Problema 9
+#+begin_src python
+m=[]
+for i in range(9):
+    mTemp = [int(x) for x in input().split()]
+    m.append(mTemp)
+
+# preenchendo entradas vazias com zeros
+for i in range(9):
+    for j in range(9):
+        if(len(m[i]) < 9):
+            m[i].append(0)
+
+rList = []
+# isso ta feio demais
+# cria uma matriz 9x9
+for i in range(6):
+   for j in range(6):
+       tmpList=[]
+       if(i==0 or i==2 or i==5):
+           for k in range(3):
+               if(j==0 or j==2 or j==5):
+                   for l in range(3):
+                       hStep, vStep = 0,0
+                       vStep+=1 if(i>0) else 0
+                       hStep+=1 if(j>0) else 0
+                       tmpList.append(m[i+k+vStep][j+l+hStep])
+                       
+           if(len(tmpList)==9):
+               rList.append(tmpList)
+result = True
+v,cols,rows= [0]*9, [0]*9, [0]*9
+for i in range(9):
+    tmpRows = 0
+    for j in range(9):
+        v[i] += rList[i][j]
+        cols[i] += m[i][j]
+        tmpRows += m[j][i]
+    rows[i] += tmpRows 
+for i in range(9):
+    if(v[i]!=45 or cols[i]!=45 or rows[i]!=45):
+        result = False
+
+print("SIM" if (result) else "NAO")
+   #+end_src
+* Problema 10
+#+begin_src python
+n = int(input())
+
+impar = True if ((n+1)%2)==0 else False
+
+v,p = "vermelho","preto"
+
+if (n<0 or n>36):
+    print("entrada inválida")
+elif(n==0):
+    print("verde")
+elif(n>=1 and n<=10):
+   print(v if (impar) else p)
+elif(n>=11 and n<=18):
+   print(p if (impar) else v) 
+elif(n>=19 and n<=28):
+    print(v if (impar) else p)
+elif(n>=29 and n<=36):
+    print(p if(impar) else v)
+   #+end_src

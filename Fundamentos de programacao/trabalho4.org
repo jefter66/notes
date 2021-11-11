@@ -1,0 +1,283 @@
+#+title: Trabalho 4 - Listas
+* Problema 1
+#+begin_src python
+v = list(map(int,input().strip().split()))
+
+nOcorrencias=0
+pos=""
+
+for i in range(0, len(v)):
+   if v[i] == v[len(v)-1]:
+       nOcorrencias+=1
+   if v[i] == max(v):
+       pos+=str(i)+' ' 
+  
+print(sum(v))
+print(nOcorrencias)
+print(max(v))
+print(pos)
+   #+end_src
+* Problema 2
+  #+begin_src python
+v=[]
+
+qtd=0
+sPar=0
+sImpar=0
+
+while True:
+  x=int(input())
+  if(x<0):
+    break
+  v.append(x)
+
+for i in range(0,len(v)):
+   if(v[i]>5):
+       qtd+=1
+   if((v[i]+1)%2==0):
+       sImpar+=v[i]
+   else:
+       sPar+=v[i]
+
+print(qtd)
+print(sPar)
+print(sImpar)
+print(len(v))
+print(*v)
+   #+end_src
+* Problema 3
+   #+begin_src python
+dt,M,n = input().split()
+dt,M,n = float(dt),int(M),int(n)
+
+v=[]
+
+for i in range(n):
+  v.append([float(x) for x in input().split()])
+
+for j in range(1,M+1):
+  for i in range(len(v)):
+    v[i][0] += v[i][3]*dt
+    v[i][1] += v[i][4]*dt
+    v[i][2] += v[i][5]*dt
+
+for i in range(len(v)):
+    print("%.2f %.2f %.2f" % (v[i][0],v[i][1],v[i][2]))
+ #+end_src
+* Problema 4
+   #+begin_src python
+v = [float(x) for x in input().split()]
+
+for i in range(len(v)):
+  sum=v[i]
+  prod=v[i]
+  for j in range(i):
+    sum += v[j]
+    prod = prod*v[j]  
+  print("%.2f %.2f" % (sum, prod))
+    #+end_src
+* Problema 5
+   #+begin_src python
+v = [int(x) for x in input().split()]
+
+pos=[]
+
+for i in range(len(v)):
+  if(v[i]>=0):
+    pos.append(v[i])
+
+oc=[]
+
+[oc.append(n) for n in pos if n not in oc]
+
+print(*oc)
+    #+end_src
+* Problema 6
+   #+begin_src python
+v = list(map(int,input().strip().split()))
+
+listed=list(set(v))
+qtd=[0]*len(listed)
+
+for i in range(len(listed)):
+    tmp_qtd=0
+    for j in range(len(v)):
+       if(listed[i]==v[j]):
+           tmp_qtd+=1
+    qtd.append(tmp_qtd)
+
+qtd = [i for i in qtd if i != 0]
+
+if(len(qtd)==len(listed)):
+    for i in range(len(qtd)):
+        if(qtd[i]>1):
+            print(str(listed[i]) + ' ' + str(qtd[i]))
+    #+end_src
+* Problema 7
+ -  Não lembro quem fez, mas não foi eu. 
+   [[https://www.ime.usp.br/~cris/aulas/07_2_331/notas-de-aula/localizacao.pdf][ime]], [[https://en.wikipedia.org/wiki/Point_in_polygon#Ray_casting_algorithm][ray-casting-algorithm - Wikipedia ]], [[https://en.wikipedia.org/wiki/Ray_casting][ray-casting]], [[http://sweet.ua.pt/pedrocruz/ensino/acg/_downloads/03c_PontoEmPol%C3%ADgono.pdf][algoritmo de pontos no poligono]]
+   #+begin_src python
+poligono = input().split()
+pontos = input().split()
+
+index = 0
+areapoligono = 0
+p = 0
+modarestas = []
+while (p+2)!=len(poligono):
+    xi1 = float(poligono[p])
+    yi1 = float(poligono[p+1])
+    xi2 = float(poligono[p+2])
+    yi2 = float(poligono[p+3])
+    distancia = ((xi1-xi2)*(xi1-xi2) + (yi1-yi2)*(yi1-yi2))**(1/2)
+    modarestas.append(distancia)
+    p = p +2
+xi1 = float(poligono[p])
+yi1 = float(poligono[p+1])
+xi2 = float(poligono[0])
+yi2 = float(poligono[1])
+distancia = ((xi1-xi2)*(xi1-xi2) + (yi1-yi2)*(yi1-yi2))**(1/2)
+modarestas.append(distancia)
+
+
+areapoligono = 0
+p=0
+soma = 0
+subt = 0
+while (p+2)!=len(poligono):
+    xi = float(poligono[p])
+    yj = float(poligono[p+3])
+    yi = float(poligono[p+1])
+    xj = float(poligono[p+2])
+    soma = soma + xi*yj
+    subt = subt + yi*xj
+    p = p + 2
+xi = float(poligono[p])
+yj = float(poligono[1])
+yi = float(poligono[p+1])
+xj = float(poligono[0])
+soma = soma + xi*yj
+subt = subt + yi*xj
+p=0
+areapoligono = abs(soma-subt)/2
+while index!=len(pontos):
+    xp = float(pontos[index])
+    yp = float(pontos[index+1])
+    distancias = []
+    i = 0
+    while i!= len(poligono):
+        xi = float(poligono[i])
+        yi = float(poligono[i+1])
+        distancia = ((xp-xi)*(xp-xi) + (yp-yi)*(yp-yi))**(0.5)
+        distancias.append(distancia)
+        i = i+ 2
+    area2 = 0
+    i = 0
+    while (i+1)!= len(distancias):
+        d1 = float(distancias[i])
+        d2 = float(distancias[i+1])
+        l = float(modarestas[i])
+        p = (d1+d2+l)/2
+        area2 = area2 + (p*(p-d1)*(p-d2)*(p-l))**0.5
+        i = i+1
+    d1 = float(distancias[i])
+    d2 = float(distancias[0])
+    l = float(modarestas[len(modarestas)-1])
+    p = (d1+d2+l)/2
+    area2 = area2 + (p*(p-d1)*(p-d2)*(p-l))**0.5
+
+    if round(area2,4) == areapoligono:
+        print("S")
+    else:
+        print("N")
+    index = index+2
+   #+end_src
+* Problema 8
+   #+begin_src python
+nA, A = int(input()), [int(i) for i in input().split()]
+nB, B = int(input()) ,[int(i) for i in input().split()]
+
+if(len(A)==nA and len(B)==nB):    
+    intersec = [str(i) for i in A if i in B]
+    #intersec = sorted(list(set(A).intersection(set(B))))
+    print(*intersec if intersec else "*")
+    #+end_src
+* Problema 9 
+   - Resolução da vitoria
+   #+begin_src python
+r8 = []
+r4 = []
+r2 = []
+rf = []
+
+times = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P']
+vencedores8 = []
+vencedores4 = []
+vencedores2 = []
+
+for i in range(15):
+  n, m = input().split()
+  if i < 8:
+    r8.append(n)
+    r8.append(m)
+  elif 8 <= i < 12:
+    r4.append(n)
+    r4.append(m)
+  elif 12 <= i < 14:
+    r2.append(n)
+    r2.append(m)
+  else:
+    rf.append(n)
+    rf.append(m)
+
+for i in range(0,16,2):
+  x = r8[i]
+  y = r8[i + 1]
+  if x > y:
+    vencedores8.append(times[i])
+  else:
+    vencedores8.append(times[i+1])
+
+for i in range(0,8,2):
+  x = r4[i]
+  y = r4[i + 1]
+  if x > y:
+    vencedores4.append(vencedores8[i])
+  else:
+    vencedores4.append(vencedores8[i+1])
+
+for i in range(0,4,2):
+  x = r2[i]
+  y = r2[i + 1]
+  if x > y:
+    vencedores2.append(vencedores4[i])
+  else:
+    vencedores2.append(vencedores4[i+1])
+
+if rf[0] > rf [1]:
+  print(vencedores2[0])
+else:
+  print(vencedores2[1])
+   #+end_src
+* Problema 10
+  #+begin_src python
+     txt=[0]
+     while txt[-1]!="FIM":
+         txt.append(input())
+     r = input().split("-")
+     txt.pop(0)
+     txt.remove("FIM")
+     nm=[]
+     for i in range(len(txt)):
+         tmp_val=0
+         txt[i]=txt[i].split()
+         for j in range(len(r)):
+             if txt[i].count(r[j])>0:
+                 tmp_val+=1
+         nm.append([tmp_val,txt[i][0]])
+     nm.sort()
+     for i in range(len(nm)):
+         print("%s\t%d" % (nm[i][1],nm[i][0]))
+   #+end_src
+
+

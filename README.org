@@ -1,9 +1,37 @@
 #+TITLE: Notes
 #+AUTHOR: Jefter Santiago
-
-
-- For now there's next to nothing here, so
+* [[./Fisica experimental][Física Experimental]]
+** [[./Fisica experimental/01][Laboratório de Física I]]
+   - [[./Fisica experimental/01/01.pdf][Prática 1]]
+   - [[./Fisica experimental/01/02.pdf][Prática 2]]
+   - [[./Fisica experimental/01/03.pdf][Prática 3]]
+   - [[./Fisica experimental/01/04.pdf][Prática 4]]
+   - [[./Fisica experimental/02/05.pdf][Prática 5]]
+   - [[./Fisica experimental/01/06.pdf][Prática 6]]
+** [[./Fisica experimental/02][Laboratório de Física II]]
+   - [[./Fisica experimental/02/01/01.pdf][Prática 1]]
+   - [[./Fisica experimental/02/02/02.pdf][Prática 2]]
+   - [[./Fisica experimental/02/03/03.pdf][Prática 3]]
+   - [[./Fisica experimental/02/04/04.pdf][Prática 4]]
+   - [[./Fisica experimental/02/05/05.pdf][Prática 5]]
+   - [[./Fisica experimental/02/06/06.pdf][Prática 6]]
+* [[./Fundamentos de programacao][Fundamentos de programação]]
+  - [[./Fundamentos de programacao/trabalho1.org][Trabalho 1]]
+  - [[./Fundamentos de programacao/trabalho2.org][Trabalho 2]]
+  - [[./Fundamentos de programacao/trabalho3.org][Trabalho 3]]
+  - [[./Fundamentos de programacao/trabalho4.org][Trabalho 4]]
+  - [[./Fundamentos de programacao/trabalho5.org][Trabalho 5]]
+  - [[./Fundamentos de programacao/trabalho6.org][Trabalho 6]]
+  - [[./Fundamentos de programacao/trabalho7.org][Trabalho 7]]
+  - [[./Fundamentos de programacao/trabalho8.org][Trabalho 8]]
+  - [[./Fundamentos de programacao/trabalho9.org][Trabalho 9]]
+  - [[./Fundamentos de programacao/trabalho10.org][Trabalho 10]]
+  - [[./Fundamentos de programacao/trabalho11.org][Trabalho 11]]
+* [[./Quimica experimental][Química experimental]]
+  - [[./Quimica experimental/01.pdf][Prática 1]]
+* Gnuplot
   just look at this gif:
 
   [[./gnuplot/sinewave.gif]]
+
 

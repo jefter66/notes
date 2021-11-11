@@ -1,0 +1,191 @@
+#+title: Trabalho 2 - Estruturas de decisão 
+* Problema 1
+   #+begin_src python
+a,b,c = input().split()
+a,b,c = float(a),float(b),float(c)
+delta = b**2 - 4*a*c
+if delta < 0:
+    print("No real roots.")
+elif delta > 0:
+    print("%.2f" % (-b +(delta**(1/2))/(2*a)))
+    print("%.2f" % (-b -(delta**(1/2))/(2*a)))
+elif delta == 0 :
+    print("%.2f" % (-b/2*a))
+   #+end_src
+* Problema 2
+   #+begin_src python
+n = int(input())
+if (n-1)%2 != 0:
+ p="Par"
+else:
+ p="Impar"
+
+if (n < 0):
+ s="Negativo"
+elif (n==0):
+ s="Zero"
+else:
+ s="Positivo"
+
+print(p)
+print(s) 
+   #+end_src
+* Problema 3
+#+begin_src python
+x1,y1=input().split()
+x2,y2=input().split()
+x3,y3=input().split()
+
+x1,y1=float(x1),float(y1)
+x2,y2=float(x2),float(y2)
+x3,y3=float(x3),float(y3)
+
+d12=((x1-x2)**2 + (y1-y2)**2)**(1/2)
+d13=((x1-x3)**2 + (y1-y3)**2)**(1/2)
+d23=((x3-x2)**2 + (y3-y2)**2)**(1/2)
+
+if (abs(d12-d13) < d23 < d12 + d13):
+ print("triângulo")
+ if (d12==d13==d23):
+     print("equilátero")
+ elif d12==d13 or d13==d23:
+     print("isósceles")
+ else:
+     print("escaleno")
+else:
+ print("não triângulo")
+   #+end_src
+* Problema 4
+   #+begin_src python
+d,m = input().split("/")
+d,m = int(d),int(m)
+if(m==4 and d>= 19) or (m==5 and d<=13):
+ print("Áries")
+elif(m==5 and d>=14) or (m==6 and d<=19):
+ print("Touro")
+elif(m==6 and d>=20) or (m==7 and d<=20):
+ print("Gêmeos")
+elif(m==7 and d>=21) or (m==8 and d<=9):
+ print("Câncer")
+elif(m==8 and d>=10) or (m==9 and d<=15):
+ print("Leão")
+elif(m==9 and d>=16) or (m==10 and d<=30):
+ print("Virgem")
+elif(m==10 and d>=31) or (m==11 and d<=22):
+ print("Libra")
+elif(m==11 and d>=23) or (m==11 and d<=29):
+ print("Escorpião")
+elif(m==11 and d>=30) or (m==12 and d<=17):
+ print("Serpentário")
+elif(m==12 and d>=18) or (m==1 and d<=18):
+ print("Sagitário")
+elif(m==1 and d>=19) or (m==2 and d<=15):
+ print("Capricórnio")
+elif(m==2 and d>=16) or (m==3 and d<=11):
+ print("Aquário")
+elif(m==3 and d>=12) or (m==4 and d<=18):
+ print("Peixes")
+   #+end_src
+* Problema 5
+#+begin_src python
+n=input()
+if(n=="janeiro"):
+    print(31)
+elif(n=="fevereiro"):
+    print(28)
+elif(n=="março"):
+    print(31)
+elif(n=="abril"):
+    print(30)
+elif(n=="maio"):
+    print(31)
+elif(n=="junho"):
+    print(30)
+elif(n=="julho"):
+    print(31)
+elif(n=="agosto"):
+    print(31)
+elif(n=="setembro"):
+    print(30)
+elif(n=="outubro"):
+    print(31)
+elif(n=="novembro"):
+    print(30)
+elif(n=="dezembro"):
+    print(31)
+   #+end_src
+* Problema 6
+  #+begin_src python
+  n = int(input())
+  print("SIM" if((n%100!=0 and n%4==0)or(n%400==0)) else "NÂO")
+#+end_srcy
+* Problema 7
+     #+begin_src python
+l1,c1=input().split()
+l2,c2=input().split()
+l1,c1,l2,c2=int(l1),int(c1),int(l2),int(c2)
+if (abs(l1-l2)==1 and abs(c1-c2)==1) or (abs(l1-l2)==1 and c1==c2) or (l1==l2 and abs(c1-c2)==1):
+    print("SIM")
+else:
+    print("NÃO")
+   #+end_src
+* Problema 8
+#+begin_src python
+
+     cv,ce,cg = input().split()
+     cv,ce,cg =int(cv),int(ce),int(cg)
+     cp = 3*cv + ce # "quantidade total de pontos"
+
+     fv,fe,fg = input().split()
+     fv,fe,fg =int(fv),int(fe),int(fg)
+     fp=3*fv + fe
+
+     if(cp>fp):
+         print("Corinthians")
+     elif(cp==fp):
+         if(cg>fg):
+             print("Corinthians")
+         elif(cg<fg):
+             print("Flamengo")
+         elif(cg==fg):
+             print("Empate")
+     else:
+         print("Flamengo")
+   #+end_src
+* Problema 9
+#+begin_src python
+c1=input()
+c2=input()
+v,a,b="vermelho","amarelo","azul"
+
+if(c1==v and c2==b) or (c1==b and c2==v):
+    print("roxo")
+elif((c1==v and c2==a) or (c1==a and c2==v)):
+    print("laranja")
+elif((c1==b and c2==a) or (c1==a and c2==b)):
+    print("verde")
+else:
+    print("cores não primárias")
+   #+end_src
+* Problema 10
+#+begin_src python
+n = int(input())
+
+impar = True if ((n+1)%2)==0 else False
+
+v,p = "vermelho","preto"
+
+if (n<0 or n>36):
+    print("entrada inválida")
+elif(n==0):
+    print("verde")
+elif(n>=1 and n<=10):
+   print(v if (impar) else p)
+elif(n>=11 and n<=18):
+   print(p if (impar) else v) 
+elif(n>=19 and n<=28):
+    print(v if (impar) else p)
+elif(n>=29 and n<=36):
+    print(p if(impar) else v)
+   #+end_src
+   

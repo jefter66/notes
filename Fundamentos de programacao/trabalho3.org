@@ -1,0 +1,117 @@
+#+title: Trabalho 3 - Estruturas de repetição
+* Problema 1
+   #+begin_src python
+n = int(input())
+for i in range(1,11):
+    print(str(n)+' * ' + str(i) + ' = ' + str(i*n))
+   #+end_src
+* Problema 2
+   #+begin_src python
+n = int(input())
+pi=0
+for i in range(0,n+1):
+   pi += (1/16**i)*( (4/(8*i+1)) - 2/(8*i+4) - 1/(8*i+5) - 1/(8*i+6) )
+print("{:.48f}".format(pi))
+   #+end_src
+* Problema 3
+   #+begin_src python
+n = int(input())
+prime=True
+for i in range(2,n):
+    if(n%i==0):
+        print(i)
+        prime=False
+print("primo" if(prime) else "")
+   #+end_src
+* Problema 4
+   #+begin_src python
+n = int(input())
+
+ti=5*60*60
+tf=23*60*60+55*60
+while(ti<=tf):
+    print('%02d:%02d' % (ti//3600, (ti%3600)//60)) 
+    ti+=n*60
+
+   #+end_src
+* Problema 5
+   #+begin_src python
+n = int(input())
+sum=0
+for i in range(1,n):
+   if(n%i==0):
+       sum+=i
+       print(i, sum)
+if(sum==n):
+    print(True)
+else:
+    print(False)
+   #+end_src
+* Problema 6
+#+begin_src python
+n = int(input())
+sum=0
+for i in range(0,n):
+   sum+= (i+1)/(n-i) 
+print("{:.48f}".format(sum))   
+ #+end_src
+* Problema 7
+ #+begin_src python
+ k = int(input())
+ s=0
+ for i in range(0,len(str(k))):
+      s+=(int(str(k)[i]))**(len(str(k)))
+
+ print(True if(s==k) else False)
+ #+end_src
+* Problema 8
+   #+begin_src python
+x,y,z,r = input().split()
+x,y,z,r = int(x),int(y),int(z),int(r)
+
+quant = 0
+for xi in range(-r-1,r+1):
+    for yi in range(-r-1,r+1):
+        for zi in range(-r-1,r+1):
+            distancia = ((int(xi))**2+(int(yi))**2+(int(zi))**2)**(1/2)
+            #print(distancia)
+            if(distancia <= r):
+                print(xi,yi,zi,distancia)
+                quant+=1
+print(quant) 
+   #+end_src
+* Problema 9
+   #+begin_src python
+n=int(input())
+
+i=0
+s=""
+while(i<n):
+    s+=input()
+    print(s)
+    i+=1
+
+l=input()
+
+i=0
+while(i<len(l)):
+    j=0
+    qtd=0
+    while(j<len(s)):
+        if(l[i]==s[j]):
+            qtd+=1
+        j+=1
+    print(str(l[i]) + ' = ' + str(qtd))
+    i+=1
+   #+end_src
+* Problema 10
+   #+begin_src python
+n = int(input("Informe uma nota entre 0 e 10!"))
+while True:
+    if(n<=10 and n>=0):
+        print("\nNota válida!!!")
+        break
+    else:
+        n=int(input("\nNota inválida, digite uma nota entre 0 e 10!"))
+   #+end_src
+

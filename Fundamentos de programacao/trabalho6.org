@@ -1,0 +1,415 @@
+#+title: Trabalho 6 - Tuplas e dicionários
+* Problema 1
+  #+begin_src python
+dic = {}
+while True:
+    vals = list(eval(input()))
+    command = vals.pop(0)
+    if command == 'Encerrar':
+        break
+    if command == 'InserirPessoa':
+        if vals[0] not in dic:
+            dic[vals[0]] = []
+    if command == 'ExcluirPessoa':
+        if vals[0] in dic:
+            del dic[vals[0]]
+    if command == 'ExcluirTelefone':
+        if(vals[0] in dic and vals[1] in dic[vals[0]]):
+            phone = vals[1] 
+            oldPhoneList = dic[vals[0]]
+            newPhoneList = oldPhoneList
+            i=0
+            for compare in oldPhoneList:
+                if(compare == phone):
+                    newPhoneList.pop(i)
+                i+=1
+            dic[vals[0]] = newPhoneList
+    if command == 'InserirTelefone':
+        if vals[0] not in dic:  
+            dic[vals[0]] = [vals[1]]
+        else:   
+            if(vals[1] not in dic[vals[0]]): # duplicates
+                dic[vals[0]].append(vals[1])
+print(dic)
+  #+end_src  
+* Problema 2
+  - Vitoria
+   #+begin_src python
+r=[]
+t=input()
+n={'UUU':'Phe','CUU':'Leu','UUA':'Leu','AAG':'Lis','UCU':'Ser','UAU':'Tyr','CAA':'Gln'}
+
+for i in range(0,len(t),3):
+  a=t[i]+t[i+1]+t[i+2]
+  r.append(n[a])
+
+l=''
+for i in range(len(r)):
+  if i == len(r)-1:
+    l+=r[i]
+  else:
+    l+=r[i]+'-'
+
+print(l)
+   #+end_src
+* Problema 3
+  - Gabriel
+   #+begin_src python
+dados = []
+dado = eval(input())
+
+while len(dado)==2:
+	dados.append(dado)
+	dado = eval(input())
+
+aux = []
+for x in dados:
+	for y in dados:
+		if x[0] == y[1]:
+			if x[1] == y[0]:
+				if x not in aux:
+					aux.append(x)
+					aux.append(y)
+
+aux2 = []
+for x in dados:
+	if x not in aux:
+		aux2.append(x)
+		
+dic = {}
+for x in aux2:
+	aux3 = []
+	if x not in dic.keys():
+		for y in range(len(aux2)):
+			if(x[0]==aux2[y][0]):
+				if(aux2[y][1] not in aux3):
+					aux3.append(aux2[y][1])
+			dic[x[0]]= sorted(aux3)
+
+print(dic)
+   #+end_src
+
+* Problema 4
+   #+begin_src python
+def symbolToNumber(val):
+    if val == 'J':
+        return '11'
+    if val == 'Q':
+        return '12'
+    if val =='K':
+        return '13'
+    if val == 'A':
+        return '14'
+    else:
+        return val
+
+def inputToList(p):
+    naipe, num = [], []
+    for i in range(len(p)-1):
+      np, val = p[i] if(i == 0 or (i+1) % 2 != 0) else '', p[i+1]
+      if np == '':
+        continue
+      else:
+        naipe.append(symbolToNumber(np))
+        num.append(val)
+    return [list(map(int,naipe)),num]
+
+p1 = input().split()
+p2 = input().split()
+
+p1, p2= inputToList(p1), inputToList(p2)
+
+v1, v2 = 0, 0
+
+naipes = {'ouros' : 1, 'espadas' : 2, 'copas' : 3, 'paus' : 4}
+
+for i in range(len(p1[0])):
+#  print("Turno = ", i , "\n")
+  naipe1, naipe2 = p1[1][i], p2[1][i] 
+  num1, num2 = p1[0][i], p2[0][i] 
+  turnWinner = [0,0]
+# print("Jogador 1: ", naipe1, num1)
+# print("Jogador 2: ", naipe2, num2)
+
+  if(naipe1 == naipe2):
+    if(num1>num2):
+      turnWinner[0] += 1
+    elif(num1<num2):
+      turnWinner[1] += 1
+  elif(naipe1!=naipe2):
+    if(naipes[naipe1]>naipes[naipe2]):
+      turnWinner[0] += 1 
+    elif(naipes[naipe1]<naipes[naipe2]):
+      turnWinner[1] += 1 
+  v1+= turnWinner[0]
+  v2+= turnWinner[1]
+#  print("Vencedor = ", 2 if(turnWinner[1]>turnWinner[0]) else 1 if(turnWinner[0]>turnWinner[1]) else 0)
+
+#print("Placar: ", v1, v2)
+
+if(v1>v2):
+  print(1)
+elif(v2>v1):
+  print(2)
+else:
+  print(0)
+   #+end_src
+* Problema 5
+  - Gabriel
+   #+begin_src python
+alfabeto={}
+
+cifra = input().upper()
+
+letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+for x in range(len(cifra)):
+	alfabeto[cifra[x]] = letras[x]
+
+frase = input().upper()
+
+resp = ''
+for x in range(len(frase)):
+    if frase[x] in list(alfabeto.keys()):
+        resp += alfabeto[frase[x]]
+    elif frase[x]=='.':
+        resp += '.'
+    elif frase[x]==',':
+        resp += ','
+    elif frase[x]==' ':
+        resp += ' '
+        
+print(resp)
+#+end_srcy
+* Problema 6
+  - Vitoria
+   #+begin_src python
+Frase=input().split(' ')
+frase=[]
+repetidas=0
+frases=0
+l=[]
+fr=[]
+
+for i in range(len(Frase)):
+  frase.append(Frase[i].lower())
+
+for p in range(len(frase)):
+  if '.' in frase[p]:
+    frases+=1
+    frase[p]=frase[p].replace(frase[p][-1],'')
+   
+  if '!' in frase[p]:
+    frases+=1
+    frase[p]=frase[p].replace(frase[p][-1],'')
+  
+  if '?' in frase[p]:
+    frases+=1
+    frase[p]=frase[p].replace(frase[p][-1],'')
+
+  if ',' in frase[p]:
+    frase[p]=frase[p].replace(frase[p][-1],'')
+  
+  fr.append(frase[p])
+  
+for i in range(len(fr)):
+  if fr[i] not in l:
+    l.append(fr[i])
+
+r=[]
+for i in range(len(fr)):
+  if fr.count(fr[i]) > 1:
+    r.append(fr[i])
+
+set_r = set(r)
+R = list(set_r)
+repetidas=len(R)
+
+p=len(l)
+print(p,repetidas,frases)
+   #+end_src
+* Problema 7
+  - Vitoria
+   #+begin_src python
+a={'A':1,'B':2,'C':0,'D':1,'E':0,'F':0,'G':0,'H':0,'I':0,'J':0,'K':0,'L':0,'M':0,'N':0,'O':1,'P':1,'Q':1,'R':1,'S':0,'T':0,'U':0,'V':0,'W':0,'X':0,'Y':0,'Z':0}
+
+n=int(input())
+p=[]
+for i in range(n):
+  p.append(input())
+
+
+for palavra in range(len(p)):
+  c=0
+  if 'A' in p[palavra]:
+    v=p[palavra].count('A')
+    c+=v*a['A']
+  if 'B' in p[palavra]:
+    v=p[palavra].count('B')
+    c+=v*a['B']
+  if 'C' in p[palavra]:
+    v=p[palavra].count('C')
+    c+=v*a['C']
+  if 'D' in p[palavra]:
+    v=p[palavra].count('D')
+    c+=v*a['D']
+  if 'E' in p[palavra]:
+    v=p[palavra].count('E')
+    c+=v*a['E']
+  if 'F' in p[palavra]:
+    v=p[palavra].count('F')
+    c+=v*a['F']
+  if 'G' in p[palavra]:
+    v=p[palavra].count('G')
+    c+=v*a['G']
+  if 'H' in p[palavra]:
+    v=p[palavra].count('H')
+    c+=v*a['H']
+  if 'I' in p[palavra]:
+    v=p[palavra].count('I')
+    c+=v*a['I']
+  if 'J' in p[palavra]:
+    v=p[palavra].count('J')
+    c+=v*a['J']
+  if 'K' in p[palavra]:
+    v=p[palavra].count('K')
+    c+=v*a['K']
+  if 'L' in p[palavra]:
+    v=p[palavra].count('L')
+    c+=v*a['L']
+  if 'M' in p[palavra]:
+    v=p[palavra].count('M')
+    c+=v*a['M']
+  if 'N' in p[palavra]:
+    v=p[palavra].count('N')
+    c+=v*a['N']
+  if 'O' in p[palavra]:
+    v=p[palavra].count('O')
+    c+=v*a['O']
+  if 'P' in p[palavra]:
+    v=p[palavra].count('P')
+    c+=v*a['P']
+  if 'Q' in p[palavra]:
+    v=p[palavra].count('Q')
+    c+=v*a['Q']
+  if 'R' in p[palavra]:
+    v=p[palavra].count('R')
+    c+=v*a['R']
+  if 'S' in p[palavra]:
+    v=p[palavra].count('S')
+    c+=v*a['S']
+  if 'T' in p[palavra]:
+    v=p[palavra].count('T')
+    c+=v*a['T']
+  if 'U' in p[palavra]:
+    v=p[palavra].count('U')
+    c+=v*a['U']
+  if 'V' in p[palavra]:
+    v=p[palavra].count('V')
+    c+=v*a['V']
+  if 'W' in p[palavra]:
+    v=p[palavra].count('W')
+    c+=v*a['W']
+  if 'X' in p[palavra]:
+    v=p[palavra].count('X')
+    c+=v*a['X']
+  if 'Y' in p[palavra]:
+    v=p[palavra].count('Y')
+    c+=v*a['Y']
+  if 'Z' in p[palavra]:
+    v=p[palavra].count('Z')
+    c+=v*a['Z']
+  print(c)
+   #+end_src
+
+* Problema 8
+  - Voitoria 
+   #+begin_src python
+n=input()
+n=int(n)
+d={}
+l=[]
+
+for i in range(n):
+  l.append(input().split(' '))
+  d[l[i][0]]=l[i][2]
+
+f=[]
+t=True
+while t == True:
+  f.append(input().split(' '))
+  for i in range(len(f)):
+    if len(f[i]) == 1:
+      t=False 
+
+del f[-1]
+
+for i in range(len(f)):
+  frase = []
+  for x in f[i]:
+     if x in d:
+      frase.append(d[x])
+     else:
+       d[x]=x
+       frase.append(d[x])
+  print(' '.join(frase))
+   #+end_src
+* Problema 9
+   #+begin_src python
+tmp_dict = {}
+while True:
+  p = input().split()
+  if(p[0]=="FIM"):
+    break
+  name = p.pop(0)
+  tmp_dict[name] = list(map(int,p))
+
+res = list(map(int,input().split("-")))
+
+dict = {}
+
+for i in tmp_dict:
+  tmp_list = tmp_dict[i]
+  ans = ''
+  for j in tmp_list:
+    if(j in res):
+      ans+= '+'
+  dict[i] = ans
+
+
+final_dict = {}
+for i in sorted(dict.values()):
+  for j in sorted(dict.keys()):
+    if dict[j] == i:
+      if j not in final_dict:
+        final_dict[j] = i
+
+for i in final_dict:
+  print(i, final_dict[i])
+ 
+   #+end_src
+* Problema 10
+- Gabriel 
+  #+begin_src python
+dic  = {'IX':9,'VIII':8,'VII':7,'VI':6,'IV':4,'III':3,'II':2,'I':1}
+div5 = {'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+nroma = list(input().upper())
+aux = False
+num = ''
+
+for x in range(len(nroma)-1,-1,-1):
+	if 'I'  in nroma:
+		if nroma[x]=='I':
+			aux = True
+			num = nroma[x]+num
+		if nroma[x]!='I'and not aux:
+			num = nroma[x] +num
+	else:
+		num = nroma[-1]
+		break
+
+if num in div5:
+	print('O número é múltiplo de 5!')
+elif num in dic:
+	print('O resto da divisão por 5 é igual a %i!' % (dic[num]%5))
+  #+end_src
