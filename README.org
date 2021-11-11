@@ -1,5 +1,10 @@
-#+TITLE: Notes
-#+AUTHOR: Jefter Santiago
+#+title: Unibib
+#+author: Jefter Santiago
+#+email: jefterrsantiago@gmail.com
+#+language: pt
+#+options: toc:nil num:nil
+
+#+HTML_HEAD: <script> var HS_STARTUP_FOLDED = true; </script>
 * [[./Fisica experimental][Física Experimental]]
 ** [[./Fisica experimental/01][Laboratório de Física I]]
    - [[./Fisica experimental/01/01.pdf][Prática 1]]
