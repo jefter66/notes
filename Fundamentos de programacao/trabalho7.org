@@ -1,0 +1,250 @@
+#+title: Funções
+* Problema 1
+  #+begin_src python
+from datetime import datetime
+
+def converte(horario):
+    # implemente a função aqui
+    d = datetime.strptime(horario, "%H:%M")
+    tmp = d .strftime("%I:%M %p")
+    out = ""
+    for i in range(len(tmp)):
+        if(i==(len(tmp)-1)):
+            out+="."
+        out+=tmp[i]
+    return out
+
+while True:
+    horario = input()
+    if horario=='-1':
+        break
+    else:
+        print(converte(horario))
+  #+end_src
+  
+* Problema 2
+  #+begin_src python
+def estacao_do_ano(data):
+
+    meses = {"janeiro": "01", "fevereiro": "02",
+           "março": "03", "abril": "04",
+           "maio": "05", "junho": "06",
+           "julho": "07", "agosto": "08",
+           "setembro": "09", "outubro": "10",
+           "novembro": "11", "dezembro": "12"
+           }
+
+    estacao = {"Primavera": ["setembro", "outubro", "novembro", "dezembro"],
+               "Verão": ["dezembro", "janeiro", "fevereiro", "março"],
+               "Outono": ["março", "abril", "maio", "junho"],
+               "Inverno": ["junho", "julho", "agosto", "setembro"]
+               }
+    
+    data = data.split("/" if len(data) == 5 else " ")
+    if(len(data) > 2):
+        data.pop(1)
+    dia, mes = data[0], data[1]
+
+    # converter de numero pra texto
+    if(mes not in meses):
+        mes_num = mes
+        for i in meses:
+            if(mes_num == meses[i]):
+                mes = i
+                break
+
+    for i in estacao:
+        meses = estacao[i]
+        for j in range(len(meses)):
+            if(mes == meses[j]):
+                if(j == 0):
+                    if(int(dia) >= 21):
+                        return i
+                elif(j == 3):
+                    if(int(dia) <= 20):
+                        return i
+                else:
+                    return i
+    return ""
+
+while True:
+    data = input()
+    if data=='-1':
+        break
+    else:                
+        print(estacao_do_ano(data))
+  #+end_src
+* Problema 3
+  #+begin_src python
+def intersecta(x, y, vx, vy, cx, cy, r):
+    a = (vx**2+vy**2)
+    b = 2*((x-cx)*vx+(y-cy)*vy)
+    c = ((x-cx)*(x-cx)+(y-cy)*(y-cy)-r*r)
+    
+    delta = b**2-4*a*c
+    if (delta < 0):
+        return False
+    else:
+        delta = delta**(1/2)
+        t1 = (-b + delta)/(2*a)
+        t2 = (-b - delta)/(2*a)
+        if t1 > 0 or t2 > 0:
+            return True 
+        return False
+
+def explode(cx, cy, r):
+    cx1, cy1 = cx+r, cy
+    cx2, cy2 = cx-r, cy
+    cx3, cy3 = cx, cy-r
+    cx4, cy4 = cx, cy+r
+    r = r/2
+    return [cx1, cy1, r, cx2, cy2, r, cx3, cy3, r, cx4, cy4, r]
+
+n_circulos = int(input())
+
+# 2 -> original
+# 1 -> novo 
+# 0 -> morto
+
+status = n_circulos * [2]
+
+# dados dos circulos
+cx, cy, r = [], [], []
+
+# insere dados dos circulos
+for i in range(n_circulos):
+    tmp_cx, tmp_cy, tmp_r = [float(x) for x in input().split()]
+    cx.append(tmp_cx)
+    cy.append(tmp_cy)
+    r.append(tmp_r)
+
+
+n_raios = int(input())
+
+for i in range(n_raios):
+    x0, y0, x, y = [float(x) for x in input().split()]
+
+    # itera pela quantidade de circulos
+    for j in range(len(cx)):
+        if(status[j] > 0):
+            if(intersecta(x0, y0, x, y, cx[j], cy[j], r[j])):
+                if(status[j] > 1):
+                    novos_circulos = explode(cx[j], cy[j], r[j])
+                    for k in range(4):
+                        # posicao correta na lista que retorna
+                        cx.append(novos_circulos[k*3 + 0])
+                        cy.append(novos_circulos[k*3 + 1])
+                        r.append(novos_circulos[k*3 + 2])
+                        # novo  
+                        status.append(1)
+                status[j] = 0
+
+n = 0
+for i in status:
+    if(i > 0):
+        n += 1
+print(n)
+  #+end_src
+* Problema 4
+  #+begin_src python
+def S(a):
+  global altura
+  if altura != 200: 
+    altura += a
+    A.append(altura)
+    return altura
+
+def F(d):
+  global deslocamento
+  if deslocamento != 2000 or deslocamento != -2000:
+    if altura != 0: 
+      deslocamento += d
+      D.append(deslocamento)
+      return deslocamento
+
+def V(d):
+  global deslocamento
+  if deslocamento != 2000 or deslocamento != -2000:
+    if altura != 0:
+      deslocamento += d
+      deslocamento = -deslocamento 
+      D.append(deslocamento)
+      return deslocamento
+
+def D(a):
+  global altura
+  if altura != 0:
+    altura -= a
+    A.append(altura)
+    return altura
+
+altura=0
+deslocamento=0
+A=[]
+D=[]
+n=int(input())
+for i in range(n):
+  c=input()
+  if c == 'S':
+    S(10)
+  if c == 'D':
+    D(10)
+  if c == 'V':
+    V(10)
+  if c == 'F':
+    F(10)
+  
+print(abs(A[-1]),abs(D[-1]))
+  #+end_src
+* Problema 5
+  #+begin_src python
+def ler():
+    text = input()
+    if text.isspace() or text == '':
+        return ler()
+    else:
+        return text
+    
+np = int(ler())
+
+if np==0:
+    ler()
+    print('Empate')
+else:
+    mj1 = []
+    mj2 = []
+    linhas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+
+    for l in range(9):
+        mj1.append([int(i) for i in ler().split()])
+
+    for l in range(9):
+        mj2.append([int(i) for i in ler().split()])
+
+    jogA = True
+    for x in range(np):
+        aux = ler()
+        l = int(linhas.index(aux[0]))
+        c = int(aux[1])
+        if jogA:
+            jogA = False
+            if mj2[l][c-1]==1:
+                mj2[l][c-1] = -1
+        else:
+            jogA = True
+            if mj1[l][c-1]==1:
+                mj1[l][c-1] = -1
+
+    count1 = 0
+    count2 = 0
+    for l in range(9):
+        count1 += mj1[l].count(1)
+        count2 += mj2[l].count(1)
+
+    if count1 > count2:
+        print('O jogador A venceu')
+    elif count1 < count2:
+        print('O jogador B venceu')
+    else:
+        print('Empate')
+  #+end_src

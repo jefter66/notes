@@ -413,3 +413,4 @@ if num in div5:
 elif num in dic:
 	print('O resto da divisão por 5 é igual a %i!' % (dic[num]%5))
   #+end_src
+  
