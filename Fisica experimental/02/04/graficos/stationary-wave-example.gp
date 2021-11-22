@@ -30,4 +30,4 @@ set key box width -3
 
 f(x) = sin(x)
 
-plot f(x)*0.5 ls 1 t "$\\frac{1}{2}\\cdot sen(x)$", f(x) ls 2 t "$1 \\cdot sen(x)$", 1.5*f(x) t "$\\frac{3}{2} \\cdot sen(x)$" ls 3 , 2*f(x) t "$2\\cdot sen(x)$" ls 4
+plot f(x)*0.5 ls 1 t "$\\frac{1}{2}\\cdot sen(\\frac{2\\pi}{\\lambda}x)$", f(x) ls 2 t "$1 \\cdot sen(\\frac{2\\pi}{\\lambda}x)$", 1.5*f(x) t "$\\frac{3}{2} \\cdot sen(\\frac{2\\pi}{\\lambda}x)$" ls 3 , 2*f(x) t "$2\\cdot sen(\\frac{2\\pi}{\\lambda}x)$" ls 4

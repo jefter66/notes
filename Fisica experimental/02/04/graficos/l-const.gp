@@ -7,15 +7,12 @@ set yrange[*:*] noreverse writeback
 set xlabel "$\\frac{n}{2L}$ $(\\frac{1}{m})$"
 set ylabel "Frequência (Hz)"
 
-set size square
 set grid
-
-set bmargin 2
 
 
 set style line 1 lt 1 lc "black" lw 2
 
-set key right top 
+set key right top
 
 
 f(x) = a*x + b
