@@ -7,7 +7,6 @@ set yrange[*:*]
 set xlabel "$\\frac{n}{2L}$ $(\\frac{1}{m})$"
 set ylabel "Frequência (Hz)"
 
-
 set grid
 set pointsize 3
 

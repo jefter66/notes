@@ -36,8 +36,6 @@ unset grid
 
 set style arrow 1 ls 1 
 
-
-
 set style line 1 lt 2 lw 4 lc "blue"
 
 f(x) = sin(x)
