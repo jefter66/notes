@@ -1,0 +1,73 @@
+* Problema 1
+  #+begin_src python
+n = int(input())
+original_list = list(map(int, input().split()))
+
+sorted_list = sorted(original_list)
+
+count = 0
+out_list = []
+for i in range(len(sorted_list)):
+    if(sorted_list[i] == original_list[i]):
+        out_list.append([sorted_list[i], i+1])
+        count += 1
+
+print(count)
+for i in range(len(out_list)):
+    print(*out_list[i])
+  #+end_src
+
+* Problema 2
+  #+begin_src python
+l = list(map(int, input().split()))
+
+if(sum(1 for x in l if x < 0)):
+    print("Lista inválida!")
+else:
+    if(l[0] % 2 == 0):
+        l.sort()
+    else:
+        l.sort(reverse=True)
+    print(*l)
+  #+end_src
+
+* Problema 3
+  #+begin_src python
+l = list(map(int, input().split()))
+
+element = 0 
+for i in range(len(l)):
+    counter = 0
+    for j in range(len(l)):
+        if l[i] == l[j]:
+            counter += 1
+    if(counter % 2 != 0):
+        element = l[j]
+        break
+
+l.sort()
+
+print(*l)
+print(element)
+
+  #+end_src
+
+* Problema 4
+  #+begin_src python
+n = int(input())
+l = []
+for i in range(n):
+    l.append(int(input()))
+
+
+odd = [a for a in l if a % 2 != 0]
+even= [a for a in l if a % 2 == 0]
+
+even.sort()
+odd.sort(reverse=True)
+
+
+for i in even:print(i)
+for i in odd:print(i)
+
+  #+end_src
