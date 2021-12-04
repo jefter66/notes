@@ -31,7 +31,7 @@ set label "Pontos de reflexão " at 1.5*pi,-1.8
 #set ylabel "Densidade"
 
 unset xtics
-unset ytics 
+unset ytics
 unset grid
 
 set style arrow 1 ls 1 

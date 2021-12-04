@@ -1,3 +1,4 @@
+#+TITLE: Ordenação
 * Problema 1
   #+begin_src python
 n = int(input())
@@ -30,7 +31,6 @@ else:
         l.sort(reverse=True)
     print(*l)
   #+end_src
-
 * Problema 3
   #+begin_src python
 l = list(map(int, input().split()))
@@ -57,7 +57,7 @@ print(element)
 n = int(input())
 l = []
 for i in range(n):
-    l.append(int(input()))
+   l.append(int(input()))
 
 
 odd = [a for a in l if a % 2 != 0]
@@ -66,8 +66,174 @@ even= [a for a in l if a % 2 == 0]
 even.sort()
 odd.sort(reverse=True)
 
+[print(i) for i in even]
+[print(i) for i in odd]
 
-for i in even:print(i)
-for i in odd:print(i)
 
   #+end_src
+
+* Problema 5
+  #+begin_src python
+l1 = list(map(int,input().split()))
+l2 = list(map(int,input().split()))
+
+if sorted(l1) != l1 or sorted(l2) != l2:
+    print(-1)
+else:
+    lf = sorted(l1+l2)
+    print(*lf)
+  #+end_src
+* Problema 6
+  #+begin_src python
+l = list(map(float, input().split()))
+
+for i in range(len(l)):
+    j = i
+    while((j > 0) and (l[j] > l[j-1])):
+        tmp = l[j]
+        l[j] = l[j-1]
+        l[j-1] = tmp
+        j = j-1
+    formatted_list = ['%.2f' % x for x in l]
+    print(*formatted_list)
+  #+end_src
+
+* Problema 7
+  #+begin_src python
+n = int(input())
+
+li, lf = [], []
+for i in range(n):
+    a = input()
+    li.append(list(map(int, input().split())))
+    lf.append(sorted(li[i])[::-1])
+
+for i, j in zip(li, lf):
+    s = 0
+    for ii, jj in zip(i, j):
+        if ii == jj:
+            s += 1
+    print(s)
+  #+end_src
+* Problema 8
+  #+begin_src python
+N = int(input())
+pont = {}
+
+for i in range(N):
+    M = input()
+    carac = "'',()"
+    M = ''.join(x for x in M if x not in carac)
+    t = tuple(M.split())
+    if t[0] not in pont:
+        pont[t[0]] = 0
+    if t[3] not in pont:
+        pont[t[3]] = 0
+    if int(t[1]) > int(t[2]):
+        pont[t[0]] += 3
+    elif int(t[1]) < int(t[2]):
+        pont[t[3]] += 3
+    else:
+        pont[t[0]] += 1
+        pont[t[3]] += 1
+             
+for i in sorted(pont, key = pont.get, reverse = True):
+             print(i)
+
+  #+end_src
+* Problema 9
+  - Autor: Rafael Bentes
+  #+begin_src python
+import math
+
+def angulo(vetor1,vetor2):
+    dot=vetor1[0]*vetor2[0]+vetor1[1]*vetor2[1]
+    det=vetor1[0]*vetor2[1]-vetor1[1]*vetor2[0]
+    return math.atan2(det, dot)
+
+def centroide(lista):
+    x,y=0,0
+    for i in lista:
+        x+=float(i[1])
+        y+=float(i[2])
+    x/=len(lista)
+    y/=len(lista)
+    return x,y
+
+lista=[]
+while True:
+    aux=input()
+    if aux=="*":
+        break
+    else:
+        laux=[0]
+        laux+=[i for i in aux.split(",")]
+        laux[0]=float(laux[1])
+        lista.append(laux)
+
+cx,cy=centroide(lista)
+
+lista.sort()
+
+lista.reverse()
+
+vetor=(float(lista[0][1])-cx, float(lista[0][2])-cy)
+
+for i in lista:
+    vx=float(i[1])-cx
+    vy=float(i[2])-cy
+    vaux=(vx,vy)
+    ang=angulo(vetor,vaux)
+    i[0]=ang
+
+print(f"{lista[0][1]},{lista[0][2]}")
+
+lista.sort()
+lista.reverse()
+
+for i in lista:
+    if i[0]!=0 and i[0]<0:
+        print(f"{i[1]},{i[2]}")
+
+for i in lista:
+    if i[0]!=0 and i[0]>0:
+        print(f"{i[1]},{i[2]}")
+  #+end_src
+* Problema 10
+  - Autor: Rafael Bentes
+  #+begin_src python
+paises={"EUA":{"ouro":0,"prata":0,"bronze":0}, "CHN":{"ouro":0,"prata":0,"bronze":0}, "JPN":{"ouro":0,"prata":0,"bronze":0}, "GBR":{"ouro":0,"prata":0,"bronze":0}, "RUS":{"ouro":0,"prata":0,"bronze":0}, "AUS":{"ouro":0,"prata":0,"bronze":0}, "FRA":{"ouro":0,"prata":0,"bronze":0}, "GER":{"ouro":0,"prata":0,"bronze":0}, "ITA":{"ouro":0,"prata":0,"bronze":0}, "CAN":{"ouro":0,"prata":0,"bronze":0}, "BRA":{"ouro":0,"prata":0,"bronze":0}, "CUB":{"ouro":0,"prata":0,"bronze":0}, "ARG":{"ouro":0,"prata":0,"bronze":0}}
+lista,listaf=[],[]
+
+while True:
+    aux=input()
+    if aux=="*":
+        break
+    else:
+        maux=aux.split()
+        paises[maux[0]][maux[1]]+=1
+
+for i in paises:
+    laux=[i,paises[i]["ouro"],paises[i]["prata"],paises[i]["bronze"]]
+    lista.append(laux)
+
+lista.sort()
+lista.reverse()
+
+for i in lista:
+    laux=[i[1],i[2],i[3]]
+    listaf.append(laux)
+
+listaf.sort()
+listaf.reverse()
+
+for i in lista:
+    indice=listaf.index(i[1:])
+    listaf[indice]+=[i[0]]
+
+print('pos\tpaís\tO\tP\tB')
+for i in listaf:
+    pos=listaf.index(i)
+    print(f"{pos+1}\t{i[3]}\t{i[0]}\t{i[1]}\t{i[2]}")
+  #+end_src
+  
