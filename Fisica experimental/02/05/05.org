@@ -1,0 +1,343 @@
+#+include:./header.org
+#+startup: latexpreview
+#+latex_header: \renewcommand{\abstractname}{}    % clear the title
+
+* Rascunho :noexport:
+** DONE Experimentos [3/3]                                       
+   CLOSED: [2021-11-27 Sat 21:20]
+   :LOGBOOK:
+   - State "DONE"       from "NEXT"       [2021-11-27 Sat 21:20]
+   :END:
+  - [X] Capacidade térmica do calorimetro [0/0]
+  - [X] Calor específico de um metal.
+  - [X] Calor latente de condensação da água.
+** Objetivos                                                     
+   Calcular o calor específico de um sólido e calor
+   latente da água.
+** Introdução teórica                                            
+   Temos que a quantidade total de calor
+   transferido pela mudança de temperatura
+   é proporcional à um valor $c$:
+   $$\boxed{Q = m\overline{c}\Delta t}$$
+**** TODO  Contextualização dessa equação.
+*** Variação do calor específico com a temperatura
+    Falar disso só se for valer a pena.
+     $$\boxed{Q = m \int_{T_i}^{T_f}{c(T)dT}}$$
+*** Calor latente: transição de fase
+   Calor necessário para acontecer a mudança
+   de fase: $$ \boxed{ Q = m L  } $$
+**** DONE Explicar essa relação de calor com massa e como é diferente pra cada estado.
+     CLOSED: [2021-12-05 Sun 16:08]
+     :LOGBOOK:
+     - State "DONE"       from "NEXT"       [2021-12-05 Sun 16:08]
+     :END:
+**** DONE Por um =Gráfico da mudança de fase=
+     CLOSED: [2021-12-05 Sun 16:08]
+     :LOGBOOK:
+     - State "DONE"       from "NEXT"       [2021-12-05 Sun 16:08]
+     :END:
+*** Medição das trocas de calor: o calorímetro   
+    A capacidade térmica é a constante $C$ e podemos usar o calorimetro para
+    analisar o que acontece com a quantidade de calor quando há uma mudança
+    de temperatura.
+    $$ Q = C \Delta t $$
+**** Determinar a capacidade térmica de um calorímetro
+     Assumindo que $C>0$ (um calorímetro não ideal) cálculamos
+     a quantidade de calor total em um sistema após adicionar
+     água em temperaturas diferentes.
+     Sabemos que a capacidade térmica é uma medida para que diz a
+     quantidade de calor que aguenta sem mudar de temperatura.
+     $$ \Delta Q = mc \Delta  T = C \Delta  T$$
+     $$ m_1  \cdot c_a  (t_f - t_1) + m_2  \cdot c_a (t_2 - t_f) + C  \cdot (t_f - t_1) = 0 $$
+     $$ C = m_2  \cdot c_a \frac{(t_2-t_f)}{(t_f-t_1)} - m_1  \cdot c_a $$
+*** Determinar calor específico de sólido
+
+    $$ m_1  \cdot c_a (t_f - t_1) + m_2 c_m (t_f - t_2) + C (t_f - t_1) = 0 $$ 
+    $$ c_m = \frac{(m_1  \cdot c_a + C)(t_f - t_1)}{m_2 (t_2 - t_f)} $$
+*** Calor latente de condensação da água
+
+    $$ L_c = \frac{(m_1 \cdot  c_a + C) \cdot  (t_1 - t_f) }{m_2} + c_a \cdot  (t_c - t_f)$$
+** Experimentos
+*** 01 - Capacidade térmica do calorimetro
+    - Materiais: água quente e fria, balança, termômetro     
+    - Massa outro erlenmeyer: M_e = 69.31 (g)
+    - Massa de água quente: M_{aq} = 122.07 (g) 
+    - Massa do copo: M_c = 51,82 (g) 
+    - Massa de água fria: M_{af} = 125.02 (g) 
+    - Calor específico da água à 23.2ºC: c_a = 
+    - T_{af} = 12.8ºC
+    - T_{aq} = 53.7ºC
+    - T_f = 31.4ºC
+      $$ C = \frac{m_{AQ} \cdot  c_A \cdot  \left( T_{aq} - T_{f} \right)}{
+      \left( T_f - T_{af} \right)} - m_{AF} \cdot  c_{A} $$ 
+*** 02 - Calor específico de um metal
+    - Massa do objeto: M_0 = 205.75 (g)
+    - Massa do copo: M_c = 52.11 (g)
+    - Massa da água fria: M_{af} = 164.959 (g) (M_t - MC)
+    - T_A = 13.1ºC
+    - T_0 = 97.1ºC 
+    - T_f = 19.2ºC
+    - QUAL É O METAL?
+    $$ c_0 = \frac{ \left( m_A \cdot  c_A + C\right) \cdot   \left( T_A - T_f \right)}{m_0 \cdot  \left( T_f - T_0 \right)} $$
+
+*** 03 - Calor latente da condensação da água 
+    - Massa do copo: M_{copo} = 52.24 (g)
+    - Massa da água fria: M_f = 167.479 (g)
+    - Massa da água condensada: M_c = 187.02 - M_f  (g) 
+    - T_{A} = 8.8ºC
+    - T_f = 71.7ºC
+    - T_{fervendo} = 100ºC
+
+    $$ L_c = \frac{(m_a \cdot  c_a + C) \cdot  (t_a - t_f) }{m_c} + c_a \cdot  (t_{fervendo} - t_f)$$
+
+** Resultados
+*** Experimento 1
+    - Capacidade térmica do calorimetro:  $C_{calorimetro} = 21 \pm 2 \frac{cal}{g ^{\circ}C}$
+    - Capacidade térmica do copo: $C_{copo} = 11.297 \pm 0.002 \frac{cal}{g ^{\circ}C}$
+*** Experimento 2
+    - Calor específico do objeto: $C_{objeto} = 0.090 \pm 0.002  \frac{cal}{g ^{\circ}C}$ 
+*** Experimento 3
+    - Calor latente: $Lc = -579 \pm 6 \frac{cal}{g}$ 
+* Resumo
+  #+begin_quote
+  No primeiro experimento foi estimado o valor da capacidade térmica de um
+  calorímetro de duas formas diferentes, na primeira foi usada uma equação que 
+  associava uma massa de água quente e fria em equilibrio no calorímetro e as
+  temperaturas, além do calor específico da água que foi considerado como $1
+  (cal / g ^{\circ}C)$, nesse experimento foi calculada uma capacidade térmica em
+  torno de $C_1 = (15 \pm 4) cal /^{\circ}C$, a segunda forma de fazer esse cálculo
+  foi por meio do produto entre a massa de um copo de alumínio que compõe o
+  calorímetro e o calor específico do alumínio \cite{livropratica2}, com isso
+  foi encontrado um valor equivalente à $C_1$, que foi $C_2 = (11,297 \pm
+  0,002)cal/ ^{\circ}C$. No experimento seguinte foi encontrado um calor específico
+  para o corpo metálico em torno de $c_0 = (0,088 \pm 0,002) cal / g ^{\circ}C$ e
+  a hipótese de que o metal seja zinco, cobre ou uma mistura entre os dois. No
+  último experimento, da condensação da água, foi encontrado um calor latente
+  igual à $L_c = (-559 \pm 5) cal/g$, esse valor embora destoe do tabelado, deve
+  ser entendido como uma aproximação válida e essa variação deve estar
+  relacionada às condições quase ideais do experimento original (o experimento
+  feito quando compilaram o valor utilizado como base).
+  #+end_quote
+* Introdução teórica
+  Com o estudo das trasferências de calor entre corpos se tornou possível entender
+  algumas propriades que hoje tratamos como principios da termodinâmica,
+  esses principios que descrevem alguns dos fenomênos mais importantes dessa
+  área estão listados abaixo:
+
+  - Dois corpos em contato térmico podem transferir calor, do mais quente ao
+    mais frio.
+  - Um sistema em que não há transferencia térmica está em equílibrio.
+  - Se em um sistema composto por dois corpos em equilíbrio térmico é adicionado
+    mais um sem que o equílibrio seja quebrado, então os três estão em equilíbrio
+    entre si. Esse fato é conhecido como lei zero da termodinâmica.
+
+  A partir das observações dos sistemas termodinâmicos e da noção
+  do comportamento dos materiais podemos exprimir algumas relações
+  por fórmulas que em geral relacionam o calor com a massa dos corpos
+  e alguma variação de temperatura.
+
+
+  Podemos assim definir o calor das seguintes formas:
+  #+begin_latex
+\begin{equation}
+    \boxed{  Q = c  \cdot m  \cdot \Delta T  }
+    \label{eq:calor}
+\end{equation}
+   #+end_latex
+  Onde $c$ é o calor específico do material analisado.
+   
+  Essa equação fornece pode fornece a capacidade térmica:
+  #+begin_latex
+    \begin{equation}
+      \boxed{ Q =  C \Delta T }
+      \label{eq:capacidadeTermica}
+    \end{equation}
+   #+end_latex
+
+  Por último, o calor a partir do calor latente de um material,
+  essa grandeza está associada com as diferentes fases de um material, a
+  para cada estado da materia o calor latente é diferente e para mudar
+  o estado de um matérial é necessário que o sistema atinja um calor
+  superior ao latente. 
+   
+  #+attr_latex: :width 8cm :height 6cm 
+  #+name: mudancaDefase
+  #+caption: Exemplo de uma curva de estado de matéria. 
+  #+caption: $\\$ Fonte:  elaborado pelo autor. 
+  [[./imagens/mudancaDeFase.svg]]
+
+  #+begin_latex
+\begin{equation}
+    \boxed{ Q = mL }
+\end{equation}
+   #+end_latex
+* Materiais e método
+  #+attr_latex: :float wrap :width 0.35\textwidth :placement {r}{{0.4}\textwidth}
+  #+caption: Calorimetro usado na realização dos experimentos.
+  #+caption: $\\$ Fonte:  \cite{livropratica2}
+  [[./imagens/calorimetro.jpg]]
+ 
+  Para a realização dos experimentos foram utilizados os seguintes
+  materiais:
+  - Dois béquers com água quente e fria
+  - Balança digital de precisão $\pm0,01 (g)$
+  - Termômetro com precisão de $\pm 0,1 ^{\circ}C$
+  - Calorímetro com um copo de alumínio e composto de isopor.
+  - Aquecedor elétrico
+  - Pedaço de metal com massa de $(205,75 \pm 0,01) g$ 
+  - Erlenmeyer com água fervendo à $100 ^{\circ}$
+  Em todos os experimentos o calor específico da água foi considerado
+  $c_a = 1 \frac{cal}{g ^{\circ}C}$. 
+    #+latex: \clearpage
+** Capacidade térmica do calorímetro
+
+   Para estimar a capacidade térmica do calorimetro inicialmente
+   foi medida uma quantidade de água quente e fria e suas
+   temperaturas, com isso podemos montar o sistema em equílibrio
+   termodinâmico e portanto utilizar a equação  (\ref{eq:capacidadeTermica}).
+   #+begin_latex
+\begin{equation}
+    \boxed{ C = \frac{m_{AQ} \cdot  c_A \cdot  \left( T_{aq} - T_{f} \right)}{ \left( T_f - T_{af} \right)} - m_{AF} \cdot  c_{A }}
+    \label{eq:exp1}
+\end{equation}
+   #+end_latex
+   Onde $m_{AQ}$ e $T_{AQ}$ são, respectivamente,  a massa e temperatura da água
+   aquecida, $m_{AF}$ e $T_{AF}$ massa e temperatura da água fria e $T_f$ é a
+   temperatura final do sistema, após o equilíbrio.
+   
+   Após fazer o cálculo da capacidade térmica do calorimetro foi estimado
+   o calor específico do copo utilizado para armazenar a água,
+   foi usado o valor tabelado na apostila \cite{livropratica2} para o calor
+   específico do alumínio e a massa do copo foi fornecida
+   no vídeo \cite{calorimetria}.
+   #+begin_latex
+   \begin{equation}
+    \boxed{ C_{copo} = m_{copo}  \cdot  c_{aluminio} }
+    \label{eq:expcopo}
+   \end{equation}
+   #+end_latex
+** Calor específico de um metal
+   #+latex: \label{section:calorEspecifico}
+   Nesse experimento, inicialmente foram medidas as massas relevantes do
+   sistema, a massa de água fria e a massa do objeto metálico, após isso
+   medimos a temperatura inicial do água e temperatura do objeto igual à
+   temperatura de fervura da água - o objeto é colocado em água e aquecido
+   até a água entrar em ebulição - e por último a temperatura de equílibrio
+   do sistema. A partir desses procedimentos e sabendo a capacidade térmica
+   do calorímetro, que foi cálculada no experimento anterior, chegamos à
+   seguinte equação que fornece o calor específico do objeto métalico.
+   #+begin_latex
+\begin{equation}
+    \boxed{ c_0 = \frac{ \left( m_A \cdot  c_A + C\right) \cdot   \left( T_A - T_f \right)}{m_0 \cdot  \left( T_f - T_0 \right)} }
+    \label{eq:exp2}
+\end{equation}
+   #+end_latex
+   #+attr_latex: :float wrap :width 0.4\textwidth :placement {r}{{0.4}\textwidth}
+   #+caption: Montagem do experimento $\ref{section:latente}$ e sólidos metálicos do $\ref{section:calorEspecifico}$ .
+   #+caption: $\\$ Fonte: \cite{livropratica2}
+   [[./imagens/exps.jpg]]
+
+** Calor latente de condensação da água
+   É adicionado calor à água até atingir a temperatura de $100 ^{\circ}C$, após
+   isso a água fervida é colocada no calorimetro e seu vapor condensado em uma
+   armadilha de líquido, depois a água condensada é medida e podemos estimar
+   o calor latente de condensação da água pela equação abaixo.
+   #+latex: \label{section:latente}
+   #+begin_latex
+\begin{equation}
+    \boxed{ L_c = \frac{(m_a \cdot  c_a + C) \cdot  (T_a - T_f) }{m_c} + c_a \cdot  (T_c - T_f) }
+    \label{eq:exp3}
+\end{equation}
+   #+end_latex
+#+latex: \newpage
+* Resultados e discussão
+** Capacidade térmica do calorímetro 
+   #+caption: Medidas coletadas das massas e temperaturas.
+   #+attr_latex: :align |c|c|c| :placement [h!] :center t
+      |-------------+-------------------+-----------------------------|
+      | Líquido     | Massa $(\pm 0,01)g$ | Temperatura $(\pm 0,1) ^{\circ}C$ |
+      |-------------+-------------------+-----------------------------|
+      | Água fria   | 125,02            | 12,8                        |
+      |-------------+-------------------+-----------------------------|
+      | Água quente | 122,07            | 53,2                        |
+      |-------------+-------------------+-----------------------------|
+      
+   Ao atingir o equilíbrio o sistema chegou à uma temperatura final de $T_f =
+   (31,4 \pm 0,1) ^{\circ}C$ e
+   com isso utilizando a fórmula $(\ref{eq:exp1})$  conseguimos constatar que a capacidade térmica do calorímetro deve ser de
+   $$ C_{calorimetro} = (15 \pm 4) cal /^{\circ}C $$
+   após isso calculamos a capacidade térmica a partir da massa de um
+   copo de alumínio, para tal foi utilizado o calor específico tabelado
+   fornecido na apóstila \cite{livropratica2} e a equação $(\ref{eq:expcopo})$
+   e a massa do copo de $m_{copo} = (51,82 \pm 0,01)g$, com isso temos que
+   $$ C_{copo} = (11,297 \pm 0,002)  cal/^{\circ}C $$
+   Essas grandezas são equivalentes, pois:
+   $$  | x_1 - x_2 | < 2 \cdot  ( \sigma_1 + \sigma_2) $$
+   $$ | 15 - 11,297 | < 2 \cdot  (4 + 0,002) $$
+
+   Esse resultado é condizente com a teoria, pois o alumínio é um
+   material que possui condutividade térmica maior que o isopor - material
+   que compõe uma camada espessa do calorímetro. Portanto o copo de alumínio precisa
+   de menor quantidade de calor que o calorímetro para sofrer variação na sua
+   temperatura, então sua capacidade térmica deve ser menor.
+   
+** Calor específico de um metal
+   #+caption: Medidas coletadas das temperaturas (inicial e final) e massas dos materiais do experimento.
+   #+attr_latex: :align |c|c|c|c| :placement [h!] :center t
+   |---------------------+-------------------+----------------+--------------------|
+   | Material            | Massa $(\pm 0,01)g$ | $T_i (\pm 0,1)^{\circ}C$ | $T_f (\pm 0,1) ^{\circ}C$ |
+   |---------------------+-------------------+----------------+--------------------|
+   | Água no calorimetro | 217,07            | 13,1           | 19,2               |
+   |---------------------+-------------------+----------------+--------------------|
+   | Objeto metalico     | 205,75            | 97,1           | 19,2               |
+   |---------------------+-------------------+----------------+--------------------|
+   $$ c_{o} = (0,088 \pm 0,002) cal / g ^{\circ}C $$
+   O material tem calor específico próximo aos do cobre e do zinco,
+   respectivamente, em torno de $C_{Cu} = 0,092 (cal / g ^{\circ}C)$ e $C_{Zn} = 0,092 (cal/ g ^{\circ}C)$,  de acordo com
+   o \cite{handbook}. Logo o material desse sólido pode ser cobre ou uma
+   mistura de cobre e zinco - esse último é o mais provável, pois o zinco é
+   usado para formar ligas metálicas. 
+** Calor latente de condensação da água
+   Primeiro foi medida a massa de água gelada que foi colocada no calorimetro e
+   sua temperatura, respectivamente, $m = (167,48 \pm 0,01) g$ e  $T_a = (8,8 \pm 0,1)^{\circ}C$, 
+   depois disso foi adicionada a água à temperatura de condensação $T_c = (100,0 \pm 0,1)^{\circ}C$
+   e após fazer a mistura e o sistema entrar em equílibrio foi medida a
+   temperatura final $T = (71,7 \pm 0,1)^{\circ}C$. Após isso podemos cálcular a
+   quantidade de massa que foi condensada como sendo $m_c = (19,54 \pm 0,01)g$ e
+   então, utilizando a relação ($\ref{eq:exp3}$) podemos estimar o calor
+   latente de condensação da água como algo próximo de 
+
+   $$ L_c = (-559 \pm 5) cal / g $$
+
+   O sinal negativo pode ser explicado bem pelo diagrama de mudança de fase ([[mudancaDefase]]), ele
+   indica que o sistema cede calor ao meio e então retorna à um estado em
+   que possui menor energia interna.
+   E esse valor pode ser considerado válido, pois é muito próximo to tabelado
+   \cite{livropratica2} de $L_c = -539 (cal/g)$ e essa pequena diferença se dá às condições mais ideais
+   do experimento realizado para estimar o valor que foi tabelado.
+* Conclusão  
+  No primeiro experimento é constatado que o calorímetro pode ser considerado
+  ideal, pois, ao comparar a capacidade térmica do mesmo com o calor específico
+  do copo, fica evidente que é maior, portanto as variações de calor que
+  ocorrem no interior do calorímetro ao se adicionar líquidos em diferentes
+  temperaturas estão bem isoladas de interferências externas e devem acontecer
+  assim até o sistema atingir equílibrio. O calorímetro possui uma capacidade
+  térmica de $C_1 = { = (15 \pm 4) cal/^{\circ}C$ e pela massa do copo de alumínio  $C_2 = (11,297 \pm 0,002) cal /^{\circ}C$ 
+  Já o segundo experimento, do calor específico de um objeto metálico, foi
+  possível ver, empiricamente, a relação do gráfico utilizado em
+  ([[mudancaDefase]]) ao utilizar entender que a água fervendo e o
+  corpo metálico deveriam ter a mesma temperatura de $T = (97,1 \pm
+  0,1)^{\circ}C$. Além disso, podemos dizer que o metal deve se tratar de cobre ou
+  uma liga metálica de cobre e zinco.
+  No último experimento foi estimado o calor latente de condensação da água e o
+  resultado $L_c = (-559 \pm 5) cal/g$ bastante próximo do ideal e tabelado, ou
+  seja, no experimento podem ter havido pequenas interferências que foram
+  responsavéis por essa pequena variação.
+* Referências
+#+begin_latex
+\nocite{livroPratica2,calorimetria}
+\bibliographystyle{IEEEtran}
+\printbibliography[heading=none]
+#+end_latex
+  
+
