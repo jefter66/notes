@@ -24,7 +24,6 @@
   | [[./Fundamentos de programacao/trabalho5.org][Trabalho 5]]  | [[./Fundamentos de programacao/trabalho6.org][Trabalho 6]]  |
   | [[./Fundamentos de programacao/trabalho7.org][Trabalho 7]]  | [[./Fundamentos de programacao/trabalho8.org][Trabalho 8]]  |
   | [[./Fundamentos de programacao/trabalho9.org][Trabalho 9]]  | [[./Fundamentos de programacao/trabalho10.org][Trabalho 10]] |
-  | [[./Fundamentos de programacao/trabalho11.org][Trabalho 11]] | ----------- |
   |-------------+-------------|
 * [[./Quimica experimental][Química experimental]]
   |-----------+-----------|
