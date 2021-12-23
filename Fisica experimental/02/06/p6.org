@@ -1,0 +1,452 @@
+#+include: ./header.org
+#+startup: latexpreview
+* Rascunho :noexport: 
+** Fator $\gamma$ do ar
+   $$ U = \frac{f}{2} N k T = \frac{f}{2}n RT $$
+   - $f$ : nº de graus de liberdade de uma partícula.
+
+   Como em um processo adiabático não há trocas de calor
+   $\Delta U$ deve ser zero, portanto:
+
+   $$ dU + dW = 0 $$  
+
+   $$ dW = P dV  $$
+   $$ dU = \frac{f}{2}n R dT = -dW = -P dV $$
+   $$ V dP + PdV = nRdT $$
+   $$ \frac{f}{2}(V dP + P dV) = - P dV \Longrightarrow \frac{f}{2}V dP = -
+   \left( 1 + \frac{f}{2} \right) P dV $$
+   Definimos $\gamma = \frac{f + 2}{f}$
+   $$ V dP = - \gamma P dV \Longrightarrow - \gamma \frac{d V }{d V} \Longrightarrow d
+   log(P) = -d log(V^{\gamma }) $$
+   ou seja
+   $$ d \left[ log \left( PV^{\gamma } \right) \right] = 0$$
+   $$ PV^{\gamma } = \text{ constante} $$
+
+   Capacidade térmica é dada por
+   $$ \Delta Q = C \Delta T $$
+   então, para um processo de volume constante, o gás não
+   vai realizar trabalho e o calor é usado pra aumentar a energia interna
+   temos:
+   $$ \Delta Q = \frac{f}{2}nR \Delta T $$
+   Então, a capaidade calorífica à volume constante é:
+   $$ C_v = \frac{f}{2}nR $$
+
+   À pressão constante, o é utilizado pra mudar a energia e realizar
+   trabalho, logo
+   $$ \Delta Q = \Delta U + \Delta W $$
+   $$ P \Delta V = nR \Delta T $$
+   $$ \Delta Q = \frac{f}{2}nR \Delta T + n R \Delta T = \left( 1 + \frac{f}{2} \right)n R \Delta T $$
+   $$ C_P = \left( 1 + \frac{f}{2} \right) nR $$
+
+
+   Portanto, temos que
+   $$ \boxed{ \frac{C_P}{C_V} = \gamma \text{ e } C_P - C_v = nR } $$
+** Método de Clément - Desormes
+   #+attr_latex: :width 8cm :height 5cm
+   [[./imagens/curva-clement.svg]]
+   Para cálcular o fator $\gamma$ do gás consideramos a relação entre $P$ e
+   $V$ em um processo adiabático, podemos escrever então que
+   $$ P_1 V_1 ^{\gamma } = P_2 V_2 ^{\gamma } $$
+
+   $$ \gamma = \frac{ln \left( \frac{P_2}{P_1} \right)}{ln \left( \frac{V_1}{V_2} \right)} $$
+   É mais facil considerar o processo isocório entre (2) e (3)
+   pelo fato que os estados (1) e (3) se encontram na mesma isoterma
+   de termperatura T_1, então resulta em
+   $$ \gamma  = \frac{ln \left( \frac{P_2}{P_1} \right)}{ln \left( \frac{P_3}{P_1} \right)} $$
+   
+** Medidas das pressões
+   #+attr_latex: :width 4cm :height 4cm
+   [[./imagens/montagem-clement.jpg]]
+
+   $$ P_1 = P_{ATM} + \rho g h_1 $$
+   $$ P_2 = P_{ATM}$$
+   $$ P_3 = P_{ATM} + \rho g h_3 $$
+
+   Sabemos que $h_2 = 0$, e então podemos cálcular o fator
+   $P_1$ a partir das grandezas: $P_{ATM}, h_1, h_3$. Então
+   $$ P_1 = P_{ATM} \left( 1 + \frac{\rho g h_1 }{P_{ATM}} \right) $$
+   $$ P_3 = P_{ATM} \left( 1 + \frac{\rho g h_3}{P_{ATM}} \right) $$
+
+   Combinando essas duas equações e utilizando à ideia que
+   a série infinita de $ln(x+1)$ converge para $x$ se $x \ll 1$,
+   temos
+   $$ \boxed{ \gamma = \frac{h_1}{h_1  - h_3}} $$
+   
+** Método de Ruchardt - Apostila
+   Um gás com volume que obedece a relação
+   $\Delta V \ll V_0$ pode ser descrito pelo comportamento
+   de um sistema massa-mola e nesse caso, quando a esfera está em posição
+   de equilibrio, sua pressão é
+   $$ P = P_{ATM} + \frac{mg}{A} $$
+   onde $A$ é a seção transversal do tubo e $m$ é a massa da
+   esfera que é usada como êmbolo para o gás do recipiente.
+   #+attr_latex: :width 4cm :height 4cm
+   [[./imagens/montagem-ruchardt.jpg]]
+
+   a esfera é deslocada de uma distância y da posição de equilibrio
+   $$ dV = Ady $$
+
+   $$ dF = A dP $$
+   $$ PV^{\gamma } = constante \Longrightarrow V^{\gamma } dP + \gamma PV^{\gamma -1} dV
+   = 0$$
+   
+   A força restauradora, então, é dada por :
+   $$ F = - \frac{\gamma P \cdot  A^{2}}{V}y  = - k \cdot  y$$
+   com isso, podemos descrever o período de oscilação da esfera
+   $$ T = 2 \cdot  \pi \cdot  \sqrt{\frac{m}{ \left( \frac{\gamma P \cdot  A^2}{V} \right)}} $$
+   onde $P$ é dado pela equação
+   $$ P = P_{ATM} + \frac{mg}{A} $$
+
+** Método de Ruchardt - Vídeo
+   #+attr_latex: :width 5cm :height 5cm
+   [[./imagens/experimento-ruchardt.jpg]]
+   Condição de equilibrio pra esfera 
+   $$ P = P_{atm} + \frac{mg}{A} $$
+   A bolinha cai quando abrimos a valvula - para o processo térmico
+   ocorrer.
+   A variação de volume
+   $$  \Delta V = A \cdot  y $$
+   $$ F = A \cdot  P \Delta  $$
+   
+   $$ PV^{\gamma } = cte \Longrightarrow V^{\gamma } \cdot  dP + \gamma \cdot
+   PV^{\gamma -1} \cdot  dV = 0 $$
+   $$ F = - \gamma \frac{PA^2}{V}y = ma $$
+   $$  - \gamma \frac{PA^2}{V}y = m \frac{d y }{d t} \Longrightarrow \underbrace{\frac{d y }{d
+   t} + \frac{\gamma PA^2}{mV}y}_{\text{MHS}} = 0$$
+   $$ w_0 = \sqrt{\frac{\gamma PA^2}{mV}} \Longrightarrow T = 2 \pi \sqrt{\frac{mV}{\gamma  PA^2}}$$
+   $$ \gamma  = 4 \pi ^2 \frac{mV}{PA^2 T^2} $$
+** Expansão térmica dos gases: zero absoluto
+   Em pressão constante um gás em recipiente tampado por um
+   êmbolo pode ter seu volume descrito pela
+   $$ V(T) = V_0 \cdot  \left( \beta T + 1 \right) $$
+   - $\beta$ - coeficiente de dilatação do gás à pressão constante.
+     $$ \beta  = 0,003660 ^{\circ}C^{-1} \approx \frac{1}{273} ^{\circ}C ^{-1} $$
+   À volume constante, a pressão varia linearmente com a temperatura.
+   $$ P(T) = P_0 \cdot  \left( \beta  T + 1 \right) = P_0 \cdot  \beta T + P_0 $$
+   - $\beta$ - \cdots  à volume constante. Para os gaes ideiais esses
+     coeficientes são iguais, então podemos substituir
+     $$ P(T) = P_0 \cdot  \left( 1  + \frac{T}{273}\right) $$ 
+     Logo, se $T = -273$ a pressão deve ser nula e portanto atingiu
+     o zero absoluto.
+
+     
+   $$ P = \frac{2}{3} \cdot  N \cdot \frac{m \left \langle v^2 \right \rangle }{2V}   $$
+   $$ PV = N k_B T \Rightarrow N k_B T = \frac{2}{3}N \left[ \frac{m \left \langle v^2 \right \rangle }{2} \right]$$
+   $$ \Rightarrow T = \frac{2}{3 k_B} \cdot  \underbrace{\left[ \frac{m \left \langle v^2 \right \rangle
+   }{2} \right]}_{\text{ Energia cinética média }$$
+   $$ E_{trans} = \frac{m \left \langle v^2 \right \rangle }{2} = \frac{3}{2}k_B T $$
+   - Pelo teorema da equipartição da energia: cada grau de liberdade
+     contribui com $\frac{1}{2}k_BT$ para a energia do sistema.
+     Então para um gás com $f$ graus de liberdade:
+     $$ E_{trans} = \frac{f}{2}k_B T $$
+* Resumo
+  #+begin_quote
+  Nessa prática foi inicialmente calculado o coeficiente de
+  expansão adiabática de um gás usando dois métodos diferentes,
+  o valor encontrado utilizando o método de Clément-Desormes foi de
+  $\gamma = (1,40 \pm 0,06)$ e pelo método de Ruchardt foi $\gamma = (1,3 \pm 0,3)$.
+  O segundo experimento consiste em uma tentativa de estimar a temperatura de
+  zero absoluto e o coeficiente de dilatação $\beta$, foi então estimado que
+  $\beta = (0,00359 \pm 0,00012)^{\circ}C^{-1}$ e a temperatura de zero absoluto em torno
+  de $T_0 = (-278 \pm 9)^{\circ}C$ que pode ser considerada uma boa aproximação.
+  #+end_quote
+* Introdução teórica
+** Coeficiente de expansão adiabática do ar
+*** Método de Clément 
+   O método de Clément para determinação do coeficiente de expansão adiabática de um gás é
+   utilizar um sistema que sofre processos adiabáticos e por meio da equação
+   $$ P \cdot  V^{\gamma} = \text{constante}  $$
+   relacionar estados iniciais e finais, para a partir disso chegar ao fator
+   que buscamos. Então temos
+   #+begin_latex
+   \begin{equation}
+   \boxed{P_1 \cdot  V_1 ^{\gamma } = P_2 \cdot V_2 ^{\gamma }}
+   \label{eq:pvConstante}
+   \end{equation}
+   #+end_latex
+   e a partir dessa relação temos $\gamma$ como
+   #+begin_latex
+   \begin{equation}
+    \boxed{ \gamma  = \frac{ln \left( \frac{P_2}{P_1} \right)}{ln \left( \frac{V_1}{V_2} \right)} }
+    \label{eq:gammaLog}
+    \end{equation}
+   #+end_latex
+
+   #+attr_latex: :width 10cm :height 6cm
+   #+label:fig:diagramaClement
+   #+caption: Gráfico das isotermas no método de Clément.
+   #+caption: $\\$ Fonte: Elaborado pelo autor. 
+   [[./imagens/curva-clement.svg]]
+   
+*** Método de Ruchardt
+   Esse método também utiliza as transformações
+   adiabáticas para estimar o fator \gamma, como o método de
+   Clément. Porém, aqui usamos a noção de que podemos descrever
+   a força restauradora de um gás ao sofrer um processo adiabático
+   da mesma forma que um sistema massa-mola, onde o gás age coomo a mola.
+   No sistema temos uma colocada no topo de um tubo como êmbolo, com isso,
+   podemos dizer que a pressão, na condição de equilíbrio, exercida pela esfera é
+   #+begin_latex
+   \begin{equation}
+   \boxed{ P = P_{atm} + \frac{m \cdot  g}{A}}
+   \label{eq:condicaoEquilibrio}
+   \end{equation}
+   #+end_latex
+   Onde $A$ é a seção transversal do tubo. 
+   Sabemos que a relação $PV^{\gamma } = constante$, pois nesse tipo de
+   transformação não há variação de calor, então podemos dizer que a
+   força restauradora obedece à lei:
+   $$ F = - \frac{\gamma  \cdot   P \cdot   A ^2}{V} \cdot  y $$
+   a partir dessa equação de movimento oscilatório podemos escrever a equação do período
+   #+begin_latex
+   \begin{equation}
+    \boxed{ T = 2 \cdot  \pi \cdot   \sqrt{\frac{m}{ \left( \frac{\gamma \cdot   P \cdot  A ^2}{V} \right)}}  }
+    \label{eq:periodo}
+    \end{equation}
+    #+end_latex
+** Temperatura Zero
+   #+latex: \label{section:intro}
+   Em um recipiente que contém um gás, podemos descrever
+   a variação de volume a partir da equação
+   $$ V(T) = V_0 \cdot  (\beta  T + 1) $$
+   onde $\beta$ é o coeficiente de dilatação do gás à pressão constante. O valor
+   tabelado para este é em torno de $\beta \approx 0,003660 ^{\circ}C^{-1} \approx \frac{1}{273}^{\circ} C^{-1}$ \cite{livropratica2}
+   e para gases ideias esse coeficiente é o mesmo para o volume
+   constante. Sabendo disso podemos então descrever a variação de pressão a
+   partir da equação
+   #+begin_latex
+   \begin{equation}
+    \boxed{ P(T) = P_0 \cdot \beta T + P_0 }
+    \label{eq:pressaoZero}
+\end{equation}
+   #+end_latex
+   disso podemos tirar duas conclusões diretas:
+   - Se $T = -273 ^{\circ}C$ então a pressão é zero.
+   - A equação é linear.
+   Podemos fazer uso desses dois fatos para tentar extrapolar o comportamento
+   da reta definida pela equação.
+   #+latex: \clearpage
+* Método experimental  
+** Método de Clément - Desormes
+    #+attr_latex: :width 6cm :height 5cm 
+    #+caption: Montagem experimental do  método de Clément-Desormes.
+    #+caption: $\\$ Fonte: \cite{livropratica2}
+    [[./imagens/montagem-clement.jpg]]
+
+    A partir da equação $(\ref{eq:gammaLog})$ podemos escrever o fator $\gamma$ das
+    diferenlas de alturas que o líquido atinge ao se aumentar a pressão dentro do
+    tubo e ao fim do processo térmico. Para tal, consideremos o gráfico das
+    isotermas da figura ([[fig:diagramaClement]])
+    
+    Sabemos que os processos $(3)$ e $(1)$ acontecem em uma mesma isoterma e então
+    podemos escrever o volume em $(1)$ a partir da pressão em $(3)$ e uma relação
+    semelhante pode ser feita também para o volume em $(2)$ que escrevemos à
+    partir da pressão em $(1)$. Fazemos isso pois é mais simples, experimentalmente, lidar com as pressões,
+    que com os volumes. Portanto, podemos escrever
+    $$ \gamma = \frac{ln \left( \frac{P_2}{P_1} \right) }{ln \left( \frac{P_3}{P_1}
+    \right)} \Rightarrow \begin{cases} P_1 = P_{atm} + \rho g h_1 \\ P_2 = P_{atm} \\ P_3 = P_{atm} + \rho g
+    h_3  \end{cases} \Rightarrow \begin{cases} P_1 = P_{atm} \cdot  \left( 1 + \frac{\rho g h_1}{P_{atm}} \right)
+    \\  P_3 = P_{atm} \cdot  \left( 1 + \frac{\rho g h_3}{P_{atm}} \right) \end{cases}$$
+    Usando a função logaritmica $ln(1 + x) \approx x$ podemos escrever
+    $ln \left(1 + \frac{\rho g h}{P_{atm}}\right) \approx \frac{\rho g h}{P_{atm}}$, então 
+   #+begin_latex
+   
+   $$ \gamma = \frac{ ln \left[ \frac{P_{atm}}{ P_{atm} \cdot  \left( 1 + \frac{\rho g
+   h_1}{P_{atm}}\right)  } \right]} {ln \left[ \frac{(1 + \frac{\rho g
+   h_3}{P_{atm}}) }{(1 + \frac{\rho g h_1}{P_{atm}})}  \right]}\Rightarrow \frac{ \cancel{\frac{\rho  g}{P_{atm}}}\cdot
+   h_1}{\cancel{\frac{\rho g}{P_{atm}}} \cdot  ( h_1 - h_3)} $$
+    \begin{equation}
+    \boxed{ \gamma = \frac{h_1}{h_1 - h_3}}
+    \label{gammaHs}
+    \end{equation}
+  #+end_latex
+   
+   Nesse sistema, aumenta-se a pressão utilizando uma bomba manual e, ao fazer
+   isto, a coluna de com água tem sua altura alterada, assim medimos primeiro o
+   $h_1$ e após parar de pressurizar o sistema e este entrar em equilíbrio,
+   medimos $h_3$, que é o estado final, assim podemos estimar o valor de $\gamma$.
+** Método de Ruchardt
+   É aplicado pressão ao recipiente preenchido por ar e com a esfera no tubo,
+   agindo como êmbolo, após pressurizar abre-se o sistema rapidamente para
+   deixar o processo adiabático acontecer, com isso ocorre uma variação da
+   posição da bolinha, que passa a oscilar no tubo em um movimento harmônico
+   simples. Tendo observado isso, podemos equacionar o sistema para buscar
+   uma forma de cálcular o fator $\gamma$. 
+   A variação de volume
+   
+   $$  \Delta V = A \cdot  y  \text{ e }  F = A \cdot  P \Delta  $$
+   
+   $$ PV^{\gamma } = \text{ constante }  \longrightarrow V^{\gamma } \cdot  dP + \gamma \cdot
+   PV^{\gamma -1} \cdot  dV = 0 $$
+   $$ F = - \gamma \frac{PA^2}{V}\cdot  y = ma $$
+   $$  - \gamma \frac{PA^2}{V} \cdot  y = m \frac{d y }{d t} \longrightarrow \underbrace{\frac{d y }{d
+   t} + \frac{\gamma PA^2}{mV} \cdot  y}_{\text{MHS}} = 0$$
+   $$ w_0 = \sqrt{\frac{\gamma PA^2}{mV}}$$
+   A partir da equação da frequência angular podemos chegar na equação
+   $(\ref{eq:periodo})$, e com isso podemos isolar o $\gamma$, que é o que queremos
+   calcular, então temos
+   #+begin_latex
+   \begin{equation}
+    \boxed{\gamma  = 4 \pi ^2 \frac{mV}{PA^2 T^2}}
+    \label{eq:gammaRuchardt}
+\end{equation}
+   #+end_latex
+
+   
+  #+attr_latex: :width 7cm :height 6cm 
+  #+caption: Montagem experimental do  método de Ruchardt.
+  #+caption: $\\$ Fonte: \cite{livropratica2}
+  [[./imagens/montagem-ruchardt.jpg]]
+** Zero absoluto
+   No sistema ilustrado na figura [[fig:termometro]] o gás está à volume e pressão
+   constante, então, ao entrar em contato com uma fonte de calor, nesse caso,
+   um béquer contendo álguma substância à diferentes temperaturas, com isso a
+   pressão dentro da coluna de mercúrio dentro do barômetro sofre alteração.
+   Essa pressão pode ser cálculada diretamente pela diferença de alturas, pois
+   a pressão em um dos lados do tubo é nula.
+
+   Portanto, mantendo o volume constante, a pressão deve variar linearmente com
+   a temperatura, de acordo com a $(\ref{eq:pressaoZero})$, com isso podemos
+   definir uma reta e a partir das propriedades dela estimar o coeficiente de
+   dilatação $\beta$ do gás. 
+
+   Pelo método dos mínimos quadrados, podemos calcular o coeficiente
+   angular da reta de tendência formada pelos dados coletados no experimento,
+   com isso podemos montar a equação da reta e encontrar o valor de $\beta$.
+
+   Então temos $P_0$ como coeficiente linear e então, para o caso de temperatura
+   zero, temos que
+   #+begin_latex
+  \begin{equation}
+    \boxed{\beta  = \frac{\alpha }{P_0}}
+    \label{eq:beta}
+\end{equation}
+   #+end_latex
+   #+attr_latex: :width 6cm :height 5cm 
+   #+label:fig:termometro
+   #+caption: Montagem do experimento do zero absoluto.
+   #+caption: $\\$ Fonte: \cite{livropratica2}
+   [[./imagens/termometro.jpg]]
+   #+latex:\clearpage
+* Resultados e discussão
+** Método de Clément-Desormes
+   #+caption: Medidas das alturas iniciais e finais $h_1$ e $h_3$ em cm.
+   #+name:tb_h1h3
+   #+attr_latex: :align |c|c|c|c| :placement [h!] :center t
+   |---------------------+----------+----------+----------|
+   | Medida $\pm 0,1 (cm)$ | $1 ^{\circ}$ | $2 ^{\circ}$ | $3 ^{\circ}$ |
+   |---------------------+----------+----------+----------|
+   | $h_1$                | $18,1$   | $16,0$   | $17,6$   |
+   |---------------------+----------+----------+----------|
+   | $h_3$                | $5,7$    | $4$      | $5,1$    |
+   |---------------------+----------+----------+----------|
+   A partir desses valores medidos e aplicando o desvio padrão obtemos o
+   coeficiente de expansão adiabática em torno de  
+   $$ \gamma = 1,40 \pm 0,06 $$
+   o resultado encontrado corresponde ao esperado para o fator $\gamma$ do ar,
+   um valor em torno de $\gamma \approx  1,40$.
+   Todo o gás interno participa do processo completo, pois este obedece à lei
+   $(\ref{eq:pvConstante})$ e então não há perda ou acréscimo no sistema. Para estimar o numero de mols que participam do
+   processo, poderiámos usar a relação $PV = nRT = NKT$ escrevendo em função de $n$
+   $$ n = \frac{PV}{RT} = \frac{NK}{RT}$$
+   no entando, faltam informações para realizar esse cálculo, como as
+   temperaturas que o sistema atinge,volume do recipiente ou mesmo número de moléculas.
+** Método de Ruchardt
+   No experimento temos um tubo (onde a esfera é colocada) de diametro $d =
+   16,0 (mm)$
+   com isso podemos calcular a seção transversal do tubo, a pressão é de $P =
+   691 (mmHg)$,
+   a massa da esfera é de $m = 16,72 (g)$ e o volume do recipiente é de $V =
+   10,400 (mL)$.
+   Após a montagem do sistema foi medido um período de oscilação de $T = (1,2 \pm 0.01) s$
+   Com esses valores em mãos somos capazes de usar a
+   $(\ref{eq:gammaRuchardt}$), e o resultado é 
+
+   $$ \gamma = 1,3 \pm 0,3 $$
+
+   Podemos, então, comparar esse resultado com o obtido a partir do método de
+   Clément-Desormes, fazemos
+   $$ |  1,4 - 1,3 | < 2 \cdot  \left( 0,3 + 0,06 \right) $$
+   e constatamos que as medidas são equivalentes. 
+
+   O método de Clément-Desormes oferece maior confiabilidade que o de Ruchardt,
+   pois neste, a ação humana no desenvolvimento do experimento se dá apenas na pressurização do
+   recipiente, ao contrário do outro método, o qual a medição do período de
+   oscilação é feito visualmente e portanto, pode ocasionar em erros.
+
+   Por fim, podemos verificar que o $\gamma$ cálculado pelo método de
+   Clément-Desormes se aproxima muito do valor esperado para um gás diâtomico,valor fornecidos na apostila $\cite{livropratica2}$
+   
+** Zero absoluto
+   Foi medida a pressão do gás em diferentes cenários,
+   primeiro com o frasco mergulhado em água à temperatura ambiente, depois
+   em gelo em fusão, após isso em nitrogênio líquido e por último
+   em água em ebulição. As medidas disso estão na tabela [[tbl:zeroabs]].
+
+   #+caption: Medidas de temperatura e pressão coletadas no experimento.
+   #+name:tbl:zeroabs 
+   #+attr_latex: :align |c|c|c| :placement [h!] :center t
+   |--------+--------------------------+------------------------|
+   | Medida | Temperatura $\pm 0,1 (^{\circ}C)$ | Pressão $\pm 0,1 (cmHg)$ |
+   |--------+--------------------------+------------------------|
+   |      1 | 24.7                     | 69,2                   |
+   |--------+--------------------------+------------------------|
+   |      2 | 1,0                      | 62,8                   |
+   |--------+--------------------------+------------------------|
+   |      3 | -196.0                   | 17,7                   |
+   |--------+--------------------------+------------------------|
+   |      4 | 97,0                     | 82,3                   |
+   |--------+--------------------------+------------------------|
+
+
+
+   #+attr_latex: :width 8cm :height 10cm :placement [!h]
+   #+caption: Gráfico de pressão em função da temperatura com linha de tendência.
+   [[./regression.pdf]]
+
+   Pelo método dos mínimos quadrados temos que o coeficiente angular
+   deve ser de 
+   $$ \alpha  = 0,223 \pm 0,007 $$
+   e o linear é 
+   $$ P_0 = 62,1 \pm 0,8  (cmHg)$$
+
+   portanto, com essas informações podemos cálcular o coeficiente de dilatação
+   pela $(\ref{eq:beta})$
+
+   $$ \beta  = \frac{0,233}{62,1}  = (0,00359 \pm 0,00012) ^{\circ}C^{-1}$$
+   Esse resultado é próximo do valor esperado, citado na seção ($\ref{section:intro}$)
+   e portanto pode ser considerada uma medida válida e o gás utilizado se
+   comporta como um gás ideal.
+   Além disso, também é então possível extrapolar o valor da
+   temperatura a partir dessa relação linear da reta, escrevendo a função ($\ref{eq:pressaoZero}$)
+   considerando que à temperatura nula, a pressão também deverá ser zero, portanto
+   $$ P(T) = 0 \Rightarrow P_0 \cdot  \beta \cdot  T_0 + P_0 = 0 \Rightarrow \boxed{T_0 = \frac{-1}{\beta }} $$
+   $$ T_0 \approx (-278 \pm 9) ^{\circ}C $$
+
+   Essa estimativa de temperatura do zero absoluto difere um pouco da medida
+   esperada, de $\approx 273,15 K$, no entando, ao levar em consideração o
+   erro associado à essa grandeza, podemos aceita-la como uma boa aproximação.
+
+* Conclusão
+  Na primeira parte da prática foi calculado o fator $\gamma$ dos gases
+  usando os dois métodos, de Clément-Desormes e Ruchardt. Pelo primeiro
+  foi entendido que todo o volume do gás participa do processo e comparando
+  o valor encontrado com o tabelado \cite{livropratica2}, deve se tratar de um
+  gás diatômico.
+  Já na segunda parte, para estimar o zero absoluto foi criado um sistema que
+  permitisse relacionar as grandezas presentes utilizando a
+  ($\ref{eq:pressaoZero}$) e utilizando o método dos mínimos quadrados em
+  conjunto, para traçar a reta encontramos $\beta = (0,00359 \pm 0,00012) ^{\circ}C^{-1}$ e
+  $P_0 = (62,1 \pm 0,8) cmHg$, a partir disso conseguimos fazer o cálculo da
+  temperatura $T_0 = (-278 \pm 9)^{\circ}C$ que é condizente com o esperado, algo
+  próximo do $0K$ ou $-273,15 ^{\circ}C$.
+* Referências 
+  #+begin_latex
+  \nocite{livroPratica2,zero-absoluto, gamma-no-ar}
+  \bibliographystyle{IEEEtran}
+  \printbibliography[heading=none]
+  #+end_latex
+  
+  
+
+
