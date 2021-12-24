@@ -28,6 +28,7 @@
 * [[./Quimica experimental][Química experimental]]
   |-----------+-----------|
   | [[./Quimica experimental/01.pdf][Prática 1]] | [[./Quimica experimental/02.pdf][Prática 2]] |
+  | [[./Quimica experimental/03.pdf][Prática 3]] | [[./Quimica experimental/04.pdf][Prática 4]] |
   |-----------+-----------|
 * [[./References/lab-lib.bib][Referências bibliográficas]]
   Um arquivo =.bib= com todas referências usadas nos relatórios
