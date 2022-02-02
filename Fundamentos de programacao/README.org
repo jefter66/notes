@@ -1,0 +1,12 @@
+#+title: Fundamentos de programação
+
+* Trabalho 1 - [[./trabalho1.org][Variáveis]]
+* Trabalho 2 - [[./trabalho2.org][Estruturas de decisão]]
+* Trabalho 3 - [[./trabalho3.org][Estruturas de repetição]]
+* Trabalho 4 - [[./trabalho4.org][Listas]]
+* Trabalho 5 - [[./trabalho5.org][Matrizes]]
+* Trabalho 6 - [[./trabalho6.org][Tuplas e dicionários]]
+* Trabalho 7 - [[./trabalho7.org][Funções]]
+* Trabalho 8 - [[./trabalho8.org][Recursão]]
+* Trabalho 9 - [[./trabalho9.org][Ordenação]]
+* Trabalho 10 - [[./trabalho10.org][Arquivos]]

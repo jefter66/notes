@@ -24,6 +24,6 @@ dx = 0.1
 do for[i=1:n]{
 plot f2(x,i*dx) ls 1 t "cos(x + ϕ)", f1(x,i*dx) ls 2 t "sin(x + ϕ)"
 }
-reread
+#reread
 
 
