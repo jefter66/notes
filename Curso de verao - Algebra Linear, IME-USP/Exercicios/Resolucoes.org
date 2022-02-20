@@ -109,6 +109,7 @@
   minha solução está correta), então gostaria que esse tipo de prova fosse
   abordado em alguma aula/monitoria.
 
+\newpage
 * Exercicio 7.6 
   #+latex:\begin{shaded}
   Mostre que o conjunto \( V = \{ (x,y) : x,y \in \mathbb{R}\} \) com
@@ -204,10 +205,7 @@
     \[ 1 \odot (x, y) = (x,y) \]
 
 Portanto \( (V, \oplus, -, \odot, 0_V) \) é um espaço vetorial com  e com zero definido como \( 0_V = (-3,0) \) .
-
-- *OBS*: Eu tive uma certa dificuldade com a propriedade *EV7*, não sei se está
-  correta e acho que seria uma boa abordar numa monitoria.
-
+\newpage
 * Exercicio 8.2 
   #+latex:\begin{shaded}
   Seja \( V = M_{2x2}(\mathbb{R}) \) . Considere o conjunto
@@ -280,6 +278,7 @@ Portanto \( (V, \oplus, -, \odot, 0_V) \) é um espaço vetorial com  e com zero
   1 & 0 \\ 0 & 0
   \end{pmatrix} \right \} \) é um conjunto  gerador de U para o caso de \( x =
   -z \) e  \( \forall t \in \mathbb{R} \) .
+\newpage
 * Exercicio 12.3
  #+latex:\begin{shaded}
  Sejam \( (V, \left \langle \cdot  , \cdot   \right \rangle ) \) um espaço vetorial com produto
