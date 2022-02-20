@@ -1,5 +1,5 @@
 #+title: *\Huge{Prática VI}* @@latex:\\ \\@@ \Huge{Processos térmicos em gases}
-#+author: *\Lage{Jefter Santiago Mares}* @@latex:\\@@ n$^{\circ}$:12559016
+#+author: *\Large{Jefter Santiago Mares}* @@latex:\\@@ n$^{\circ}$:12559016
 #+options: toc:2  
 
 #+latex_header: \usepackage{cancel}

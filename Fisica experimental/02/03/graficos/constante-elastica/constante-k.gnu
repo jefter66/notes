@@ -28,4 +28,4 @@ set bars small
 
 #set title "Determinação da constante da mola"
 
-plot "exp1.dat" title "|mg|" pointtype 8, f(x) title "$k|\\Delta x|$" ls 1
+plot "constante-k.dat" title "|mg|" pointtype 8, f(x) title "$k|\\Delta x|$" ls 1

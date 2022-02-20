@@ -1,0 +1,329 @@
+#+title: *\Huge{ Prova 1 }*
+#+setupfile: ~/Dropbox/Templates/mathematics.org
+#+options: toc:nil num:nil date:nil
+#+author: *\Large{ Jefter Santiago Mares }*  @@latex:\\@@ n$^{\circ}$ USP: 12559016
+
+* Questão 1
+#+latex:\begin{shaded}
+Calcule o determinante da matriz 
+\[ A = \begin{pmatrix}
+ 1 & 1 & 0 & 0 \\ 1 & -1 & 1 & 1 \\
+ 1 & 1 & 2 & 1 \\ 0 & 2 & 0 & -1
+\end{pmatrix} \]
+#+latex: \end{shaded}
+
+** Resolução
+   Utilizando o teorema de Laplace, podemos escrever
+   o determinante da matriz \( A \) como
+   \[ \det(A) = 1 \cdot  \det \begin{pmatrix}
+   1 & 1 & 1 \\ 1 & 2 & 1 \\ 2 & 0 & -1
+   \end{pmatrix} - 1 \cdot   \det \begin{pmatrix}
+   1 & 1 & 1 \\ 1 & 2 & 1 \\ 0 & 0 & -1
+   \end{pmatrix} + 0 \cdot  \det \begin{pmatrix}1 & -1 & 1 \\ 1 & 1 & 1 \\ 0
+   & 2 & -1 \end{pmatrix}} + 0 \cdot  \det \begin{pmatrix}
+   1 & -1 & 1 \\ 1 & 1 & 2 \\ 0 & 2 & 0
+   \end{pmatrix}\]
+   \[ \det(A) =  \det \underbrace{\begin{pmatrix}
+   1 & 1 & 1 \\ 1 & 2 & 1 \\ 2 & 0 & -1\end{pmatrix}}_{A_1}- \det \underbrace{\begin{pmatrix}
+   1 & 1 & 1 \\ 1 & 2 & 1 \\ 0 & 0 & -1\end{pmatrix}}_{A_2} \]
+
+   \[ \det(A_1) = 2 \cdot  \det \begin{pmatrix}   1&1\\2&1\end{pmatrix} - 0 \cdot  \det \begin{pmatrix}
+   -1&1\\1&1\end{pmatrix}+ (-1) \cdot  \det \begin{pmatrix}
+   -1&1\\1&2\end{pmatrix} \]
+   \[ \det(A_1) = 2 (1 - 2) - (-2 - 1) \Rightarrow \det(A_1) = 1 \]
+
+   Como os temos dois zeros na ultima linha da matriz \( A_2 \) , pelo
+   teorema de Laplace sabemos que
+   \[ \det(A_2) = - 1 \cdot  \begin{pmatrix} 1&1\\1&2 \end{pmatrix} = - (2-1) \Rightarrow
+   \det(A_2) =  -1 \]
+   Segue que \( \det(A) = \det(A_1) - \det(A_2) \Rightarrow \det(A) = 1 - (-1)\)
+   \[\boxed{ \det(A) = 2} \] 
+\newpage
+* Questão 2
+  #+latex:\begin{shaded}
+  Seja
+  \[ A = \begin{pmatrix}
+  1 & 2 & -5 \\ 4 & 2 & 3 \\ -1 & -8 & 28
+  \end{pmatrix}\]
+
+  1. Resolva o sistema \( Ax = 0 \).
+
+  2. É possível resolver este sistema usando o método de Cramer?
+
+  3. Encontre uma base para o subespaço gerado pelas soluções do sistema \(Ax = 0\).
+  #+latex: \end{shaded}
+
+** Resolução
+   Escrevendo a equação na notação matricial temos
+   \[ \begin{pmatrix}
+   1 & 2 & -5 \\ 4 & 2 & 3 \\ -1 & -8 & 28
+   \end{pmatrix} \cdot  \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}
+   0\\0\\0\end{pmatrix} \Rightarrow \begin{cases}
+   x + 2y - 5z = 0 \\
+   4x + 2y +3z = 0 \\
+   -x-8y + 28z = 0
+   \end{cases} \overset{\begin{align} L_2 \leftarrow L_2 - 4L_1 \\ L_3 \leftarrow
+   L_3 + L_1 \end{align}}{\sim} \begin{cases}
+   x + 2y - 5z = 0 \\ -6y +23z = 0 \\ -6y + 23z=0
+   \end{cases} \]
+
+   Esse sistema é equivalente a \[ \begin{cases}
+   x + 2y - 5z = 0 \\
+   y = \frac{23}{6}z
+   \end{cases} \]
+   e substituindo \( y \) na \( L_1 \) para encontrar o \( x \)
+   \[ x + 2 \cdot  \frac{23}{6}z - 5z = 0 \Rightarrow x = \frac{-8}{3}z \]
+ *(1)* :   O conjunto solução desse sistema, em função de \( z \) é \[ S =
+   \bigg\{\left(\frac{-8}{3}z,\frac{23}{6}z,z\right)\bigg\} \]
+   
+   
+ *(2)*: O método de Cramer é definido para sistemas possíveis e determinados,
+ pelo conjunto solução \( S \) fica evidente que o sistema em questão é
+ possível e indeterminado, portanto o método de Cramer não pode ser usado.
+
+*(3)*:  Podemos escrever a solução do sistema como \( z \cdot  \left( \frac{-8}{3},
+ \frac{23}{6}, 1 \right) \) e disso temos uma base
+ tal que \[ B = \bigg\{ \left( \frac{-8}{3}, \frac{23}{6}, 1 \right) \bigg\} \] 
+
+ *Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+
+\newpage
+* Questão 3
+ #+latex:\begin{shaded}
+  Seja
+  \[ B =  \begin{pmatrix}
+  1 & 2 & -5 \\ 1 & -1 & 3 \\ 1 & -1 & 0
+  \end{pmatrix}\]
+
+  1. Resolva o sistema \( Bx = 0 \).
+
+  2. É possível resolver este sistema usando o método de Cramer?
+
+  3. Encontre uma base para o subespaço gerado pelas soluções do sistema \(Bx = 0\).
+ #+latex: \end{shaded}
+
+*(1)* Escrevendo a equação com a matriz dos coeficientes
+\[ \begin{pmatrix}
+  1 & 2 & -5 \\ 1 & -1 & 3 \\ 1 & -1 & 0
+\end{pmatrix} \cdot  \begin{pmatrix}
+x\\y\\z\end{pmatrix} = \begin{pmatrix}
+0\\0\\0
+\end{pmatrix} \Rightarrow \begin{cases}
+x + 2y - 5z = 0 \\ x - y + 3z = 0 \\ x - y = 0 
+\end{cases} \Rightarrow \begin{align}
+0 + 3z = 0 \Rightarrow \boxed{z = 0} \\
+x + 2y - 5z = 0  \\
+3x = 0  \\
+\boxed{x = y = 0}
+\end{align}\]
+*(2)* Como o sistema é homogêneo pode ser resolvido pelo método de Cramer, é o
+caso trivial. Como a solução do sistema já foi feita, mostrarei apenas que a
+matriz \( B \) é invertivel.
+\[ B \cdot   B^{-1} = In \]
+
+\[ \begin{pmatrix}
+1 & 2 & -5 \\ 1 & -1 & 3 \\ 1 & -1 & 0 
+\end{pmatrix} \cdot \begin{pmatrix}
+a & b & c \\ d & e & f \\ g & h & i
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{pmatrix} \Rightarrow \begin{pmatrix}
+a+2d-5g & b + 2e-5h & c + 2f - 5i\\
+a-d+3g & b-e+3h & c-f+3i \\
+a-d & b-e & c-f
+\end{pmatrix} = \begin{pmatrix}
+1&0&0\\0&1&0\\0&0&1
+\end{pmatrix}\]
+\[ \begin{cases}
+a+2d-5g= 1 \\
+a-d+3g= 0 \\
+a-d=0 \\
+b+2e-5h=0 \\
+b-e+3h=1 \\
+b-e= 0 \\
+c+2f-5i=0\\
+c-f+3i=0\\
+c-f=1
+\end{cases} \Rightarrow \begin{align} 3g = 0 \rightarrow g = 0 \\ a+2d=1 \rightarrow 3a = 1 \Rightarrow a = d =
+\frac{1}{3} \\
+3 h = 1 \rightarrow h = \frac{1}{3} \\
+b = e \rightarrow 3e = 5h \Rightarrow e = b = \frac{5}{9} \\
+c-f + 3i = 0 \rightarrow 1 + 3i = 0 \Rightarrow i = \frac{-1}{3} \\
+c = 1 + f \rightarrow 1 + f + 2f - 5i = 0 \rightarrow f = 5i - 1 \Rightarrow f = \frac{-8}{9} \\
+c = 1 + f \Rightarrow c = \frac{1}{9}
+\end{align}
+\]
+
+\[ B^{-1} = \begin{pmatrix}
+1/3& 5/9 & 1/9 \\
+1/3& 5/9& -8/3\\
+0 & 1/3 & - 1/3
+\end{pmatrix} \Rightarrow  X = \begin{pmatrix}x\\y\\z\end{pmatrix} =  B^{-1} \cdot \begin{pmatrix}0 \\ 0
+\\ 0\end{pmatrix} = \begin{pmatrix}0 \\ 0 \\ 0\end{pmatrix} \]
+
+*(3)* Esse sistema só aceita a base do tipo \( B = \{(0,0,0)\} \) .
+
+   
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+
+
+\newpage
+* Questão 4
+  #+latex:\begin{shaded}
+  Considere o conjunto
+  \[ \mathcal{F}([0,1], \mathbb{R}) : \{ f : [0:,1] \rightarrow \mathbb{R}\} \]
+  com as operações de soma e produto por escalar definidas para \(f, g \in
+  \mathcal{F}([0, 1], \mathbb{R})}\) e \( \lambda \in \mathbb{R}\) pelas regras:
+  \[ (f + g)(x) := f(x) + g(x) \text{ e } (\lambda f)(x) := \lambda f(x) \]
+  Mostre que
+
+  1. \( \mathcal{F}([0,1], \mathbb{R}) \) é um espaço vetorial;
+
+  2. \( \mathcal{F}([0, 1], \mathbb{R})\) não tem dimensão finita.
+  #+latex: \end{shaded}
+
+** Resolução 1
+
+   - *Comutatividade*: Dados \( f,g,h \in \mathcal{F}([0,1], \mathbb{R}) \) vamos
+     mostrar que \( \underbrace{(f + g)(x) + h(x)}_{\in \mathcal{F}} =
+     \underbrace{(g+h)(x) + f(x)}_{\in \mathcal{F}} \), a soma foi  
+     fornecida e como \( \mathcal{F}([0,1], \mathbb{R})\) tem imagem nos reais
+     então podemos equivalência é válida \( \forall x \in [0,1] \) 
+
+   - *Associatividade*: Dados \( f,g \in \mathcal{F}([0,1], \mathbb{R}) \)
+     quero mostrar que \( f + g = g + f \). Como \( f, g \) estão definidas
+     em \( \mathcal{F}([0,1], \mathbb{R}) \) podemos usar a operação de soma
+     dada e escrever \( (f+g)(x) = f(x) + g(x) = g(x) + f(x) = (g+f)(x), \forall x \in [0,1] \) 
+
+   - *Função nula*: Definimos a função nula como \( 0_{\mathcal{F}}(x) := 0, \forall x \in [0,1] \).
+   - *Função oposta*: Sejam \( f, g \in \mathcal{F}([0,1], \mathbb{R}) \),
+     mostramos que existe uma função tal que \( f + g = 0_{\mathcal{F}} \), usando
+     a definição da soma podemos escrever \( f = 0_{\mathcal{F}} - g \) e
+     substituindo o vetor nulo temos que \( f = -g \Rightarrow  g = -f \) função oposta
+     de \( f \in \mathcal{F}([0,1], \mathbb{R}) \) .
+
+   - *Associatividade do produto*: Sejam \( \alpha , \beta \in \mathbb{R} \) e \( f \in
+     \mathcal{F}([0,1], \mathbb{R}) \) . Queremos
+     provar que \( (\alpha \beta) \cdot  f = \alpha \cdot  (\beta f)  \). Com definição do produto por
+     escalar podemos escrever \( \alpha \cdot  \beta = \lambda  \) e por propriedades de \(
+     \mathbb{R} \) podemos escrever \( \alpha \cdot  (\beta f) = \alpha \cdot  \beta \cdot  f \) então
+     \( \lambda  f = \alpha \cdot  \beta \cdot  f \) .
+     
+   - *Distributividade*: Sejam \( \alpha \in \mathbb{R} \text{ e } f,g \in
+     \mathcal{F}([0,1], \mathbb{R}) \) queremos provar que
+     \( \alpha (f + g) = \alpha  f + \alpha g \), pela definição da soma fornecida, podemos
+     tratar a função como parte de \( \mathbb{R} \) assim podemos escrever a
+     distributividade dessa forma.
+   - *Elemento neutro da multiplicação*: Quero provar que \( 1 \cdot  f(x) = f(x)
+     \), como essa função
+     está definida no conjunto dos reais, o produto por \( 1 \) está definido
+     como o próprio número, como queriamos provar.
+
+
+   Portanto, \( \mathcal{F}([0,1], \mathbb{R})\) tem todas operações definidas e
+   é então, um espaço vetorial. 
+      
+#+latex: \vspace{0.5in}
+   
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+
+\newpage
+* Questão 10 
+  #+latex:\begin{shaded}
+  Discuta e resolva os sistemas lineares em função do parâmetro \( a \in \mathbb{R} \).
+  \[ \begin{cases}
+  x + y -  az = 0 \\
+  ax + y - z = 2 - a \\
+  x + ay - z = -a
+  \end{cases} \]
+  #+latex: \end{shaded}  
+** Resolução
+   \[\begin{cases}
+   x + y -  az = 0 \\
+   ax + y - z = 2 - a \\
+   x + ay - z = -a
+   \end{cases}
+   \overset{\begin{align}
+   L_2 \leftarrow L_2 - aL_1 \\
+   L_3 \leftarrow L_3 - L_1
+   \end{align}}{\sim}
+   \begin{cases}
+   x + y - az = 0 \\
+   y - ay + a^2 z  - z = 2 - a \\
+   -y + ay + az - z = -a
+   \end{cases}\]
+
+   Fazendo \( L_2 \leftarrow  L_2 + L_3 \) temos
+   \[ a^2 z + az - 2z = 2 - 2a \Rightarrow z(a^2 + a - 2) = 2(1-a) \Rightarrow z = \frac{2(1-a)}{a^2 +
+   a -2} \]
+   Fatorando o denominador podemos escrever \( a^2 + a - 2 = (a-1)(a+2) \) e
+   como queremos simplificar a fração, façamos \( (a-1) = -(1-a) \), então
+   \[ z = \frac{2\cancel{(1-a)}}{-\cancel{(1-a)}(a+2)} \Rightarrow \boxed{ z = \frac{-2}{a+2}} \]
+   O sistema fica
+   \[ \begin{cases}
+   x + y - az = 0 \\
+   y - ay + a^2 z - z = 2 - a \\
+   z = \frac{-2}{a+2}
+   \end{cases} \]
+
+   Resolvendo para $y$: \( y -ay + a² z -  z = 2-a \Rightarrow y(1-a) + z(a^2 - 1) = 2
+   -a  \) 
+   \[ y = \frac{(2-a)-z(a^2 - 1)}{1-a}= \frac{(2-a)+ \frac{2}{2+a}(a^2 - 1)}{1-a}
+   = \frac{\frac{(2-a)(a+2)+2(a^2 -1)}{a+2}}{1-a} \Rightarrow \boxed{z = \frac{a^2 + 2}{(a+2)(1-a)}} \]
+   Com isso podemos resolver para \( x \) usando a equação da $L_1$: \( x+y-az =
+   0 \Rightarrowx = az - y\) 
+   \[ x = \frac{-2a}{a+2} - \frac{a^2 + 2}{(a+2)(1-a)} = \frac{-2a(1-a)-(a^2
+   +2)}{(a+2)(1-a)} = \frac{-2a + 2a^2 -a^2 - 2}{(a+2)(1-a)} \Rightarrow\boxed{x = \frac{a^2-2a-2}{(a+2)(1-a)}} \]
+   Assim, temos a solução do sistema em função do parâmetro \( a \) .
+   #+latex:\begin{shaded}
+   \[ S = \bigg\{ \left( \frac{a^2 - 2a - 2}{(a+2)(1-a)}, \frac{a^2 +
+   2}{(a+2)(1-a)},\frac{-2}{a+2} \right) : a \in \mathbb{R} | a \neq 1
+   \text{ e } a \neq -2\bigg\}  \]
+   #+begin_center
+   O sistema é possível e indeterminado para \( \forall a \in \mathbb{R} \) tal que \(
+   a \neq 1  \) e \( a \neq -2 \)  
+   #+end_center
+   #+latex: \end{shaded}
+      
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+
+*** Checando se a solução é válida
+    - Com \( a = 1 \) 
+      \[ \begin{cases}
+      x + y - z = 0 \\
+      x + y - z = 1 \\
+      x + y - z = -1
+      \end{cases} \Rightarrow\text{ Sistema incompátivel.}\]
+      Logo, \( a = 1 \)  torna o sistema incompátivel.
+    - Com \( a = -2 \) 
+      \[ \begin{cases}
+      x + y + 2z = 0 \\
+      -2x + y - z = 4 \\
+      x - 2y - z = 2
+      \end{cases} \overset{\begin{align}L_2 \leftarrow  L_2 + 2L_1 \\ L_3
+      \leftarrow L_3 - L_1 \end{align}}{\sim} \begin{cases}
+      x + y + 2z 0 \\
+      3y - 3z = 4 \\
+      -3y - 3z = 0
+     \end{cases}\]
+     Assim temos \( y = -z \) e substituindo na \( L_2 \) encontramos
+     \( z = -\frac{2}{3} \), \( y = \frac{2}{3} \) e pela \( L_1 \) temos \( x=-
+      \frac{8}{3}\) , com esses resultados e considerando
+      que \( a=-2 \)  podemos checar essa equivalência fazendo
+      \[ x + y - az = 0 \Rightarrow x + y = az \Rightarrow a = \frac{x + y}{z} \]
+      \[ -2 \overset{?}{=} \frac{-\frac{8}{3} + \frac{2}{3}}{-\frac{2}{3}}  \]
+      \[ -2 \neq 3 \]
+      Portanto, \( a = -2 \) torna o sistema incompátivel.
+
+      
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*

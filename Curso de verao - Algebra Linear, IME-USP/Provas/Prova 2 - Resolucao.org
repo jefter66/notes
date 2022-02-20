@@ -1,0 +1,373 @@
+#+title: Prova 2 - Resolução
+#+options: toc:nil num:nil
+#+setupfile: ~/Dropbox/Templates/mathematics.org
+
+* Transformações Lineares
+** Questão 01
+   #+latex:\begin{shaded}
+   Seja \( V \) um espaço vetorial e sejam \( S,T \in L(V) \) . Mostre que
+   \[ T(Nuc(S \circ T)) = Nuc(S) \cap Im(T) \]
+   #+latex: \end{shaded}
+
+   Seja \( S \in L(V) \), por definição, \( Nuc(S) = \{ 0  \} \) e
+   \( (S \circ T)(v) = S(T(v)) \Rightarrow  Nuc(S) = \{ v \in V : S(T(v)) = 0\} \).
+
+   Seja \( T[V] \) a imagem de \( T \) , temos que \( S(v) = T(v) \)
+   se e só se \( v = 0 \) , logo \( Nuc(S) \cap T[V] = \{ 0 \} \),
+   então vale que
+   \( T(Nuc(S \circ T)) = Nuc(S) \cap T[V] \) 
+** Questão 02
+   #+latex:\begin{shaded}
+   Encontre uma transformação linear \( T : \mathbb{R}^3  \mapsto \mathbb{R}^3 \)
+   e bases \( B,C \in \mathbb{R}^3 \) tais que \( A = _C[T]_B \) para a matriz
+   \[ A = \begin{pmatrix}
+   1 & 1 & 1 \\ 0 & 1 & -2 \\ 1 & 1 & 3
+   \end{pmatrix} \]
+   #+latex: \end{shaded}
+
+   Fazendo \( B = \{v_1, v_2, v_3\} \) e \( C = \{ u_1, u_2, u_3 \} \), construímos
+   uma matriz de transformação linear
+
+   \[ T(v_1) = 1 \cdot  u_1 + 1 \cdot u_2 + 1 \cdot  u_3 = 1 \cdot  (a_1, b_1, c_1) + 1 \cdot  (a_2, b_2,
+   c_2) + 1 \cdot  (a_3, b_3, c_3) = (a_1 + a_2 + a_3, b_1 + b_2 + b_3, c_1 + c_2 + c_3)\]
+   \[ T(v_2) = 0 \cdot  u_1 + 1 \cdot  u_2 - 2 \cdot  u_3 = (a_2, b_2, c_2) - 2 \cdot  (a_3, b_3, c_3)  =
+   (a_2 - 2a_3, , b_1 - 2b_3, c_1 - 2c_3)\]
+   \[ T(v_3) = 1 \cdot  u_1 + 1 \cdot  u_2 + 3 \cdot  u_3 = (a_1, b_1, c_1) + (a_2, b_2, c_2) + 3 \cdot
+   (a_3, b_3, c_3) = (a_1 + a_2 + 3a_3, b_1 + b_2 + 3b_3, c_1 + c_2 + 3c_3) \]
+
+   Logo, \( \forall v \in \mathbb{R}^3 \) temos \( v = \alpha \cdot  v_1 + \beta \cdot  v_2 + \gamma \cdot  v_3 \) ,
+   onde \( v = (x,y,z) \), fazendo então
+   \[ T(x,y,z) = T( \alpha \cdot  v_1 + \beta \cdot  v_2 + \gamma \cdot  v_3) = \alpha \cdot  T(v_1) + \beta \cdot  T(v_2) + \gamma
+   \cdot  T(v_3) \] 
+   \[ T(x,y,z) = \alpha \cdot  (a_1 + a_2 + a_3, b_1 + b_2 + b_3) + \beta \cdot  (a_2 - 2a_3, b_2 - 2b_3,
+   c_2 - 2c_3 ) + \gamma \cdot  (a_1 + a_2 + 3a_3, b_1 + b_2 + 3b_3, c_1 + c_2 + 3c_3) \]
+* Produto interno
+** Questão 5
+   #+latex:\begin{shaded}
+   Seja \( V \) um espaço euclidiano. Mostre que vale a *lei do paralelogramo*
+   \[ || u + v ||^2 + ||u-v||^2  = 2||u||^2 + 2||v||^2, \forall u,v \in V \]
+   #+latex: \end{shaded}
+
+   Primeiramente, vamos expandir os termos \( ||u+v||^2  \) e \( ||u-v||^2 \)
+   - \( ||u + v ||^2  \)
+     \[ ||u + v ||^2  =  \left \langle u + v, u+v \right \rangle = \left \langle u,u \right \rangle + \left \langle u,v \right
+     \rangle + \left \langle v,u \right \rangle + \left \langle v,v \right \rangle  \]
+     como \( \left \langle u,v \right \rangle = \left \langle v,u \right \rangle  \) , escrevemos
+     \[ ||u + v ||^2 = \left \langle u,u \right \rangle + 2 \left \langle u,v \right \rangle  + \left \langle v,v \right \rangle   \]
+     \[ ||u+v||^2 = ||u||^2 + 2||u|| \cdot  ||v|| + ||v||^2 \]
+
+   - \( ||u-v||^2 \) 
+
+     \[ ||u-v||^2 = \left \langle u-v,u-v \right \rangle = \left \langle u,u \right \rangle + \left \langle
+     u,-v \right \rangle + \left \langle -v,u \right \rangle + \left \langle -v,-v \right \rangle   \]
+     \[||u-v||^2 = ||u||^2 + 2||u|| \cdot  ||-v|| + ||-v||^2  \]
+
+     Temos que \( ||-v||^2 \geq 0 \), podemos então escreve-lo como \( ||v||^2
+     \), então
+     \[ ||u-v||^2 = ||u||^2 + 2 ||u|| \cdot  ||-v|| + ||v||^2 \]
+
+  Somando as duas expressões temos
+  \[ ||u+v||^2 + ||u-v||^2 = ||u||^2 + 2||u|| \cdot  ||v|| + ||v||^2 + ||u||^2 + 2||u||
+  \cdot  ||-v|| + ||v||^2 \]
+  \[ ||u+v||^2 + ||u-v||^2 = 2||u||^2 + 2||v||^2 + 2||u|| \cdot  ||v|| + 2 ||u|| \cdot  ||-v|| \]
+
+  Fazendo \( 2 \left \langle u,v \right \rangle + 2 \left \langle u,-v \right \rangle  = 2 \left( \left
+  \langle u,v \right \rangle + \left \langle u,-v \right \rangle  \right)  =  2 \left \langle 2u, 0 \right \rangle
+  = 0   \) ,
+  então
+  \[ ||u + v||^2 + ||u-v||^2 = 2||u||^2 + 2||v||^2 , \forall u,v \in V \].
+
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+** Questão 6
+   #+latex:\begin{shaded}
+   Para \( p,q \in \mathbb{R}_2[x]  \) , defina
+   \[ \left \langle p,q \right \rangle := p(-1)q(-1) + p(0)q(0) + p(1)q(1) \]
+   - Mostre que \( \left \langle p,q \right \rangle  \) é um produto interno em \( \mathbb{R}_2[x] \)
+   - Encontre uma base ortonormal de \( \mathbb{R}_2[x] \) com relação a este produto interno.
+   #+latex: \end{shaded}
+
+
+   Primeiramente consideramos polinômios genericos em \( \mathbb{R}_2[x] \) e
+   podemos assim escrever a definição de produto interno dada em termos dos
+   coeficientes de um polinômio. Então sejam \( f,v \in \mathbb{R}_2[x] \) , com
+   \( f = a_2 x^2 + a_1 x + a_0 \)  e \( g = b_2 x^2 + b_1 x + b_0 \), pela definição
+   então, calculamos
+   \[ f(-1)g(-1) = (a_2 - a_1 + a_0) \cdot  (b_2 - b_1 + b_0)  \]
+   \[ f(0)g(0) = (a_0) \cdot  (b_0) = a_0 \cdot  b_0 \]
+   \[ f(1)g(1) = (a_2 + a_1 + a_0) \cdot  (b_2 + b_1 + b_0)  \]
+   Então
+   \[ f(-1)g(-1) + f(0)+g(0)+f(1)g(1) = 2a_2 b_2 + 2a_2 b_0 + 2a_1 b_0 + 2a_0 b_2 + 3a_0
+   b_0\]
+   \[ \boxed{ \left \langle f,g \right \rangle := 2a_2 b_2 + 2a_2 b_0 + 2a_1 b_0 + 2a_0 b_2 + 3a_0
+   b_0 } \]
+   Partindo desta definição podemos provar as propriedades de um produto
+   interno, então sejam \( u,v,w \in \mathbb{R}_2[x] \), com \( u = x^2 + 1 , w = x+3 \) e \( v =
+   3x^2 + x -1 \) 
+
+   - \( \left \langle u+v, w \right \rangle = \left \langle u,w \right \rangle + \left \langle v,w \right \rangle  \)  
+
+     Primeiro fazemos o cálculo do lado esquerdo da equação.
+
+     \[ \left \langle u+v, w \right \rangle = \left \langle x^2 + 1 + 3x^2 + x - 1 , x+3 \right \rangle =
+     \left \langle 4x^2 + x, x+3  \right \rangle \]
+     \[ \left \langle u+v,w \right \rangle = \left( 4(-1)^2 + (-1) \right)\cdot  (-1 + 3) +
+     \left( 4(0)^2 + (0) \right)\cdot  (0 + 3) + \left( 4(1)^2 + (1) \right)(1 + 3) \]
+     \[ \left \langle u+v, w \right \rangle = 6 + 0 + 20 = 26 \]
+
+     Agora o lado direito.
+     
+     \[\left \langle u,w \right \rangle = \left( (-1)^2 + 1 \right)\cdot  (-1+3) + \left( (0)^2 + 1 \right)\cdot  (0+3) +
+    \left( (1)^2 + 1 \right)\cdot  (1+3) \]
+      \[\left \langle u,w \right \rangle = 4 + 3 + 8 = 15 \]
+
+     \[ \left \langle v,w \right \rangle =  \left( 3(-1)^2 + (-1) -1)
+    \right)\cdot  (-1+3) + \left( 3(0)^2 + (0) - 1 \right)\cdot  (0+3) + \left( 3(1)^2 +
+    (1) - 1\right)\cdot  (1+3)  \]
+      \[ \left \langle v,w \right \rangle = 2 -3 + 12 = 11 \]
+      Então \( \left \langle u,w \right \rangle + \left \langle v,w \right \rangle = 15 + 11 = 26 \),
+      portanto a propriedade é válida e \( \left \langle u+v,w \right \rangle = \left \langle u,w
+    \right \rangle + \left \langle v,w \right \rangle  \) .
+
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+
+    
+   - \( \left \langle \lambda u, w \right \rangle  = \lambda \left \langle u,w \right \rangle , \lambda \in \mathbb{R} \) 
+     Primeiro o lado esquerdo da equação \( \left \langle \lambda u, w \right \rangle = \left \langle \lambda (x^2 + 1, x+ 3  \right \rangle   \) 
+     \[ \left \langle \lambda u,w  \right \rangle  = \left[ \lambda (-1)^2 + 1 \right]\cdot  (-1 + 3) +
+     \left[ \lambda (0) + 1 \right]\cdot  (0 + 3) + \left[ \lambda (1) + 1 \right]\cdot  (1+3) \]
+     \[ \left \langle \lambda u, w \right \rangle  = 2(\lambda +1) + 3 + 4(\lambda +1) = 6 \lambda + 12 \]
+     \[ \left \langle \lambda u, w \right \rangle = 6 \lambda  + 12 \]
+
+     Agora o lado direito \( \lambda \left \langle u,w \right \rangle  = \lambda \cdot \bigg\{ \left[
+     (-1)^2 + 1\right]\cdot  (-1 + 3) + \left[ (0)^2 + 1 \right]\cdot  (0+3) + \left[
+     (1)^2 + 1 \right]\cdot  (1+3) \bigg\}\) 
+     \[ \lambda \left \langle u,w \right \rangle = \lambda \left( 4 + 3 + 8 \right) = 15 \lambda  \]
+     \[ \lambda \left \langle u,w \right \rangle \overset{?}{=}  \left \langle \lambda u, w \right \rangle \Leftrightarrow 15 \lambda =
+     6 \lambda  + 12 \Rightarrow 9 \lambda  = 12 \Rightarrow \lambda  = \frac{4}{3}\]
+     Portanto, para \( \lambda = \frac{4}{3} \) , \( \lambda \left \langle u,w \right \rangle = \left \langle
+     \lambda u , w \right \rangle  \) 
+   - \( \left \langle u,u\right \rangle \geq 0   \) 
+    \[ \left \langle u,u \right \rangle  = \left[ (-1)^2 + 1 \right] \cdot  \left[ (-1)^2 + 1
+     \right]  + \left[ (0)^2 + 1 \right] \cdot  \left[ (0)^2 + 1 \right] + \left[
+     (1)^2 + 1  \right] \cdot  \left[ (1)^2 + 1  \right]  \]
+     \[ \left \langle u,u \right \rangle = 9 > 0  \]
+     e \( \left \langle u,u \right \rangle = 0 \Leftrightarrow u = 0  \) (polinômio nulo)
+
+     Portanto a definição \( \left \langle p,q \right \rangle := p(-1)q(-1) + p(0)q(0) +
+     p(1)q(1) \)
+     é um produto interno.     
+
+     
+   Agora quero uma *base ortonormal* de \( \mathbb{R}_2[x] \) em relação à este
+   produto interno.
+
+   Sejam \( (v_1, v_2, v_3 ) = (1, 1+x, x+x^2)\) , polinômios com o produto interno
+   definido e sejam \( (w_1, w_2, w_3) \) uma base ortogonal. então pelo processo
+   de Gram-Schmidt podemos encontrar uma base ortonormal, portanto
+
+   \[ w_1 = v_1  = 1\]
+   \[ w_2 = v_2 - \frac{ \left \langle v_2, v_1 \right \rangle  }{||v_1||} \cdot  v_1 = (1+x) -
+   \frac{ \left \langle 1+x, 1 \right \rangle  }{\sqrt{1 \cdot  1 + 1 \cdot  1 + 1 \cdot  1}} = (1+x) -
+   \frac{(1-1)(1) + (1-0)(1) + (1+1)(1)}{\sqrt{3}} \cdot  1\]
+
+   \[ w_2 =  x - \sqrt{3} + 1 \]
+
+
+   
+   \[ w_3 = v_3 - \frac{ \left \langle v_3, v_2 \right \rangle  }{||v_2||} \cdot  v_2 = (x+x^2) -
+   \frac{ \left \langle x + x^2, 1 + x \right \rangle  }{\sqrt{(1-1)(1-1) + (1+0)(1+0) +
+   (1+1)(1+1)}} \cdot  (1 + x) \]
+   \[ w_3  = (x + x^2) - \frac{ (-1 + (-1)^2)(1-1) + (0 + 0^2)(1-0) + (1 + 1^2) (1+1) }{\sqrt{5}}\cdot (1+x) \]
+
+   \[ w_3 = (x+x^2) - \frac{4}{\sqrt{5}} \cdot  (1 + x) = x^2 + x -
+   \frac{4}{5}\sqrt{5} \cdot  (1+x) \]
+
+
+   Logo, uma base ortonormal em relação ao produto interno \( \left \langle p,q
+   \right \rangle := p(-1)q(-1) + p(0)q(0) + p(1)q(1) \) 
+   é \( \{ w_1, w_2, w_3 \} = \bigg\{ 1, x - \sqrt{3} + 1, x^2 + x - \frac{4}{5}\sqrt{5}(1+x)\bigg\} \) .
+   
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+** Questão 9
+   #+latex:\begin{shaded}
+   Use o processo de Gram-Schmidt para encontrar uma base ortogonal para o
+   subespaço \( W \subseteq \mathbb{R}^4  \) dado por
+   \[ W = \left \langle (1,0,0,1), (1,1,0,0), (1,2,0,1) \right \rangle  \]
+   Na sequência, calcule \( proj_w (2,-1,-1,0) \) .
+   #+latex: \end{shaded}
+
+   Sejam \( v_1, v_2, v_3 \in W \) com \( v_1 = (1,0,0,1), v_2 = (1,1,0,0) \) e \(
+   v_3 = (1,2,0,1) \) 
+   e seja a base \( B = \{ e_1, e_2, e_3 \} \). Pelo método de Gram-Schmidt
+   \[ e_1 = v_1 = (1,0,0,1) \]
+   \[ e_2 = v_2 - \frac{ \left \langle v_2, e_1 \right \rangle  }{||e_1||^2} \cdot  e_1 \]
+   \[ e_3 = v_3 - \frac{ \left \langle v_3, e_2 \right \rangle  }{||e_2||^2} \cdot  e_2 \]
+   \[ e_2 = (1,1,0,0) - \frac{ \left \langle (1,1,0,0), (1,0,0,1) \right \rangle  }{ \left \langle
+   (1,0,0,1),(1,0,0,1) \right \rangle  } \cdot  (1,0,0,1) = \left( \frac{1}{2}, 1, 0 , - \frac{1}{2} \right) \]
+   \[ e_3 = (1,2,0,1) - \frac{ \left \langle (1,2,0,1), (\frac{1}{2},1,0, -
+   \frac{1}{2}) \right \rangle  }{ \left \langle (1,2,0,1), (1,2,0,1) \right \rangle  }\cdot
+   (1,2,0,1) = \left( \frac{2}{3}, \frac{4}{3}, 0, \frac{2}{3} \right) \]
+
+   Logo, \( B = \{ e_1, e_2, e_3\} = \bigg\{ (1,0,0,1), \left( \frac{1}{2}, 1,0, -
+   \frac{1}{2}\right), \left( \frac{2}{3}, \frac{4}{3}, 0 ,\frac{2}{3} \right)\bigg\} \) 
+
+
+   Quero calcular  \( proj_w (u,B) \) , para \( u = (2,-1,-1,0) \),
+   por definição \( proj_w (u,B) = \sum_{i=1}^{n} \frac{ \left \langle u,e_i \right \rangle  }{
+   \left \langle e_i, e_i \right \rangle  } \cdot  e_i \) com \( n = \dim(B) \), então
+
+   \[ proj_w(u,B) = \frac{ \left \langle u, e_1 \right \rangle  }{||e_1||} \cdot   e_1 + \frac{
+   \left \langle u, e_2 \right \rangle  }{||e_2||} \cdot   e_2  + \frac{ \left \langle u, e_3 \right \rangle  }{||e_3||} \cdot   e_3  \]
+   \[\begin{align}  proj_w(u, B) = \frac{ \left \langle (2,-1,-1,0), (1,0,0,1) \right \rangle}{
+   <(1,0,0,1),(1,0,0,1)> } \cdot  (1,0,0,1) +  \\ \frac{ \left \langle (2,-1,-1,0),
+   (\frac{1}{2}, 1, 0, - \frac{1}{2}) \right \rangle  }{ \left \langle (\frac{1}{2},1,0, -
+   \frac{1}{2}), (\frac{1}{2},1,0, - \frac{1}{2})  \right \rangle  } \cdot  \left(\frac{1}{2},
+   1, 0, - \frac{1}{2}\right) + \\  \frac{ \left \langle  (2,-1,-1,0), \left(
+   \frac{2}{3},\frac{4}{3}, 0 , \frac{2}{3} \right)  \right \rangle }{ \left \langle  \left( \frac{2}{3},
+   \frac{4}{3}, 0 , \frac{2}{3} \right),\left( \frac{2}{3},\frac{4}{3}, 0 ,
+   \frac{2}{3} \right) \right \rangle } \cdot  \left( \frac{2}{3},
+   \frac{4}{3}, 0 , \frac{2}{3} \right)\end{align}\]
+
+   \[ proj_w (u,B) = (1,0,0,1) + (0,0,0,0) + (0,0,0,0) \]
+
+   \[ proj_w(u,B) = (1,0,0,1) \]
+
+
+
+\vspace{\fill}
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+
+* Diagonalização  
+** Questão 12
+   #+latex:\begin{shaded}
+   Seja
+   \[ A = \begin{pmatrix}
+   1 & 2 \\ 3 & 4
+   \end{pmatrix} \]
+   Para \( n \in \mathbb{Z}\), encontre uma fórmula para \( A^n \)
+   #+latex: \end{shaded}
+   
+   Primeiramente checamos se a matriz é diagonalizável, fazendo
+   \[ PA(\lambda) = \det(\lambda I - A) = \det \begin{pmatrix} \lambda  - 1 & -2 \\ -3 & \lambda - 4
+   \end{pmatrix} = (\lambda - 1)(\lambda -4) - (-2)(-3) = (\lambda^2 - 5 \lambda + 4) - 5\]
+   \[ \lambda^2 - 5 \lambda - 1 = 0 \rightarrow \Delta = (-5)^2 - 4(1)(-1) = 29 \Rightarrow \Delta > 0 \text{ A matriz é diagonalizável.}\]
+   \[ \lambda = \frac{5 \pm \sqrt{29} }{2} \Rightarrow \lambda_1 = \frac{5+\sqrt{29}}{2}, \lambda _2 = \frac{5-\sqrt{29}}{2}\]
+   Com isso podemos calcular os autovetores fazendo \( \lambda I - A = 0  \)
+   e assim chegmaos à \( A = P \cdot  D \cdot  P^{-1} \) onde \( D = \begin{pmatrix}
+   \lambda _1 & 0 \\ 0 & \lambda _2
+   \end{pmatrix} = \begin{pmatrix}
+   \frac{5 + \sqrt{29}}{2} & 0 \\ 0 & \frac{5 - \sqrt{29}}{2}
+   \end{pmatrix}\) e \( P = \begin{pmatrix}   v_1 \\ v_2  \end{pmatrix} = \begin{pmatrix}
+   x_1 & x_2 \\ y_1 & y_2
+   \end{pmatrix}\) ,
+   \[ A^n = P \cdot  D^{n} \cdot  P^{-1}, \forall n \in \mathbb{Z}\]
+   onde \( D^n = \begin{pmatrix}
+   \left(\frac{5 + \sqrt{29}}{2}\right)^n & 0 \\
+   0 &  \left( \frac{5 - \sqrt{29}}{2} \right)^n
+   \end{pmatrix} \) 
+
+\vspace{\fill}
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+** Questão 13
+   #+latex:\begin{shaded}
+   Decida se cada uma das seguintes matrizes é diagonalizável. Caso afirmativo,
+   realize a diagonalização.
+   a - \( \begin{pmatrix}
+   3 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 1 & 2
+   \end{pmatrix} \)  \hspace{\fill}  b - \( \begin{pmatrix}
+   3 & 1 & 1 \\ 3 & 0 & 1 \\ 6 & 2 & 1
+   \end{pmatrix} \) \hspace{\fill}  c - \( \begin{pmatrix}
+   1 & 0 & 0 \\ 1 & 3 & 2 \\ 0 & 3 & 2
+   \end{pmatrix} \) \hspace{\fill}  
+   #+latex: \end{shaded}
+
+   - \( A = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 1 & 2   \end{pmatrix}\) 
+     \[ \det(\lambda I - A) = PA(\lambda) \Rightarrow \det(\lambda I - A) = (\lambda -3)(\lambda -2)(\lambda -2) = (\lambda^2 - 5 \lambda
+     +6)(\lambda -2)\]
+     Temos \( \Delta > 0 \), porém o polinômio tem duas raízes iguais, a matriz não
+     é diagonalizável.
+
+
+   - \( B = \begin{pmatrix}     2 & 1 & 1 \\ 3 & 0 & 1 \\ 6 & 2 & 1   \end{pmatrix} \) 
+
+     \[ \begin{align} \det \begin{pmatrix}     \lambda - 2 & -1 & -1 \\ -3 & \lambda & -1 \\ -6 & -2 & \lambda
+     -1   \end{pmatrix} = \left[ (\lambda -2)\lambda (\lambda -1) + (-1)(-1)(-6) + (-1)(-3)(-2)
+     \right] - \\  \left[ (-1)\lambda (-6) + (-1)(-2)(\lambda -2) + (\lambda -1)(-1)(-3) \right]
+     \end{align} \]
+     \[ \det(\lambda I - B) = \lambda (\lambda ^2 - 3 \lambda + 2) - 12 - [ 6 \lambda + 2 \lambda -2 + 3 \lambda -3 ] = \lambda
+     ( \lambda ^2 - 3 \lambda + 2) - 12 - 11 \lambda  + 5 \]
+     \[ \det(\lambda I - B) = \lambda ^3 - 3 \lambda ^2 - 9 \lambda - 7 \]
+     Esse polinômio só possui uma raiz real, portanto a matriz não é
+     diagonalizavel.
+
+     #+attr_latex: :width 12cm :height 8cm
+     [[./grafico.jpg]]
+     #+caption: \( f(x) = x^3 - 3x^2 - 9x - 7 \) 
+     
+
+\vspace{\fill}
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage
+
+   - \( C = \begin{pmatrix}     1 & 0 & 0 \\ 1 & 3 & 2 \\ 0 & 3 & 2   \end{pmatrix} \) 
+     
+     \[ \det \begin{pmatrix}
+     \lambda - 1 & 0 & 0 \\ -1 & \lambda -3 & -2 \\ 0 & -3 & \lambda -2\end{pmatrix}  = (\lambda -1)(\lambda -3)(\lambda -2) - (-2)(-3)(\lambda -1) \]
+     \[ \det( \lambda I - C) = (\lambda - 1)(\lambda ^2 - 5 \lambda + 6 ) - 6(\lambda -1) = (\lambda -1) \left[ (\lambda
+     ^2 - 5 \lambda + 6) - 6 \right] = (\lambda -1)(\lambda^2 - 5 \lambda ) = \lambda (\lambda - 1)(\lambda - 5) \]
+
+    O polinômio de grau três tem raízes distintas e reais, logo a matriz é
+    diagonalizável.
+    Os autovalores são \( \lambda _1 = 0, \lambda _2 = 1, \lambda _3 = 5 \) , usamos eles para
+    construir a matriz diagonalizada.
+
+    -- Para \( \lambda _1 \) 
+    \[ C \cdot  \begin{pmatrix} x \\ y \\ z   \end{pmatrix} = 0 \cdot  \begin{pmatrix}
+     x \\ y \\ z    \end{pmatrix}  \Rightarrow  \begin{cases}     x = 0 \\     x + 3y + 2z = 0 \\     3y + 2z = 0    \end{cases}  \]
+     A partir desse sistema definimos o vetor \( v_1 = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\).
+
+     -- Para \( \lambda _2 \) 
+     \[ C \cdot   \begin{pmatrix}     x \\ y \\ z   \end{pmatrix}
+     1 \cdot  \begin{pmatrix}     x \\ y \\ z   \end{pmatrix}     \Rightarrow \begin{cases}     x = x \\ x + 3y + 2z = y \\ 3y + 2z = z   \end{cases}
+     \]
+
+     Disso temos \( x=0, z = -3y \) , então \( v_2 = \begin{pmatrix}x\\y\\z     \end{pmatrix}  = \begin{pmatrix}     0 \\ 1 \\ -3   \end{pmatrix} \) 
+
+     -- Para \( \lambda _3 \) 
+     \[ C \cdot  \begin{pmatrix}     x \\ y \\ z   \end{pmatrix} = 5
+     \cdot  \begin{pmatrix}   x \\ y \\ z   \end{pmatrix} \Rightarrow     \begin{cases}     x = 5x \\ x + 3y + 2z = 5y \\ 3y + 2z = 5z        \end{cases}
+      \]
+      Segue que \( x = 0, y = z \), logo o vetor é \( v_3 = \begin{pmatrix}      0 \\ 1 \\ 1   \end{pmatrix} \) 
+
+   Portanto, a matriz diagonalizada é
+   \[ M = \begin{pmatrix}
+   0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -3 & 1
+   \end{pmatrix} \]
+   
+\vspace{\fill}
+*Jefter Santiago Mares*
+
+*n$^{\circ}$ USP: 12559016*
+\newpage

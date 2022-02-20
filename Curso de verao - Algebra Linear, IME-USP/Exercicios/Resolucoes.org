@@ -1,0 +1,307 @@
+#+title: Resoluções
+#+author: Jefter Santiago Mares
+#+options: toc:nil num:nil
+#+setupfile: ~/Dropbox/Templates/mathematics.org
+
+* Exercicio 5.2(b)
+  #+latex:\begin{shaded}
+  Discuta e resolva os sistemas lineares em função do parâmetro \( a \in \mathbb{R} \).
+  \[ \begin{cases}
+  x + y -  az = 0 \\
+  ax + y - z = 2 - a \\
+  x + ay - z = -a
+  \end{cases} \]
+  #+latex: \end{shaded}  
+** Resolução
+   \[\begin{cases}
+   x + y -  az = 0 \\
+   ax + y - z = 2 - a \\
+   x + ay - z = -a
+   \end{cases}
+   \overset{\begin{align}
+   L_2 \leftarrow L_2 - aL_1 \\
+   L_3 \leftarrow L_3 - L_1
+   \end{align}}{\sim}
+   \begin{cases}
+   x + y - az = 0 \\
+   y - ay + a^2 z  - z = 2 - a \\
+   -y + ay + az - z = -a
+   \end{cases}\]
+
+   Fazendo \( L_2 \leftarrow  L_2 + L_3 \) temos
+   \[ a^2 z + az - 2z = 2 - 2a \Rightarrow z(a^2 + a - 2) = 2(1-a) \Rightarrow z = \frac{2(1-a)}{a^2 +
+   a -2} \]
+   Fatorando o denominador podemos escrever \( a^2 + a - 2 = (a-1)(a+2) \) e
+   como queremos simplificar a fração, façamos \( (a-1) = -(1-a) \), então
+   \[ z = \frac{2\cancel{(1-a)}}{-\cancel{(1-a)}(a+2)} \Rightarrow \boxed{ z = \frac{-2}{a+2}} \]
+   O sistema fica
+   \[ \begin{cases}
+   x + y - az = 0 \\
+   y - ay + a^2 z - z = 2 - a \\
+   z = \frac{-2}{a+2}
+   \end{cases} \]
+
+   Resolvendo para $y$: \( y -ay + a² z -  z = 2-a \Rightarrow y(1-a) + z(a^2 - 1) = 2
+   -a  \) 
+   \[ y = \frac{(2-a)-z(a^2 - 1)}{1-a}= \frac{(2-a)+ \frac{2}{2+a}(a^2 - 1)}{1-a}
+   = \frac{\frac{(2-a)(a+2)+2(a^2 -1)}{a+2}}{1-a} \Rightarrow \boxed{z = \frac{a^2 + 2}{(a+2)(1-a)}} \]
+   Com isso podemos resolver para \( x \) usando a equação da $L_1$: \( x+y-az =
+   0 \Rightarrowx = az - y\) 
+   \[ x = \frac{-2a}{a+2} - \frac{a^2 + 2}{(a+2)(1-a)} = \frac{-2a(1-a)-(a^2
+   +2)}{(a+2)(1-a)} = \frac{-2a + 2a^2 -a^2 - 2}{(a+2)(1-a)} \Rightarrow\boxed{x = \frac{a^2-2a-2}{(a+2)(1-a)}} \]
+   Assim, temos a solução do sistema em função do parâmetro \( a \) .
+   #+latex:\begin{shaded}
+   \[ S = \bigg\{ \left( \frac{a^2 - 2a - 2}{(a+2)(1-a)}, \frac{a^2 +
+   2}{(a+2)(1-a)},\frac{-2}{a+2} \right) : a \in \mathbb{R} | a \neq 1
+   \text{ e } a \neq -2\bigg\}  \]
+   #+begin_center
+   O sistema é possível e indeterminado para \( \forall a \in \mathbb{R} \) tal que \(
+   a \neq 1  \) e \( a \neq -2 \)  
+   #+end_center
+   #+latex: \end{shaded}
+*** Checando se a solução é válida
+    - Com \( a = 1 \) 
+      \[ \begin{cases}
+      x + y - z = 0 \\
+      x + y - z = 1 \\
+      x + y - z = -1
+      \end{cases} \Rightarrow\text{ Sistema incompátivel.}\]
+      Logo, \( a = 1 \)  torna o sistema incompátivel.
+    - Com \( a = -2 \) 
+      \[ \begin{cases}
+      x + y + 2z = 0 \\
+      -2x + y - z = 4 \\
+      x - 2y - z = 2
+      \end{cases} \overset{\begin{align}L_2 \leftarrow  L_2 + 2L_1 \\ L_3
+      \leftarrow L_3 - L_1 \end{align}}{\sim} \begin{cases}
+      x + y + 2z 0 \\
+      3y - 3z = 4 \\
+      -3y - 3z = 0
+     \end{cases}\]
+     Assim temos \( y = -z \) e substituindo na \( L_2 \) encontramos
+     \( z = -\frac{2}{3} \), \( y = \frac{2}{3} \) e pela \( L_1 \) temos \( x=-
+      \frac{8}{3}\) , com esses resultados e considerando
+      que \( a=-2 \)  podemos checar essa equivalência fazendo
+      \[ x + y - az = 0 \Rightarrow x + y = az \Rightarrow a = \frac{x + y}{z} \]
+      \[ -2 \overset{?}{=} \frac{-\frac{8}{3} + \frac{2}{3}}{-\frac{2}{3}}  \]
+      \[ -2 \neq 3 \]
+      Portanto, \( a = -2 \) torna o sistema incompátivel.
+*** Checando se a solução é válida
+   Pelo teorema de Cramer sabemos que os valores de \( a \) que tornam o
+   determinante \( D = 0 \) nos fornece as soluções nas quais o sistema é
+   *impossível* ou *indeterminado*.
+   Fazendo o calculo do determinante \( D = \begin{vmatrix}
+   1 &1 &-a \\
+   a &1 &-1 \\
+   1 &a &-1 
+   \end{vmatrix} = (-1-1-a^3) - (-a-a-a) = -2 -a^3 +3a\) 
+   Multiplicando a \(-a^3 + 3a - 2 = 0 \) por \( -1 \) temos \( a^3 - 3a +2 = 0
+   \) e fatorando podemos escrever
+   a equação como
+   \[ (a-1)^2 \cdot  (a+2) = 0 \Rightarrow \begin{cases}
+ a = 1 \\
+ a = - 2 
+   \end{cases} \]
+
+   Ou seja, com esses valores de a o sistema é impossível, como esperado.
+
+- *OBS*: Não tenho certeza se esse é um bom método de checar a solução ( ou se
+  minha solução está correta), então gostaria que esse tipo de prova fosse
+  abordado em alguma aula/monitoria.
+
+* Exercicio 7.6 
+  #+latex:\begin{shaded}
+  Mostre que o conjunto \( V = \{ (x,y) : x,y \in \mathbb{R}\} \) com
+  as seguintes operações
+  \[ (x_1, y_1) \oplus (x_2 , y_2) = (x_1 + x_2 + 3, y_1 + y_2) \]
+  \[ \alpha  \odot (x,y) = (\alpha x + 3(\alpha -1), \alpha y) \]
+  é um espaço vetorial real.
+  #+latex: \end{shaded}
+** Resolução
+
+   \( v,w,z \in V, v = (x_1, y_1), w = (x_2, y_2), z = (x_3, y_3) \)  e  \( \alpha , \beta \in \mathbb{R} \) .
+
+*** *EV1*: \( v + (w + z) = (v+w) + z \) 
+
+ \[ v + (w + z) = (x_1, y_1) \oplus \left[ (x_2 , y_2) \oplus (x_3, y_3) \right]
+ (x_1, y_1) \oplus (x_2 + x_3 + 3, y_2 + y_3) =
+ (x_1 + x_2 + x_3 + 3, y_1 + y_2 + y_3)
+ \]
+ \[ (v+w) + z = \left[ (x_1, y_1) \oplus (x_2, y_2) \right] \oplus (x_3, y_3) = (x_1+x_3+3,y_1+y_3)
+ \oplus (x_3 , y_3) = (x_1 + x_2 + x_3 + 3, y_1 + y_2 + y_3) 
+ \]
+ \[ \Rightarrow v + (w + z) = (v+w) + z \]
+
+*** *EV2*: \( v + w = w + v  \)
+
+    \[ v + w = (x_1, y_1) \oplus (x_2, y_2) = (x_1 + x_2 + 3, y_1 + y_2) \]
+    \[ w + v = (x_2, y_2) \oplus (x_1, y_1) = (x_2+x_1 + 3 , y_2 + y_1)  \]
+    Como estamos trabalhando com números reais, segue que
+    \( v + w = w + v \), a ordem não importa.
+*** *EV3*: \( v+ 0 = v \) 
+
+    Definimos o zero como \( 0_V = (a,b) / (x,y) \oplus 0_v = (a,b) \) 
+
+    \[ (x+a+3, y+b) = (a,b) \Rightarrow \begin{cases}
+    x + a + 3 = x \\
+    y + b = y 
+    \end{cases}  \]
+    Desse sistema temos que \( a = -3  \)  e \( b = 0 \), portanto, definimos
+    o zero como \( O_V = (-3,0) \) 
+
+*** *EV4*: \( v + (-v) = 0 \) 
+    \[ v + (-v) = 0_V  \]
+    Chamamos \( -(x,y) = (a,b) \) 
+    \[ (x,y) \oplus (a,b) = 0_V \Rightarrow(x+a+3, y+b) = (-3,0) \]
+
+    \[ \begin{cases}
+    x + a + 3 = -3 \\
+    y + b = 0 
+    \end{cases} \Rightarrow \begin{align} x = -6 -a \\  y = - b \end{align}\]
+
+    \[ -(x,y) = (-6 - x, -y) \]
+
+    \[ (x,y) \oplus (-6-x, -y) \overset{?}{=} (-3,0) \]
+    \[ (x + (-6-x) + 3, y + (-y)) \overset{?}{=} (-3,0) \]
+    \[ (-3, 0) = (-3,0) \]
+    
+*** *EV5*: \( \alpha (\beta \cdot  v) = (\alpha \cdot  \beta )\cdot  v \) 
+    \[ \alpha \odot \left[ \beta \odot (x_1, y_1) \right] = \alpha \odot \left\big( \beta x + 3(\beta -1), \beta y \right\big) = \left\big( \alpha \beta x + 3(\alpha \beta -1), \alpha \beta y \right\big) \]
+    \[ \left( \alpha \beta  \right) \odot \left( x,y \right) = \left\big( \alpha \beta x + 3(\alpha \beta -1),
+    \alpha \beta y\right\big)\]
+*** *EV6*: \( (\alpha + \beta ) \cdot  v = \alpha \cdot  v + \beta \cdot  v \) 
+    - Primeiro fazendo a parte esquerda da equação.
+
+    \[ (\alpha + \beta ) \odot (x,y) = \left\big( (\alpha + \beta ) x + 3[(\alpha + \beta )-1], (\alpha + \beta )y \right\big) \]
+    - Agora a parte direita.
+
+    \[ \alpha \odot v + \beta \odot v = ( \alpha x + 3(\alpha -1), \alpha y) \oplus (\beta x + 3(\beta -1), \beta y) \]
+    \[\alpha \odot v + \beta \odot v  = ( x(\alpha + \beta ) + 3 \cdot   \underbrace{\left[ (\alpha -1) + (\beta -1) \right]}_{\alpha + \beta -2}+ 3, (\alpha + \beta ) y)\]
+    \[ \alpha \odot v + \beta \odot v = \left\big( x(\alpha + \beta) + \underbrace{3 ( \alpha  + \beta -2) + 3}_{3 \alpha + 3
+    \beta - 3}, (\alpha + \beta)y \right\big)  \]
+    \[ \alpha \odot v + \beta \odot v = \left\big( x(\alpha + \beta) + 3 \left[ (\alpha + \beta) - 1 \right], (\alpha + \beta)y \right\big)\]
+    Por fim, temos os dois lados são equivalentes, então 
+    \[ (\alpha + \beta) v = \alpha \odot v + \beta \odot v   \]
+*** *EV7*: \( \alpha (v + w) = \alpha \cdot  v + \alpha \cdot  w \) 
+    - Primeiro fazendo a operação do lado esquerdo da equação.
+    \[ \alpha \odot \left[ (x_1, y_1) \oplus (x_2, y_2) \right] = \alpha \odot \left( x_1 + x_2 + 3, y_1 + y_2 \right) \]
+    \[ \alpha \odot \left[ (x_1, y_1) \oplus (x_2, y_2) \right]   = \left[ \alpha x_1 + \alpha x_2 + \underbrace{3 + 3(\alpha -1)}_{ 3 \alpha }, \alpha y_1 + \alpha
+    y_2 \right] = \left[ \alpha (x_1+x_2+3), \alpha (y_1 + y_2)  \right] \]
+
+    - O lado direito.
+    \[ \alpha \odot (x_1, y_1) \oplus \alpha \odot (x_2, y_2) = \left( \alpha x_1 + 3(\alpha -1), \alpha y_1 \right) \oplus
+    \left( \alpha x_2 + 3(\alpha -1), \alpha y_2 \right) \]
+    \[ = \left[ \alpha x_1 + 3(\alpha -1) + \alpha x_2 + 3 , \alpha y_1 + \alpha y_2 \right] = \left( \alpha
+    (x_1 + x_2) + 3 \alpha - 3 + 3, \alpha (x_1 + x_2) \right) \]
+    \[ \alpha \odot (x_1 , y_1) \oplus \alpha \odot (x_2, y_2) = \left[ \alpha (x_1 + x_2 + 3), \alpha (y_1 + y_2) \right] \]
+
+    Com isso, temos que 
+    \[ \alpha \left[ (x_1, y_1) \oplus (x_2 , y_2) \right] = \alpha \odot (x_1 , y_1) \oplus \alpha \odot (x_2, y_2)  \]
+    
+*** *EV8*: \( 1 \cdot  v = v \) 
+
+    \[ 1 \odot (x, y) = (x + 3(1 - 1), 1 y)\]
+    \[ 1 \odot (x, y) = (x,y) \]
+
+Portanto \( (V, \oplus, -, \odot, 0_V) \) é um espaço vetorial com  e com zero definido como \( 0_V = (-3,0) \) .
+
+- *OBS*: Eu tive uma certa dificuldade com a propriedade *EV7*, não sei se está
+  correta e acho que seria uma boa abordar numa monitoria.
+
+* Exercicio 8.2 
+  #+latex:\begin{shaded}
+  Seja \( V = M_{2x2}(\mathbb{R}) \) . Considere o conjunto
+  \[ W = \bigg\{ \begin{pmatrix}
+  x & y \\ z & t
+  \end{pmatrix} : x - y - z = 0 \bigg\} \].
+  Mostre que \( W \) é um subespaço e determine um conjunto gerador
+  de \( W \).
+  #+latex: \end{shaded}
+
+  - \( 0 \in W \) 
+
+    Seja \( \begin{pmatrix}
+    0 & 0 \\
+    0 & 0 
+     \end{pmatrix} \in W \), \( 0 - 0 - 0 = 0 \Rightarrow 0 \in W\) 
+
+  - Se \( v,w \in W \), então \( v + w \in W \) 
+
+    Seja \( v = \begin{pmatrix}
+    x_1 & y_1 \\ z_1 & t_1 \end{pmatrix} \) e \( u =  \begin{pmatrix} x_2 & y_2 \\ z_2
+    & t_2 \end{pmatrix}\), então
+    \[ v + u = \begin{pmatrix}
+    x_1 + x_2 & y_1 + y_2 \\ z_1 + z_2 & t_1 + t_2  \end{pmatrix} \]
+    Sabemos que \( (x_1 + x_2) - (y_1 + y_2) - (z_1 + z_2) = 0 \), então
+    \[ \underbrace{x_1 - y_1 - z_1}_{ = 0} + \underbrace{x_2 - y_2 - z_2}_{= 0} = 0\]
+
+  - Se \( u \in W \) e \( \lambda \in \mathbb{R} \) , então \( \lambda \cdot  u \in W  \) 
+
+    \[ \lambda \cdot  \begin{pmatrix} x & y \\ z & t  \end{pmatrix} = \begin{pmatrix} \lambda x
+    & \lambda y \\ \lambda z & \lambda t\end{pmatrix} \]
+    e \( \lambda x - \lambda y - \lambda z = 0 \Rightarrow \lambda (\underbrace{x - y - z}_{ = 0}) = 0 \) 
+    Portanto \( \lambda u \in W \).
+
+    Como \( W \) satisfaz todas as condições, \( W \) é subespaço de \( U \) .
+
+    Note que \( t \) é um termo independente de \( W \) na definição da
+    operação fornecida.
+
+
+  \( \forall u \in W\) ; \(v_1, v_2, v_3, v_4  \) geram \( W \) se
+  \[ u = \alpha_1 \cdot  v_1 + \alpha _2 \cdot  v_2 + \alpha _3 \cdot  v_3 + \alpha _4 \cdot  v_4 \]
+
+  \[ x - y - z = 0 \Rightarrow x = y + z\]
+  Supondo \( z = -x \) e substituindo na original temos
+  \[ x - y + x = 0 \Rightarrow 2x - y = 0 \Rightarrow 2 ( y + z ) - y = 0  \]
+  \[ 2y + 2z - y = 0 \Rightarrow y = 2z \]
+
+  Podemos escrever a matriz como
+  \[ \begin{pmatrix}
+  y + z & 2z \\ z & 0
+  \end{pmatrix} = \begin{pmatrix}
+  z & 2z \\ z & 0
+  \end{pmatrix} + \begin{pmatrix}
+  y & 0 \\ 0 & 0 
+  \end{pmatrix} = z \cdot  \begin{pmatrix}
+  1 & 2 \\ 1 & 0 
+  \end{pmatrix} + y \cdot  \begin{pmatrix}
+  1 & 0 \\ 0 & 0 
+  \end{pmatrix}\]
+
+  Então \( \left \langle \begin{pmatrix}
+  1 & 2 \\ 1 & 0
+  \end{pmatrix}, \begin{pmatrix}
+  1 & 0 \\ 0 & 0
+  \end{pmatrix} \right \rangle = U  \), então
+  \( \( \left\{ \begin{pmatrix}
+  1 & 2 \\ 1 & 0
+  \end{pmatrix}, \begin{pmatrix}
+  1 & 0 \\ 0 & 0
+  \end{pmatrix} \right \} \) é um conjunto  gerador de U para o caso de \( x =
+  -z \) e  \( \forall t \in \mathbb{R} \) .
+* Exercicio 12.3
+ #+latex:\begin{shaded}
+ Sejam \( (V, \left \langle \cdot  , \cdot   \right \rangle ) \) um espaço vetorial com produto
+ interno e \( u,v \in V \). Prove a afirmação:
+ - \( || u + v ||^2 = ||u||^2 + ||v||^2   \) se e somente se \( \left \langle u,v \right
+   \rangle = 0 \) 
+ #+latex: \end{shaded} 
+
+
+ Escrevendo o termo \( ||u+v||^2 \) como
+ \[ ||u + v||^2 = \left \langle u+v,u+v \right \rangle = \left \langle u,u \right \rangle + 2 \cdot  \left \langle
+ u,v \right \rangle + \left \langle v,v \right \rangle = ||u||^2 + 2 \cdot  \left \langle u,v \right \rangle + ||v||^2  \]
+
+ \[ ||u+v||^2 = ||u||^2 + 2 \cdot  ||u|| \cdot  ||v|| + ||v||^2 \]
+
+ Agora podemos escrever a equação \( ||u+v||^2 = ||u||^2 + ||v||^2  \) usando a
+ relação encontrada acima, então
+ \[ ||u||^2 + 2 \cdot  ||u|| \cdot  ||v|| + ||v||^2 = ||u||^2 + ||v||^2  \]
+ Subtraindo \( ||u||^2 \) e \( ||v||^2 \) de ambos os lados temos \( 2 \cdot  ||u||
+ \cdot  ||v|| = 0  \) 
+ logo
+ \[ 2 \left \langle u,v \right \rangle = 0 \Rightarrow \boxed{ \left \langle u,v \right \rangle = 0 }   \]
+
+ 
+ 
