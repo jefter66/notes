@@ -4,7 +4,7 @@ set output "regression.tex"
 set xrange[*:*]
 set yrange[*:*]
 
-set xlabel "testetektkektketktk Temperatura $(^{\\circ}C)$"
+set xlabel "Temperatura $(^{\\circ}C)$"
 set ylabel "Pressão $(cmHg)$"
 
 

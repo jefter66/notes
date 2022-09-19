@@ -4,6 +4,9 @@
 #+language: pt
 #+options: toc:nil num:nil
 
+* [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
+* [[https://github.com/jeftersantiago/intro_ciencia_de_dados][Introdução à Ciência de Dados]]
+* [[https://github.com/jeftersantiago/estruturas_de_Dados][Estruturas de Dados]]
 * [[./Fisica experimental][Física Experimental]]
 ** [[./Fisica experimental/01][Laboratório de Física I]]
    |-----------+-----------|

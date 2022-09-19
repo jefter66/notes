@@ -252,7 +252,6 @@
 *n$^{\circ}$ USP: 12559016*
 \newpage
 
-
 * Diagonalização  
 ** Questão 12
    #+latex:\begin{shaded}

@@ -33,41 +33,41 @@ else:
 #+end_src
 * Problema 2
    #+begin_src python
-l1,c1 = input().split()
-l1,c1 = int(l1),int(c1)
+     l1,c1 = input().split()
+     l1,c1 = int(l1),int(c1)
 
-m=[]
+     m=[]
 
-for i in range(l1):
-    mTemp = [float(x) for x in input().split()]
-    m.append(mTemp)
+     for i in range(l1):
+         mTemp = [float(x) for x in input().split()]
+         m.append(mTemp)
 
-tmpAmp = []
+     tmpAmp = []
 
-for extRows in range(l1 - 2):
-    for extColumns in range(c1-2):
-        tmpList=[]
-        for intRows in range(3):
-            for intColumns in range(3):
-                tmpList.append(int(m[extRows+intRows][extColumns+intColumns]))
-        tmpAmp.append(tmpList)
+     for extRows in range(l1 - 2):
+         for extColumns in range(c1-2):
+             tmpList=[]
+             for intRows in range(3):
+                 for intColumns in range(3):
+                     tmpList.append(int(m[extRows+intRows][extColumns+intColumns]))
+             tmpAmp.append(tmpList)
 
-formatedList=[]
-for i in range(len(tmpAmp)):
-    tmpList=[]
-    for j in range(len(tmpAmp[i])):
-        if(j!=3 and j!=5):
-            tmpList.append(tmpAmp[i][j])
-    formatedList.append(tmpList)
+     formatedList=[]
+     for i in range(len(tmpAmp)):
+         tmpList=[]
+         for j in range(len(tmpAmp[i])):
+             if(j!=3 and j!=5):
+                 tmpList.append(tmpAmp[i][j])
+         formatedList.append(tmpList)
 
-sumedList=[]
-for i in range(len(formatedList)):
-    sum=0
-    for j in range(7):
-        sum+= formatedList[i][j]
-    sumedList.append(sum)
+     sumedList=[]
+     for i in range(len(formatedList)):
+         sum=0
+         for j in range(7):
+             sum+= formatedList[i][j]
+         sumedList.append(sum)
 
-print(max(sumedList))
+     print(max(sumedList))
    #+end_src   
 * Problema 3
 #+begin_src python
