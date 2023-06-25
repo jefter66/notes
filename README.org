@@ -4,23 +4,24 @@
 #+language: pt
 #+options: toc:nil num:nil
 
-* [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
-* [[https://github.com/jeftersantiago/intro_ciencia_de_dados][Introdução à Ciência de Dados]]
-* [[https://github.com/jeftersantiago/estruturas_de_Dados][Estruturas de Dados]]
-* [[./Fisica experimental][Física Experimental]]
-** [[./Fisica experimental/01][Laboratório de Física I]]
+* Disciplinas 
+** Obrigatórias
+*** [[./Introducao a Fisica Matematica][Introdução à Física Matemática]]
+*** [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
+*** [[./Fisica experimental/01][Laboratório de Física I]]
    |-----------+-----------|
    | [[./Fisica experimental/01/01.pdf][Prática 1]] | [[./Fisica experimental/01/02.pdf][Prática 2]] |
    | [[./Fisica experimental/01/03.pdf][Prática 3]] | [[./Fisica experimental/01/04.pdf][Prática 4]] |
    | [[./Fisica experimental/01/05.pdf][Prática 5]] | [[./Fisica experimental/01/06.pdf][Prática 6]] |
    |-----------+-----------|
-** [[./Fisica experimental/02][Laboratório de Física II]]
+*** [[./Fisica experimental/02][Laboratório de Física II]]
    |-----------+-----------|
    | [[./Fisica experimental/02/01/01.pdf][Prática 1]] | [[./Fisica experimental/02/02/02.pdf][Prática 2]] |
    | [[./Fisica experimental/02/03/03.pdf][Prática 3]] | [[./Fisica experimental/02/04/04.pdf][Prática 4]] |
    | [[./Fisica experimental/02/05/05.pdf][Prática 5]] | [[./Fisica experimental/02/06/06.pdf][Prática 6]] |
    |-----------+-----------|
-* [[./Fundamentos de programacao][Fundamentos de programação]]
+*** [[./Fisica experimental/Laboratorio de Fisica III - Eletricidade e Eletromagnetismo][Laboratório de Física III]]
+*** [[./Fundamentos de programacao][Fundamentos de programação]]
   |-------------+-------------|
   | [[./Fundamentos de programacao/trabalho1.org][Trabalho 1]]  | [[./Fundamentos de programacao/trabalho2.org][Trabalho 2]]  |
   | [[./Fundamentos de programacao/trabalho3.org][Trabalho 3]]  | [[./Fundamentos de programacao/trabalho4.org][Trabalho 4]]  |
@@ -28,17 +29,35 @@
   | [[./Fundamentos de programacao/trabalho7.org][Trabalho 7]]  | [[./Fundamentos de programacao/trabalho8.org][Trabalho 8]]  |
   | [[./Fundamentos de programacao/trabalho9.org][Trabalho 9]]  | [[./Fundamentos de programacao/trabalho10.org][Trabalho 10]] |
   |-------------+-------------|
-* [[./Quimica experimental][Química experimental]]
+*** [[./Quimica experimental][Química experimental]]
   |-----------+-----------|
   | [[./Quimica experimental/01.pdf][Prática 1]] | [[./Quimica experimental/02.pdf][Prática 2]] |
   | [[./Quimica experimental/03.pdf][Prática 3]] | [[./Quimica experimental/04.pdf][Prática 4]] |
   |-----------+-----------|
-* [[./References/lab-lib.bib][Referências bibliográficas]]
-  Um arquivo =.bib= com todas referências usadas nos relatórios
-  de física e química experimental.
+
+** Eletivas
+*** [[https://github.com/jeftersantiago/estruturas_de_Dados][Estruturas de Dados]]
+** Livres 
+*** [[https://github.com/jeftersantiago/graphs][Modelagem Computacional em Grafos]]
+*** [[https://github.com/jeftersantiago/complex_networks][Redes Complexas]]
+*** [[https://github.com/jeftersantiago/icc2][Introdução à Ciência de Computação II]]
+*** [[https://github.com/jeftersantiago/intro_ciencia_de_dados][Introdução à Ciência de Dados]]
+* Cursos de Extensão
+** [[./https://github.com/jeftersantiago/itp2023][Introdução à Teoria das Probabilidades, ICMC-USP]]
+** [[./Curso de verao - Algebra Linear, IME-USP][Álgebra Linear,  IME-USP]]
+
 * Gnuplot
   just look at this gif:
 
   [[./gnuplot/sinewave.gif]]
 
 
+
+
+
+
+
+
+
+
+  
