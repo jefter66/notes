@@ -12,13 +12,6 @@
 *** [[./Fisica experimental/Laboratorio de Fisica II - Ondulatoria e Termodinamica][Laboratório de Física II]]
 *** [[./Fisica experimental/Laboratorio de Fisica III - Eletricidade e Eletromagnetismo][Laboratório de Física III]]
 *** [[./Fundamentos de programacao][Fundamentos de programação]]
-  |-------------+-------------|
-  | [[./Fundamentos de programacao/trabalho1.org][Trabalho 1]]  | [[./Fundamentos de programacao/trabalho2.org][Trabalho 2]]  |
-  | [[./Fundamentos de programacao/trabalho3.org][Trabalho 3]]  | [[./Fundamentos de programacao/trabalho4.org][Trabalho 4]]  |
-  | [[./Fundamentos de programacao/trabalho5.org][Trabalho 5]]  | [[./Fundamentos de programacao/trabalho6.org][Trabalho 6]]  |
-  | [[./Fundamentos de programacao/trabalho7.org][Trabalho 7]]  | [[./Fundamentos de programacao/trabalho8.org][Trabalho 8]]  |
-  | [[./Fundamentos de programacao/trabalho9.org][Trabalho 9]]  | [[./Fundamentos de programacao/trabalho10.org][Trabalho 10]] |
-  |-------------+-------------|
 *** [[./Quimica experimental][Química experimental]]
 ** Eletivas
 *** [[https://github.com/jeftersantiago/estruturas_de_Dados][Estruturas de Dados]]
