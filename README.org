@@ -43,7 +43,7 @@
 *** [[https://github.com/jeftersantiago/icc2][Introdução à Ciência de Computação II]]
 *** [[https://github.com/jeftersantiago/intro_ciencia_de_dados][Introdução à Ciência de Dados]]
 * Cursos de Extensão
-** [[/https://github.com/jeftersantiago/itp2023/][Introdução à Teoria das Probabilidades, ICMC-USP]]
+** [[https://github.com/jeftersantiago/itp2023/][Introdução à Teoria das Probabilidades, ICMC-USP]]
 ** [[./Curso de verao - Algebra Linear, IME-USP][Álgebra Linear,  IME-USP]]
 
 * Gnuplot
