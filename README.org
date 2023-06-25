@@ -6,7 +6,7 @@
 
 * Disciplinas 
 ** Obrigatórias
-*** [[./Introducao a Fisica Matematica][Introdução à Física Matemática]]
+*** [[./Introducao a Fisica Matematica/][Introdução à Física Matemática]]
 *** [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
 *** [[./Fisica experimental/01][Laboratório de Física I]]
    |-----------+-----------|
