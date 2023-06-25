@@ -9,17 +9,7 @@
 *** [[./Introducao a Fisica Matematica/][Introdução à Física Matemática]]
 *** [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
 *** [[./Fisica experimental/Laboratorio de Fisica I - Mecanica][Laboratório de Física I]]
-   |-----------+-----------|
-   | [[./Fisica experimental/01/01.pdf][Prática 1]] | [[./Fisica experimental/01/02.pdf][Prática 2]] |
-   | [[./Fisica experimental/01/03.pdf][Prática 3]] | [[./Fisica experimental/01/04.pdf][Prática 4]] |
-   | [[./Fisica experimental/01/05.pdf][Prática 5]] | [[./Fisica experimental/01/06.pdf][Prática 6]] |
-   |-----------+-----------|
 *** [[./Fisica experimental/Laboratorio de Fisica II - Ondulatoria e Termodinamica][Laboratório de Física II]]
-   |-----------+-----------|
-   | [[./Fisica experimental/02/01/01.pdf][Prática 1]] | [[./Fisica experimental/02/02/02.pdf][Prática 2]] |
-   | [[./Fisica experimental/02/03/03.pdf][Prática 3]] | [[./Fisica experimental/02/04/04.pdf][Prática 4]] |
-   | [[./Fisica experimental/02/05/05.pdf][Prática 5]] | [[./Fisica experimental/02/06/06.pdf][Prática 6]] |
-   |-----------+-----------|
 *** [[./Fisica experimental/Laboratorio de Fisica III - Eletricidade e Eletromagnetismo][Laboratório de Física III]]
 *** [[./Fundamentos de programacao][Fundamentos de programação]]
   |-------------+-------------|
@@ -30,11 +20,6 @@
   | [[./Fundamentos de programacao/trabalho9.org][Trabalho 9]]  | [[./Fundamentos de programacao/trabalho10.org][Trabalho 10]] |
   |-------------+-------------|
 *** [[./Quimica experimental][Química experimental]]
-  |-----------+-----------|
-  | [[./Quimica experimental/01.pdf][Prática 1]] | [[./Quimica experimental/02.pdf][Prática 2]] |
-  | [[./Quimica experimental/03.pdf][Prática 3]] | [[./Quimica experimental/04.pdf][Prática 4]] |
-  |-----------+-----------|
-
 ** Eletivas
 *** [[https://github.com/jeftersantiago/estruturas_de_Dados][Estruturas de Dados]]
 ** Livres 
