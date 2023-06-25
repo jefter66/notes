@@ -1,4 +1,6 @@
 *.tex
+*.bib
 *.log
 *.eps
+*.bbl
 *ltximg

@@ -1,0 +1,7 @@
+#+title: EDOs de segunda ordem
+#+title: Lineares, homogêneas e inomogêneas
+
+* EDOs Homogêneas
+** Método do Wronskiano
+** Redução de ordem
+* EDOs Inomogêneas
