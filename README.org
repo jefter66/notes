@@ -8,13 +8,13 @@
 ** Obrigatórias
 *** [[./Introducao a Fisica Matematica/][Introdução à Física Matemática]]
 *** [[https://github.com/jeftersantiago/intro_fiscomp][Introdução à Física Computacional]]
-*** [[./Fisica experimental/01][Laboratório de Física I]]
+*** [[./Fisica experimental/Laboratorio de Fisica I - Mecanica][Laboratório de Física I]]
    |-----------+-----------|
    | [[./Fisica experimental/01/01.pdf][Prática 1]] | [[./Fisica experimental/01/02.pdf][Prática 2]] |
    | [[./Fisica experimental/01/03.pdf][Prática 3]] | [[./Fisica experimental/01/04.pdf][Prática 4]] |
    | [[./Fisica experimental/01/05.pdf][Prática 5]] | [[./Fisica experimental/01/06.pdf][Prática 6]] |
    |-----------+-----------|
-*** [[./Fisica experimental/02][Laboratório de Física II]]
+*** [[./Fisica experimental/Laboratorio de Fisica II - Ondulatoria e Termodinamica][Laboratório de Física II]]
    |-----------+-----------|
    | [[./Fisica experimental/02/01/01.pdf][Prática 1]] | [[./Fisica experimental/02/02/02.pdf][Prática 2]] |
    | [[./Fisica experimental/02/03/03.pdf][Prática 3]] | [[./Fisica experimental/02/04/04.pdf][Prática 4]] |
