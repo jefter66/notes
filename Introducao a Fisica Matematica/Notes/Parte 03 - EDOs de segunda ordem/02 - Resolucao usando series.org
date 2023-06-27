@@ -2,6 +2,8 @@
 #+options: toc:1 date:nil 
 #+language: pt
 #+setupfile: ~/Dropbox/Templates/mathematics.org
+
+
 #+latex: \newpage
 
 * Mini revisão de séries e séries de Taylor
@@ -135,6 +137,207 @@ então a série é analitica em \( x = x_0 \) .
     \[ \boxed{ y(x) = A \cos(kx) + B \sin (kx) } \]
     
 * Método de séries para pontos singulares regulares
+
+\[ y'' + p(x) y' + q(x) = 0 \]
+
+Se \( p(x) \) e \( q(x) \) forem analíticas em \( x = x_0 \), então \( x = x_0 \) é um *ponto
+ordinário* e vale a solução do tipo
+\[ y(x) = \sum_{n = 0}^{\infty} a_n (x - x_0)^n \]
+caso contrário, \( x = x_0 \) é um ponto singular, portanto precisamos de um outro tratamento
+para poder escrever a solução no formato de série de potências.
+
+Se \( p(x) \) *ou* \( q(x) \) não forem analíticas em \( x = x_0 \) , mas \( (x - x_0) p(x) \) e \(
+(x-x_0)^2 q(x) \) forem, então
+\( x = x_0 \) é dito ser um *ponto singular regular*. Caso contrário \( x = x_0 \) é um ponto singular
+irregular( esse caso não é tratado nessa disciplina, então não tentei buscar entender ainda...).
+
++ *Exemplo*: \( x^2 y'' + 2x y' + 3y = 0 \Leftrightarrow y'' + \frac{2}{x}y ' + \frac{3}{x^2}y = 0 \)
+
+  \[ xp(x) = 2 \text{ e } x^2 q(x) = 3 \]
+
+
+
+No caso \( x = x_0 \) ser ponto singular regular, procuramos uma solução em série de
+potências com a seguinte forma:
+
+#+begin_latex
+\begin{equation}
+y(x) = (x - x_0)^{\lambda} \sum_{n = 0}^{\infty} a_n (x - x_0)^n, a_0 \neq 0
+\label{eq:solucao_singular_regular}
+\end{equation}
+#+end_latex
+
+Impomos que ao menos uma das soluções devem ser dessa forma e caso o \( \lambda = 0  \), ou seja,
+conseguimos apenas uma solução a partir dele, podemos chegar à outras soluções por outros métodos
+como redução de ordem ou Wronksiano...
+
+
+
+
+Expandindo \( (x - x_0) p(x) \) e \( (x - x_0)^2 q(x) \) em séries de potências:
+
+#+begin_latex
+$$ \begin{cases}
+(x - x_0) p(x) = \sum_{n = 0}^{\infty} p_n (x - x_0)^n \\
+(x - x_0)^2 q(x) = \sum_{n = 0}^{\infty} q_n (x - x_0)^n
+\end{cases} $$
+#+end_latex
+
+\[ y(x) = \sum_{n = 0}^{\infty} a_n (x - x_0)^{n + \lambda}\]
+\[ y'(x) = \sum_{n = 0}^{\infty} (n + \lambda)a_n (x-x_0)^{n + \lambda - 1} \]
+\[ y''(x) = \sum_{n = 0}^{\infty} (n+\lambda)(n + \lambda - 1) a_n (x - x_0)^{n + \lambda - 2} \]
+
+Saindo da forma canônica multiplicando a EDO por (x - x_0)^2:
+
+\[ (x - x_0)^2 y'' + (x-x_0) \left[ (x-x_0) p(x) \right]y' + \left[ (x-x_0)^2 q(x) \right]y = 0  \]
+#+begin_latex
+\begin{multline*}
+(x-x_0)^2 \sum_{n = 0}^{\infty} (n+\lambda)(n + \lambda - 1) a_n x^{n + \lambda - 2} + (x-x_0)
+\sum_{n = 0}^{\infty} \left[ (x - x_0) p(x) \right] \left( (n + \lambda)a_n(x-x_0)^{n + \lambda - 1}
+\right) \\ + \sum_{n = 0}^{\infty} \left[ (x-x_0)^2 q(x) \right] a_n (x - x_0)^{n + \lambda} =  0
+\end{multline*}
+#+end_latex
+
+
+Fazendo a expansão em série de Taylor para \( (x - x_0) p(x)  \) e \( (x - x_0)^2 q(x) \) de forma a
+considerar apenas o termo mais baixo \( p_0, q_0 \), temos que
+\[ (x - x_0)p(x) = p_0 + (x-x_0) p_1 + (x - x_0)^2 p_2 \cdots \Rightarrow p_0 = \lim_{x\to x_0}
+(x-x_0) p(x)  \]
+\[ q_0 = \lim_{x\to x_0} (x-x_0)^2 q(x) \]
+
+
+Rearranjando as séries acima e simplificando as potências temos a seguinte série:
+
+#+begin_latex
+$$ \sum_{n = 0}^{\infty} \left[ (n + \lambda) (n + \lambda - 1)a_n + [(x - x_0) p(x)] (n +
+\lambda)a_n + [(x-x_0)^2 q(x)] a_n \right] \left(x - x_0 \right)^{n + \lambda}=0 $$
+
+$$
+\sum_{n = 0}^{\infty} \left[ (n + \lambda)(n + \lambda - 1) + \left[ (x - x_0)p(x) \right] (n +
+\lambda) + \left[ (x-x_0)^2 q(x) \right] \right] a_n (x - x_0)^{n + \lambda} = 0
+$$
+
+
+\[  \sum_{n = 0}^{\infty} \left[ (n + \lambda )(n + \lambda - 1) + (n + \lambda ) p_0 + q_0 \right]
+a_n (x - x_0)^{n + \lambda} \]
+#+end_latex
+
+Abrimos as séries e escrevendo as combinações em termos de ordem mais baixa. Isso é útil porque
+assim
+podemos fatorar e chagar numa relação para \( \lambda  \):
+
+\[ \lambda (\lambda -1) a_0 \left( x - x_0 \right)^{\lambda } + p_0 \lambda a_0 (x -
+x_0)^{\lambda} + q_0 a_0 (x - x_0)^{\lambda } + \mathcal{O} (x - x_0)^{\lambda + 1} =  \]
+\[ a_0 \left[ \lambda (\lambda - 1) + \lambda p_0 + q_0  \right] \left( x - x_0 \right)^{\lambda } +
+\mathcal{O}(x - x_0)}^{\lambda + 1} = 0\]
+
+P odemos escrever a relação: 
+#+begin_latex
+\begin{equation}
+ \lambda \left( \lambda - 1 \right) + \lambda p_0 + q_0 = 0
+\label{eq:equacao_indicial}
+\end{equation}
+#+end_latex
+
+
+ * *Exemplo*: \( y'' + \frac{2}{x}y' + \frac{3}{x^2}y = 0, x_0 = 0 \) 
+
+   \[ p(x) = \frac{2}{x} \Rightarrow xp(x) = 2 = p_0 + p_1 x + p_2 x^2 + ... \]
+   \[ q(x) = \frac{3}{x^2} \Rightarrow x^2 q(x) = 3 = q_0 + q_1 x + q_2 x^2 + ... \]
+
+   Logo, \( x_0 = 0 \) é um ponto singular regular e \( y(x) = x^\lambda \sum_{n = 0}^{\infty} a_n x^{n} \) .
+
+   Encontrando o coeficiente \( \lambda  \) usando a equação indicial (\ref{eq:equacao_indicial}) :
+   \[ \lambda (\lambda - 1) + p_0 \lambda  + q_0 = 0 \Rightarrow \lambda ^2 + \lambda  + 3 = 0 \]
+   \[ \lambda  = \frac{-1 \pm \sqrt{-11}}{2}  \Rightarrow \lambda _1 = - \frac{1}{2} \pm
+   \frac{i\sqrt{11}}{2}, \lambda _2 = - \frac{1}{2} - \frac{i\sqrt{11}}{2}\]
+
+   \[ y(x) = y_1(x) + y_2(x) = x^{\lambda _1} \sum_{n = 0} a_n x^n + x^{\lambda _2} \sum_{n =
+   0}^{\infty} a_n x^n \]
+
+   
+   
+** Casos para \( \lambda  \) 
+
+ Esse indice é definido a partir da relação (\ref{eq:equacao_indicial}) e para cada solução da
+ equação quadrática tem significados diferentes. Eles foram divididos em alguns casos.
+
+ Nessa etapa do curso muitos desses resultados não foram rigorosamente justificados e
+ em alguns deles não fui atrás de tentar entender como chegar nessas relações por
+ conta própria. :p 😛
+
+*** Caso \( \lambda  \pm \notin \mathbb{R}   ( \lambda _{-} = \lambda _{+}^{*}) \) 
+    A solução de \( \lambda  \) é um complexo. Nesse caso o complexo conjugado também é válido, mas
+    como queremos apenas soluções reais \( y(x) \) , precisamos tratar o caso complexo
+    a fim de conseguir apenas a perte real da solução.
+    Para isso utilizamos as seguintes soluções:
+
+    \[ y_1 (x) = | x - x_0 |^{\lambda _+} \sum_{n = 0}^{\infty} a_n (x - x_0)^n, a_0 \neq 0 \]
+    \[ y_2 (x) = | x - x_0|^{\lambda _{-}} \sum_{n = 0}^{\infty} b_n (x - x_0)^{n}, b_0 \neq 0 \]
+
+    
+    
+*** Caso \( \lambda  \pm \in \mathbb{R} ( \lambda _+ \geq \lambda _-) \) 
+
+**** Subcaso: \( \lambda _+ = \lambda _- \) 
+     \[ y_1 (x) = |x - x_0 |^{\lambda _+} \sum_{n = 0}^{\infty} a_n (x - x_0)^n \]
+
+     Nesse caso a segunda solução pode ser construida a partir da primeira e
+     fica em termos de logaritmo e outra série. Só utilizamos o resultado.
+     Se em algum momento eu estudar as demonstrações posso coloca-las aqui.
+
+     \[ y_1 (x) = y_1(x) \ln |x - x_0| + |x - x_0|^{\lambda _+} \sum_{n = 0}^{\infty} b_n (x - x_0)^n \]
+
+     Além disso, para definir os coeficientes \( b_n \) é necessário substitutir a solução na EDO
+     original e encontrar o termo geral. Ao menos foi isso que entendi.
+
+
+     
+**** Subcaso: \( \lambda _+ - \lambda _{-} \in \mathbb{N}^{*} \)      
+
+    \[ y_1(x) = |x - x_0|^{\lambda } \sum_{n = 0}^{\infty} a_n (x - x_0)^n \]
+    \[ y_2 (x) =  \alpha y_1(x) \ln |x - x_0| + |x - x_0|^{\lambda} \sum_{n = 0}^{\infty} b_n (x - x_0)^n \]
+
+**** Subcaso \( 0 < \lambda _{+} - \lambda _{-} \notin \mathbb{N} \) 
+
+
+    \[ y_1(x) =  | x - x_0|^{\lambda _+} \sum_{n=  0}^{\infty} a_n (x - x_0)^n\]
+    \[  y_2 ( x) =  |x - x_0|^{\lambda_ - } \sum_{n = 0}^{\infty} b_n (x - x_0)}^n \]
+
+** *Exemplo*: Equação de Bessel
+ \[ x^2 y'' + x y' + (x^2 +  \nu^2) y = 0; \nu \in \mathbb{R}_{+} \]
+
+ Para \( x_0 = 0  \) 
+
+ \[  y'' + \frac{1}{x} y' + \left( 1 - \frac{\nu^2}{x^2} \right) y = 0 \]
+\[ p(x) = \frac{1}{x} \]e \( q(x) = 1 - \frac{\nu^2}{x 2} \) 
+
+Não são analiticas em \( x_0 \) , encontrando os pontos singulares regulares:
+
+\[ x p(x) = 1 \text{  e } x^2 q(x) = x^2 - \nu^2 \]
+
+essas funções são analiticas em \( x_0 \) .
+Resolvendo a equação indicial:
+
+\[ \lambda (\lambda - 1) p_0 \lambda + q_0 = 0 \]
+\[ p_0 =  \lim_{x\to x_0} xp(x) = 1 \text{ e }  q_0 = \lim_{x \to x_0} x^2q(x) = - \nu^2\]
+
+\[ \lambda (\lambda - 1) + \lambda - \nu^2 = 0  \]
+\[ \lambda ^2 - \nu^2 = 0 \Rightarrow \lambda  = \pm \nu  \]
+(Se o \( \mu \) não tivesse sido definido como estritamente positivo a solução seria \( \lambda  =
+\pm | \nu|\)).
+
+
++ Exercicio proposto: resolver para \( \nu = 0, \nu = \frac{1}{2}, \nu = 1 \) 
+
+
+
+
+
+
+
+
+
 
 
 

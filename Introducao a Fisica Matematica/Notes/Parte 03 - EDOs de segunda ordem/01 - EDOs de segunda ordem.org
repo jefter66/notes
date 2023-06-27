@@ -4,4 +4,191 @@
 * EDOs Homogêneas
 ** Método do Wronskiano
 ** Redução de ordem
-* EDOs Inomogêneas
+* EDOs de segunda ordem, lineares e inomogêneas
+
+\[ a(t) y''(t) + b(t) y'(t) + c(t) y(t) = f(t) \]
+
+Solução geral: \( y(t) = y_{H} (t) + y_{P} (t) \) 
+
+onde \( y_H \) é uma solução geral da EDO homogênea associada (obtida substituindo
+f(t) por zero e resolvendo a EDO homogênea resultante) e \( y_P \) é uma solução particular
+qualquer da EDO inomogênea dada.
+
+Supondo que já resolvemos a EDO homogênea por algum método:
+
+\[ y_H(t) = \alpha  y_1 (t) + \beta y_2(t) \]
+onde já conhecemos as funções \( y_1 \) e \( y_2 \) .
+
+
+** Método da variação de parâmetros para encontrar \( y_P(t) \) 
+
+   Reescrevendo a solução particular da inomogênea como :
+
+   \[ y_P(t) = \alpha (t) y_1(t) + \beta (t) y_2(t) \]
+
+   E colocando a EDO original na forma canônica:
+   \[ y_P' = \alpha y_1 ' + \alpha ' y_1 + \beta  y_2 ' + \beta ' y_2 \]
+
+   Impomos a relação:
+   #+begin_latex
+   \begin{equation}
+   \alpha ' y_1 + \beta ' y_2 = 0  
+   \label{eq:inomogeneas_1}
+   \end{equation}
+   #+end_latex
+   segue que \( y_P ' = \alpha (t) y_1 '(t) + \beta (t) y_2 ' (t) \) 
+
+
+   \[ y_P '' =  \alpha ' y_1 ' + \alpha y_1 ''  + \beta ' y_2 ' + \beta y_2 '' \]
+
+
+   Substituindo na EDO dada:
+
+   \[ y_P '' + p y_P ' + q y_P  = \alpha y_1 '' + \alpha ' y_1 ' + \beta y_2 '' + \beta ' y_2 ' + p
+   \left( \alpha y_1 ' + \beta  y_2 '  \right) + q \left( \alpha y_1 + \beta  y_2 \right) = r(t) \]
+
+
+   \[ \alpha (t) \underbrace{\left[ y_1 '' (t) + p(t) y_1' (t)  + q(t) y_1(t) \right]}_{ =  0}  + \beta (t) \underbrace{\left[
+   y_2''(t) + p(t) y_2 ' (t) + q(t) y_2 (t)  \right]}_{ = 0 } + \alpha ' y_1' + \beta ' y_2' = r(t) \]
+
+   \begin{equation}
+   \alpha ' y_1 ' + \beta ' y_2 ' = r(t) 
+   \label{inomogeneas_2}
+   \end{equation}
+
+
+   Com as duas equações (\ref{inomogeneas_1}) e (\ref{eq:inomogeneas_2}) temos o sistema linear:
+
+   \[ \begin{cases}
+   y_1 \alpha ' + y_2 \beta ' = 0 \\
+   y_1 ' \alpha ' + y_2 ' \beta ' = r(t)   
+    \end{cases}\]
+
+   \[ \begin{bmatrix}
+   y_1 & y_2 \\ y_1 ' & y_2 '
+   \end{bmatrix} =  \begin{bmatrix} \alpha ' \\ \beta ' \end{bmatrix}
+= \begin{bmatrix}  0 \\ r(t)    \end{bmatrix} \]
+
+\[  \alpha  ' = \frac{\det \begin{bmatrix} 0 && y_2 \\ r && y_2' \end{bmatrix} }{\det \begin{bmatrix}
+y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+\frac{r(t) y_2 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_2(t) }{W[y_1, y_2](t)} \]
+
+\[  \beta  ' = \frac{\det \begin{bmatrix} y_1 & 0 \\ y_1 ' & r(t) \end{bmatrix} }{\det \begin{bmatrix}
+y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+\frac{r(t) y_1 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_1(t) }{W[y_1, y_2](t)} \]
+
+
+Integrando as soluções temos \( \alpha , \beta \) , após isso substituimos em \( y_P(t) = \alpha (t)
+y_1(t) + \beta (t) y_2(t)\)  e a
+solução geral da EDO será :
+
+\[ y(t) = \left( \alpha _0 + \alpha (t) \right) y_1(t) + \left( \beta _0 + \beta (t) \right)y_2(t) \]
+
+
+ * *Exemplo*: \( x^2 y '' - 3x y' + 4y = x^2 \ln |x| , y(x) = ?, x> 0 \) 
+
+   Considerando a EDO homogênea associada temos
+   \[ x^2 y'' - 3xy' + 4y = 0  \]
+
+   Suponto \( y(x) = x^{\lambda } \Rightarrow y' = \lambda x^{\lambda -1} \Rightarrow y'' = \lambda
+   (\lambda - 1) x^{\lambda - 2}  \) 
+
+   \[ x^{\lambda } \left[ \lambda (\lambda - 1) - 3 \lambda  + 4  \right] = 0 \Rightarrow \lambda
+   ^2 - 4 \lambda  + 4 = 0 \Rightarrow \left( \lambda - 2 \right)^2 = 0 \Rightarrow \lambda  = 2 \]
+   Logo, \( \lambda = 2 \) e uma das soluções da EDO homogenea associada é \( y_1 (x) = x^2 \) 
+
+
+   Usando método do Wronskiano para encontrar \( y_2(t) \)
+
+   \[ y_1 y_2 ' - y_1 ' y_2 = W_0 e^{- \int p(x) dx}, p(x) = - \frac{3}{x} \]
+   \[ x^2 y_2 ' - 2x y_2 = e^{3 \ln x} = e^{x^3}  \]
+   \[ y_2 ' - \frac{2}{x} y_2 = x \Rightarrow \mu = \frac{1}{x^2} \]
+   \[ \left( \mu y_2 \right)' = \frac{1}{x} \Rightarrow \frac{y_2}{x^2} = \ln x + \mathbb{C}
+   \Rightarrow y_2(x) = x^2 \ln x + x^2 \mathbb{C}\]
+   Fazendo \( \mathbb{C} = 0 \), temos que \( y_2(x) = x^2 \ln x \) 
+
+   uma possível solução é \( y_2(x) = x^2 \ln x \)   e a outra é \( y_1(x) = x^2 \) 
+
+
+   Para encontrar \( y_P(x) \) impomos:
+
+   \[ y_P(x) = \alpha (x) y_1(x) + \beta (x) y_2 (x) = \alpha (x) x^2 + \beta (x) x^2 \ln x\]
+   \[ y_P'(x) =  \alpha ' x^2 + 2 \alpha  x + \beta ' x^2 \ln x + \beta (2x\lnx + x) \]
+
+
+   impondo também \( \alpha ' x^2 + \beta ' x^2 \ln x = 0  \) 
+
+   \[ y_P '   =  2 \alpha x + \beta (2x \ln x + x) \]
+
+   \[ y_P'' = 2 \alpha ' x + 2 \alpha + \beta ' (2x \ln x + x ) + \beta (2 \ln x + 3) \]
+
+
+   Substituindo na EDO:
+
+   \[ y_P '' - \frac{3}{x} y_P ' + \frac{4}{x^2} y_P = \ln x \]
+   #+begin_latex
+   \begin{multline*}
+   \Leftrightarrow \left[ 2 \alpha ' x + 2 \alpha  + \beta ' (2x \ln x + x) + \beta (2 \ln x + 3)
+   \right] - \frac{3}{x} \left[ 2 \alpha x + \beta \left( 2x \ln x + x \right) \right]+
+   \\ \frac{4}{x^2} \left( \alpha x^2 + \beta x^2 \ln x  \right) = \ln x \end{multline*}
+   #+end_latex
+
+
+   \[ 2 \alpha ' x + \left( 2x \ln x + x \right)\beta ' = \ln x \]
+
+
+
+   Temos então o sistema
+
+   #+begin_latex
+   $$\begin{cases}
+    x^2 \alpha ' + 2 x \ln x \beta ' = 0 \\
+    2 \alpha ' x + \left( 2x \ln x + x \right) \beta ' = \ln x  
+   \end{cases}$$
+   #+end_latex
+
+   \[ \Leftrightarrow \begin{cases}
+   \alpha ' + \ln x \beta ' = 0 \\ 2 \alpha ' + \left( 2 \ln x + 1\right) \beta ' = \frac{\ln x}{x}
+\end{cases} \]
+
+   \[ \alpha ' = - \beta ' \ln x   \]
+   \[ - \beta ' \ln x + 2\ln x \beta' + \beta ' = \frac{\ln x}{x} \]
+   \[ \beta ' = \frac{\ln x }{x} \Rightarrow \alpha ' = - \frac{(\ln x)^2}{x} \]
+
+
+
+   \[ \beta = \int \frac{\ln x}{x} dx \text{ e } \alpha = - \int \frac{(\ln x)^2}{x} dx \]
+
+   \[ \beta = \frac{(\ln x)^2}{2} \text{ e } \alpha = - \frac{(\ln x )^3}{3} \]
+
+
+   \[ y_P(x) = - \frac{(\ln x )^3 x^2}{3} + \frac{(\ln x)^2 x^2 \ln x}{2}\]
+   \[ y_P(x) = \frac{x^2 (\ln x)^3}{6} \]
+
+   
+
+   A solução geral é:
+
+   \[ y(x) =  \alpha _0 x^2 + \beta _0 x^2 \ln x + \frac{x^2 (\ln x)^3 }{6}\]
+  onde \( \alpha_0 \)   e \( \beta_0 \) são as condições de contorno.
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
