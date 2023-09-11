@@ -1,0 +1,298 @@
+\section{EDOs homogêneas, inomogêneas - fator integrante}
+Para equações homogêneas e inomogêneas lineares com variável
+independente \( t \) e dependente \( y \), queremos saber a
+cara de \( y(t) \) dada na equação \( a(t) y'(t) + b(t) y(t) = c(t) \) 
+
+onde \( a, b  \) e \( c \) são funções dadas de \( t \) .
+
+
+\paragraph{$\blacksquare$ Exemplo}: \( t^2 y' + 5t y = t^3 - 1 \)
+Se \( c(t) = 0 \) então a EDO é homogênea e caso contrário inomogênea.
+
+\begin{itemize}
+  \item[$\blacksquare$] Caso homogêneo: 
+  \[ a(t) y'(t) + b(t) y(t) = 0 \]
+  \[ y'(t) + p(t) y(t) = 0, p(t) = \frac{b(t)}{a(t)} \]
+  \[ \Leftrightarrow \frac{y'(t)}{y(t)} = - p(t) \Leftrightarrow \frac{1}{y} \frac{dy}{dt} = -p(t) \]
+  \[ \Leftrightarrow \int \frac{1}{y} dy = - \int p(t) dt \]
+  \[ \Leftrightarrow  \int \frac{dy}{y} = - \int p(t) dt  \]
+  \[ \Leftrightarrow  \ln |y| = - \int p(t) dt \]
+  \[ \Leftrightarrow  |y| = e^{- \int p(t) dt + \mathbb{C}} = e^{-\int p(t) dt} e^{\mathbb{C}} \]
+  \[ \Leftrightarrow  |y| = |A|e^{- \int p(t) dt}, |A| = e^{\mathbb{C}} \]
+  \[ \Leftrightarrow  y(t) = Ae^{- \int p(t) dt}\]
+
+  O valor de $A$ vai depender das condições iniciais do problema.
+  
+  \item[$\blacksquare$] Caso inomogêneo: \textbf{fator integrante}
+
+  \[ a(t) y'(t) + b(t) y(t) = c(t) \]
+  \[ y'(t) + p(t) y(t) = r(t), p(t) = \frac{b(t)}{a(t)}, r(t) = \frac{c(t)}{a(t)} \]
+
+  A estratégia para resolver com fator integrante é chegar à uma equação
+  que permita-nos escrever o lado esquerdo da equação usando a regra do produto
+  para derivadas, ou seja,
+  \[ \frac{d  }{d x} \left( f g \right) = g \frac{d}{dx}f  + f \frac{d}{dx}g \]
+
+  Para tal, precisamos de uma combinação linear do tipo
+  \( \mu (t) y'(t) + \mu (t) p(t) y(t) = \mu (t) r(t) \), onde \( \mu(t) \) é o fator
+  integrante.
+  A relação
+  \[ \frac{d}{dt} \left(\mu(t) y(t) \right) = \mu(t) y'(t) + \mu(t) p(t) y(t) \] 
+
+  é válida so e se só \( \mu(t) \) obedece a relação
+
+  \begin{equation}
+    \frac{d}{dt} \mu(t) = p(t) \mu(t) 
+    \label{eq:fator_integrante}
+  \end{equation}
+\end{itemize}
+
+
+\paragraph{$\blacksquare$ Exemplo}: \( t^2 y'(t) + 5ty(t) = t^3 - 1 \) 
+
+\[ \Leftrightarrow y' + \frac{5}{t}y = t - \frac{1}{t^2}  \]
+\[ \Leftrightarrow \frac{d}{dt}\mu = \mu y' + \frac{5}{t}\mu y = \left( t - \frac{1}{t^2}\right)\mu \]
+\[ \Leftrightarrow  \frac{d\mu}{dt}= \frac{5\mu}{t} \]
+Essa relação é uma EDO homogênea simples, então temos
+\[ \Leftrightarrow \frac{\mu'}{\mu} = \frac{5}{t} \]
+\[ \Leftrightarrow \ln|\mu| = 5 \ln |t| \Rightarrow \mu = t^5\]
+
+voltando à equação anterior temos
+
+\[ \frac{d}{dt} \left( t^5 y \right) = t^6 - t^3 \]
+\[ t^5 y = \frac{t^7}{7} - \frac{t^4}{4} + \mathbb{C} \]
+
+\[ \Rightarrow y(t) = \frac{t^2}{7}- \frac{1}{4t} + \frac{\mathbb{C}}{t^5} \]
+
+
+\section{Método de variação de paramêtros}
+A solução de uma EDO linear inomogênea de primeira ordem é a soma da solução geral da homogênea
+associada com uma solução particular \textbf{qualquer} da EDO inomogênea original.
+Podemos portanto `` construir '' a solução de uma EDO inomogênea.
+
+
+\[ y' + p(t) y = r(t) \rightarrow y(t) = y_{H} (t) + y_{P} (t) \]
+onde \( y_{H} \) é a solução da EDO homogênea associada, \( y_P \) é a paramétrica obtida a partir
+da homogênea e \( y \) é a solução geral da EDO dada.
+
+\paragraph{$\blacksquare$ Exemplo} \( t y' - t^2 = y, t >0 \) 
+
+\[ t y' - y = t^2 \Rightarrow y' - \frac{1}{t}y = t  \]
+Fator integrante \( \mu y' - \frac{\mu}{t}y = \mu t \Rightarrow \frac{d}{dt} \left( \mu y \right) = \mu t \) 
+\[ \mu ' = - \frac{\mu }{t} \Leftrightarrow \frac{\mu'}{\mu} = - \frac{1}{t} \Rightarrow \frac{d\mu}{\mu}= - \frac{dt}{t} \Leftrightarrow \ln|\mu| = - \ln|t|\]
+\[ \Rightarrow \mu = \frac{A}{t} \]
+
+\[\Rightarrow \frac{d}{dt} \left( \frac{y}{t} \right)  = 1 \Leftrightarrow \frac{1}{t} y = 1 \Leftrightarrow \frac{1}{t}y = t +
+  \mathbb{C} \]
+\[ \Leftrightarrow y(t) = t^2 + \mathbb{C} t \]
+
+Para \( y(1) = 0 \Rightarrow 0 = 1^2 + \mathbb{C} \cdot 1 \Rightarrow \mathbb{C} = -1 \Leftrightarrow y(t) = t^2 - t \) 
+
+Checando a propriedade da variação de paramêtros a partir desse resultado.
+Chutando \( y_P (t) = t^2 \) a solução geral da homogênea: \( y_{H}' - \frac{1}{t} y_H = 0 \) 
+\[ \frac{y'_{H}}{y_{H}} = \frac{1}{t} \Leftrightarrow \frac{d y_{H}}{y_{H}} = \frac{dt}{t} \Leftrightarrow \ln|y_H| = \ln t + \mathbb{C}  \]
+\[  |y_H(t)| = e^{\mathbb{C}} t \Leftrightarrow y_H(t) = \mathbb{C} t \]
+\[ \Leftrightarrow y(t) = \mathbb{C} t + t^2  \]
+
+\section{EDOs separáveis}
+Uma EDO de primeira ordem é dita ser separável se pode ser colocada na forma
+
+\begin{equation}
+  f(y) y' = g(t) \leftrightarrow M(y)y' + N(t) = 0 \Leftrightarrow M(y) dy + N(t) dt = 0
+  \label{eq:edo_separavel}
+\end{equation}
+
+\section{Modelagem de sistemas usando EDOs}
+Tratamos as populações a partir de densidades para evitar trabalhar com sistemas discretos que podem
+levar a descontinuidades. Na realidade quando implementamos alguma simulação podemos tentar
+considerar as discretizações do sistema. Na teoria estamos tratando dos modelos mais simples
+possíveis.
+\subsection{EDOs autonômas e crescimento populacional}
+Sejam
+\begin{itemize}
+ \item[$\bullet$] y: densidade de ``entes'': Substâncias, presas $\times$ predadores, moleculas...
+ \item[$\bullet$] t: tempo
+\end{itemize}
+
+Supondo \( \frac{dy}{dt} \propto y \Leftrightarrow \frac{dy}{dt}=  r y, r > 0 \) , onde \( r \) é a taxa de
+crescimento. Esse é o modelo bem simplificado de um sistema fechado.
+
+Temos
+\[ \frac{dy}{y}= r dt \Leftrightarrow \ln | y| = rt + \mathbb{C} \Leftrightarrow y(t) = A e^{rt}\]
+supondo \( y(t_0) = y_0 \Rightarrow y_0 = A e^{rt_0} \Rightarrow A = y_0 e^{-rt_0} \), logo
+\[ y(t) = y_0 e^{r(t-t_0)} \]
+note que para qualquer \( t \) a solução é apenas transladada.
+
+\subsection{Equação logística}
+Leva em consideração um limite superior para a solução. Isso é mais ``realista'' já que tem um fator
+limitante como população cujo crescimento é proporcional.
+
+\[ \frac{dy}{dt}= r(y) y = r_0 \left( 1 - \frac{y}{k} \right)y, r(y) \text{ é decrescente. }\]
+
+[IMAGEM] 
+
+Ponto \( k \) (valor crítico): a partir desse ponto a taxa de ``mortalidade'' é menor que a
+de ``natalidade'', ou seja, a população decresce.
+
+\[ f(y) = \frac{dy}{dt} = r_0 \left( 1 - \frac{y}{k} \right)y \]
+
+[IMAGEM] [IMAGEM]
+
+\subsection{Resolvendo a equação logística}
+\[ \frac{dy}{dt} = r_0 \left( 1 - \frac{y}{k} \right)y  \Leftrightarrow y(t) = 0, y(t) = k \]
+são soluções, logo \( \frac{dy}{y \left( 1 - \frac{y}{k} \right)}  = r_0 dt \)
+integrar essa relação nos leva à uma integral por fração parcial. A forma de resolver
+isso está no apendice [citar aqui]
+
+resolvendo a integral temos
+
+\[ \ln \bigg| \frac{y}{y- k} \bigg | = r_0 t + \mathbb{C} \]
+\[ \frac{y}{y-k} = A e^{r_0 t} \Rightarrow y = A e^{r_0 t} (y - k) \]
+\[ y \left( A e^{r_0 t} \right) = - k e^{r_0 t} A \]
+\[ \Rightarrow y(t) = \frac{K}{-A^{-1} e^{-r_0 t} + 1} \]
+
+\section{EDOs exatas}
+
+Partindo das EDOS separáveis, temos \( f(y)dy + g(t) dt = 0 \),
+ou seja \( F(y) + G(t) = \text{cte}, \frac{dF}{dy} = f(y), \frac{dG}{dt} = g(t) \) 
+
+\paragraph{Generalizando}: supondo que existem um classe de EDOS cujas soluções podem ser dadsa por
+ \( \psi (t, y(t)) = \text{cte} \), onde \( \psi(t, y(t)) = F(t, y(t)) + G(t, y(t)) \). A função
+ \( \psi \) é um lugar geométrico em \( x, y \), uma curva de nível no plano de forma geral
+ \( x = t \)  e \( y = y(t) \), para \( \psi(x, y) \).
+ \[ \left( \frac{\partial }{\partial x} \psi \right) \frac{dx}{dt} + \left( \frac{\partial }{\partial y} \psi \right)\frac{d y }{d t} = 0 \]
+
+ Com \( \psi_{, x} = \frac{\partial }{\partial x} \psi, \psi_{, y} = \frac{\partial }{\partial y} \psi\), substituindo na equação acima temos
+ \[ \psi_{,x} + \psi_{,y}y' = 0 \]
+ Isso é uma EDO separáel e pode ser escrita como
+ \[ M(x, y) + N(x, y) y'(x) = 0 \]
+ onde \( M(x, y) = \frac{\partial }{\partial x} \psi \)  e \( N(x, y) = \frac{\partial }{\partial y} \psi \), portanto
+ \[ \psi(x, y(x)) = \text{cte} \]
+ 
+ Qualquer EDO que pode ser escrita dessa forma é chamada de EDO exata.
+
+
+
+ \paragraph{$\blacksquare$} Explicação (rasa) sobre essa manipulação:
+
+ \[ \nabla \psi = \left( \frac{\partial }{\partial x} \psi, \frac{\partial }{\partial y} \psi \right) \]
+ identificação de \( \frac{\partial }{\partial x} \psi \)  e \( \frac{\partial }{\partial y} \psi \), vale que
+ \( \nabla \times \psi = 0 \Leftrightarrow \nabla \times \psi = \frac{\partial }{\partial y} \psi - \frac{\partial }{\partial x} \psi = 0  \Leftrightarrow \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\).
+ Essa é a condição necessária (e nesse caso suficiente) para encontrar a função \( \psi \).
+ 
+
+
+
+    \subsection{Caso base}
+    \paragraph{$\blacksquare$ Exemplo}: $(\sin x + x^2 e^y -1) y' + (y \cos x + 2x e^y ) = 0$ 
+    Verificar validade de \( M(x, y) + N(x, y) y' = 0 \), com \( M_{,x} \overset{?}{=} N_{,y} \) 
+
+    \[ M(x, y) = y \cos x + 2x e^y \mapsto \frac{\partial }{\partial y} M = \cos x + 2x e^y \]
+    \[ N(x, y) = \sin x + x^2 e^y - 1 \mapsto \frac{\partial }{\partial x} N = \cos x + ex e^y \]
+
+    \( M_{,x} = N_{,y} \), a equação é exata.
+
+
+    Encontrando a função \( \psi(x, y) \) 
+
+    \[ \frac{\partial \psi}{\partial x}  = y \cos x + 2x e^y \Rightarrow \psi(x, y) = y \sin x + x^2 e^y + h(y) \]
+    fazendo \( \frac{\partial }{\partial y} \psi(x, y) = \frac{\partial }{\partial y}  \left( y \sin x + x^2 e^y + h(y) \right) \) 
+    \[ \frac{\partial }{\partial y} \psi(x, y) = \sin x + x^2 e^y + h'(y) = \sin x + x^2 e^y - 1 \]
+    \[ \Leftrightarrow h'(y) = -1 \Leftrightarrow h(y) = -y + \mathbb{C} \]
+    \[ \Longrightarrow  \psi(x, y) = y \sin x + x^2 e^y - y + \mathbb{C} \]
+
+    Portanto, a solução é dada pelo \( y(x) \) que satistfaz \( y(x) \sin x + x^2 e^{y(x)} - y(x) = \text{cte} \).
+
+
+
+    \subsection{Caso que precisa de fator integrante}
+    
+ 
+    \paragraph{$\blacksquare$ Exemplo}: equação não exata e fator integrante para equações não exatas
+    \[(2 x + 4y) + (2x - 2y) y' = 0\]
+
+
+    Verificar a validade \( M(x, y) + N(x, y) y' = 0 \):
+    \[ \begin{cases}
+         M = 2x + 4y \\
+         N = 2x - 2y
+       \end{cases} \Rightarrow \begin{cases}
+                       M_{, y} = 4 \\
+                       N_{, x} = 2
+                     \end{cases} \Rightarrow \text{Não satisfazem a condição} \]
+
+     Para resolver usamos fator integrante: supondo que \( M(x, y) + N(x, y)y' = 0 \) é não
+     exata. Encontrar \( \mu = \mu(x, y) \), tal que \( \mu M + \mu N y' = 0 \) seja exata.
+
+     \[ \widetilde{M} = \mu M , \widetilde{N} = \mu N \]
+     então \( \widetilde{M} + \widetilde{N} y' = 0 \), logo
+     \[ (\mu M)_{, y} = (\mu N)_{,x} \]
+   
+
+
+
+     \paragraph{$\blacksquare$ Exemplo}: $ \left( 2 \sin(y) - x \right) y' = \tan(y)$
+     \[ M(x, y) = - \tan(y) \Rightarrow \frac{\partial }{\partial y} M(x, y) =  -  \frac{\partial }{\partial y} \left(
+         \frac{\sin(y)}{\cos(y)} \right) = - \frac{\cos (y)}{\cos(y)} - \frac{\sin^2 (y)}{\cos^2
+         (y)}= - 1 - \tan^2 (y) = - \sec^2 (y) \]
+    
+
+     \[ N(x, y) = 2 \sin(y) - x \Rightarrow \frac{\partial }{\partial x}  N(x, y) = -1  \]
+     
+     \[ N_x  \neq  M_y \]
+     
+     Logo, pela forma que foi dada não é uma equação exata, precisamos encontrar algum fator
+     integrante para resolve-la.
+     
+     Nessa situação chutamos primeiro fatores integrantes do tipo \( \mu(x, y) \) e outras variações
+     que envolvam as duas variáveis ou uma delas, como \( \mu(x) \), \( \mu(y) \), \( \mu(x/y) \), \(
+     \mu(xy) \), \( [\reflectbox{$\dots$}] \). A partir do fator integrante substituimos e checamos se
+     a equivalência se permanece. Vimos isso na sequência.
+
+
+     Supondo que para essa EDO podemos usar o fator integrante \( \mu = \mu(x, y) \), então
+     \( \widetilde{M} + \widetilde{N} y'   \mu M + \mu N y' = 0 \) 
+     \[ \mu(x, y) \left[ 2 \sin (x) - x \right]y' + \mu(x, y) (-\tan(y)) = 0 \]
+     
+     Checando a validade de \( \frac{\partial }{\partial y} \widetilde{M}  = \frac{\partial }{\partial x} \widetilde{N}\):
+     
+     
+     \[ - \frac{\partial \mu}{\partial y} \tan(y) - \mu \sec^2 (y) = \frac{\partial \mu}{\partial x} \left( 2 \sin (y) - x \right) - \mu (-1) \]
+     \[ \Leftrightarrow \left( x - 2 \sin(y) \right) \frac{\partial \mu}{\partial x} - \tan(y) \frac{\partial \mu}{\partial x} = (\sec^2 (y) - 1) \mu  \]
+     
+     \paragraph{$\rightarrow $ Ansatz}: \( \mu = \mu(x)\Rightarrow \frac{\partial \mu}{\partial x} = \mu' \)  e \( \frac{\partial \mu}{\partial y} = 0 \) 
+     
+     \[ \Leftrightarrow (x - 2\sin(y)) \mu'(x) = \left( \tan(y) \right)^2 \mu(x) \]
+     \[ \Leftrightarrow \frac{\mu'(x)}{\mu(x)} = \frac{ \left( \tan(y) \right)^2 }{x - 2 \sin(y)} \]
+
+     Essa última linha é uma contradição, já que o lado direito não depende explicitamente apenas de
+     \( x \), ou seja, esse chute não é válido.
+     
+
+     \paragraph{$\rightarrow $ Ansatz}: \( \mu = \mu(y) \Rightarrow \frac{\partial \mu}{\partial x}  = 0, \frac{\partial \mu}{\partial y} = \mu'(y)\) 
+
+     \[ - \tan(y) \mu' = \left( \tan(y) \right)^2 \mu \Rightarrow \frac{\mu'(y)}{\mu(y)}= - \tan(y) \Rightarrow \mu(y) = \cos(y)\]
+
+
+
+     \paragraph{$\blacksquare$ Exemplo}: $(2 \sin(y) \cos(y) - x \cos (y))y' - \sin(y) = 0$
+
+     \[ M_y = - \cos (y) , N_{x} = - \cos(y) \]
+
+     \[ M = \psi_{x} = - \sin (y) \Rightarrow \psi (x, y) = - x \sin (y) + h(y)\]
+     \[ N = \psi_{y} = \sin(y) - x \cos(y) = - x \cos(y) + h'(y) \Rightarrow h'(y) = \sin(2y) \Rightarrow h(y) = -
+       \frac{1}{2} \cos(2y) \]
+     \[  \psi(x, y) = - x \sin(y) - \frac{1}{2} \cos(2y) + \mathbb{C} \]
+
+     Logo, a solução implicita da EDO é
+
+     \[ -x \sin(y(x)) - \frac{1}{2} \cos(2 y(x)) = \mathbb{C}  \]
+
+     
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% TeX-master: "main.tex"
+%%% End:
+
+

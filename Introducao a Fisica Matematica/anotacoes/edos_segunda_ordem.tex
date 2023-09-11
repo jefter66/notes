@@ -1,0 +1,505 @@
+\section{Lineares homogêneas}
+
+Os métodos para resolver as EDOs de segunda ordem lineares são os métodos
+do Wronskiano (usando o teorema de Abel), redução de ordem, variação de parametros (para
+as EDOs inomogêneas) e em último caso, método de séries. Nessa etapa vimos todos métodos exceto esse
+último, que será visto na sequência.
+
+As EDOs de segunda ordem tem a seguinte cara:
+\[ a(t) y'' + b(t) y' + c(t) y = 0  \]
+
+vamos considerar inicialmente só o caso homogêneo por simplicidade e sempre
+adotar o uso da equação na forma ``canônica'', isto é, com a derivada de maior ordem multiplicada
+por \( 1 \):
+
+\[ y''(t) + p(t) y'(t) + q(t) y(t) = 0, p(t) = \frac{b(t)}{a(t)}, q(t) = \frac{c(t)}{a(t)} \]
+
+
+As EDOs de segunda ordem são compostas de 2 soluções linearmente independentes, isso significa que
+podemos construir uma solução geral a partir de outra e em geral é isso que vamos fazer, supor uma
+possível solução, com base por exemplo na ``cara'' da EDO.Isto vai ser visto melhor na prática em
+exemplos desenvolvidos.
+
+Segue propriedades gerais das EDOs de segunda ordem lineares:
+
+
+\begin{theorem}[Linearidade ou principio da superposição]
+  Se \( y_1 (t)  \)  e \( y_2 (t) \) são soluções de uma EDO linear homogênea, então
+  \( \alpha y_1 (t) + \beta y_2 (t) \), \( \forall \alpha , \beta  \in \mathbb{R} \), também é solução.
+\end{theorem}
+
+\begin{theorem}[Solução geral]  
+  Se \( y_1(t) \) e \( y_2 (t) \) são soluções de uma EDO linear homogênea de 2ª ordem que não
+  são proporcionais uma à outra, então \( y(t) = \alpha y_1 (t) + \beta y_2 (t) \), com \( \alpha  \) e
+  \( \beta  \) constantes quaisquer é a solução geral da EDO dada.
+\end{theorem}
+
+
+\begin{theorem}[Wronskiano]\label{teo:definicao_wronskiano}
+  Dadas duas funções quaisquer \( y_1(t) \) e \( y_2(t) \) define-se o chamado
+  Wronskiano como sendo a função
+  \begin{equation}
+    W[y_1, y_2] (t) := y_1 (t) y_2 '(t) - y_2 (t) y_1 ' (t)
+    \label{eq:wronskiano_formula}
+  \end{equation}
+\end{theorem}
+
+\paragraph{Expandindo um pouco a ideia do Wronskiano}
+
+Nota-se que, \( W = 0 \) só e só se \( y_1 (t) = f(t) \) e \( y_2 (t) = c f(t)\) .
+
+Derivando o Wronskiano:
+\[ \frac{d W }{d t} = \frac{d  }{d t} \left[ y_1 y_2 ' - y_2 y_1 ' \right] = y_1'y_2 ' + y_1 y_2''
+  - y_2' y_1' - y_2 y_1'' \]
+\[ \frac{d W }{d t} = y_1 y_2'' - y_2 y_1'' \]
+
+\[ \frac{d W }{d t} = y_1 \left\bigg( -p(t) y_2 ' - q(t) y_2  \right) - y_2 \left\bigg( -p(t) y_1' - q(t) y_1 \right)\]
+
+\[ \frac{d W }{d t} = -p(t) \left\bigg( y_1 y_2 ' - y_2 y_1' \right) = -p(t) W\]
+
+\begin{theorem}[Teorema de Abel]\label{eq:teorema_abel}
+  Se \( y_1 \) e \( y_2 \) são soluções da EDO \( y'' + p(t) y' + q(t) y = 0 \) seu Wronskiano
+  satisfaz \( W' + p(t) W = 0 \) vale
+  \begin{equation}
+    W[y_1, y_2] (t) = W_0 \exp\left({- \int p(t) dt}\right)
+    \label{eq:teorema_abel}
+  \end{equation}
+\end{theorem}
+
+\paragraph{$\blacksquare$ Exemplo}: \( x^2 y'' - x(x + 2)y' + (x+2) y = 0, x > 0, y(x) = \)?
+Sabemos que a solução geral deve ser da forma \( y(x) = \alpha y_1 (x) + \beta y_2 (x) \) 
+\[ y'' - \frac{x(x+2)}{x^2}y' + \frac{(x + 2)}{x^2}y = 0 \]
+\[ y'' - \left( 1 + \frac{2}{x} \right)y' + \frac{1}{x} \left( 1 - \frac{2}{x} \right) y = 0 \]
+
+\[ W = y_1 y_2' - y_2 y_1' = W_0 \exp{\int \left( 1 + \frac{2}{x} \right) dx} = W_0 \exp{x + 2 \ln(x)} \]
+\[ y_1 y_2' - y_2 y_1' = W_0 x^2 e^x \]
+
+Chutando uma solução para a EDO:
+Olhando para a essa EDO podemos chutar uma solução do tipo \( y(x) = x^{\lambda} \), já que derivando duas
+vezes vamos fazer o coeficiente \( x^2 \) sumir da EDO. Primeiro fazemos essa substituição na EDO
+original e tentar calcular o \( \lambda  \):
+
+\[ \begin{cases*}
+     y' = \lambda x^{\lambda - 1} \\
+     y'' = \lambda (\lambda -1) x^{\lambda - 2} 
+   \end{cases*} \Longrightarrow 
+   \begin{align*}
+     \lambda (\lambda - 1) x^{\lambda } - \lambda (\lambda + 2) x^{\lambda } + (x+2)x^{\lambda } & = 0  \\
+     x^{\lambda} \left[ \lambda (\lambda -1) - 2 \lambda  + 2 \right] + (1 - \lambda ) x^{\lambda + 1} &= 0
+   \end{align*}
+ \]
+
+ Se \( \lambda  = 1 \) a relação é válida, logo \( y_1(x) = x \) pode ser uma solução.
+
+
+ A partir desse resultado usamos o (\ref{eq:teorema_abel}) para encontrar a segunda solução. Caimos
+ em uma EDO de primeira ordem e resolvendo ela temos \( y_2(x) \), e portanto a solução completa.
+
+ \[ y_1 y_2' - y_2 y_1' = W_0 x^2 e^x \]
+ \[ x y_2'- y_2 = W_0 x^2 e^x \Longrightarrow y_2' - \frac{1}{x} W_0 x e^x, W_0 \neq 0\]
+
+ \[ \mu = \frac{1}{x} \Longrightarrow  \frac{d  }{d x} \left( \frac{y_2}{x} \right) = e^x \Longrightarrow  \frac{y_2}{x} = e^x + \mathbb{C} \]
+ \[ \Longrightarrow y_2(x) = x e^x \]
+
+ Logo, a solução geral da EDO dada é \( y(x) = \alpha y_1(x) + \beta y_2(x) \) 
+ \[ y(x) = \alpha x + \beta x e^x \]
+
+ A partir das condições iniciais podemos definir os coeficientes \( \alpha \) e \( \beta  \).
+
+\subsection{Método de redução de ordem}
+
+
+Partindo de uma EDO de segunda ordem conseguimos encontrar uma solução a partir de outra
+substituindo por uma EDO de primeira ordem.
+
+\[ a y'' + b y' + cy = 0 \]
+
+Supondo que conhecemos uma das soluções \( y_1 \) que obtemos a partir de algum Anzats. Podemos
+então obter a \( y_2 \) por redução de ordem fazendo \( y_2 = v(t)y_1(t) \) e substituindo na EDO
+original
+\[ \begin{cases}
+     y_2 ' = v' y_1 + v y_1' \\
+     y_2 '' = v'' y_1 + 2v'y_1' + v y_1''
+   \end{cases}
+   \Longrightarrow
+   \begin{align*}
+     a \left\bigg( v''y_1+2v'y_1'+vy_1'' \right) + b \left\bigg( v'y_1+vy_1' \right) + c v y_1 & =
+                                                                                                 0\\
+     v \underbrace{\left[ ay_1'' + by_1' + cy_1 \right]}_{= 0} + av''y_1+2v'y_1'+bv'y_1 & = 0 \\
+   \end{align*}
+ \]
+
+ \[
+ av''y_1 + 2v'y_1' + bv' y_1 = 0 \Longrightarrow  v'' + v' \left\bigg[ \frac{2y_1' + b y_1}{ay_1} \right] = 0
+ \]
+
+ a partir desse ponto substituimos o \( y_1, a \) e \( b \), que são conhecidos e resolvemos a EDO
+ em \( v'' \) para depois substituir em \( y_2 \). Não continuei essa demonstração porque me parece
+ ser mais útil tratar um exemplo real ao invés.
+
+
+ \paragraph{$\blacksquare$ Exemplo}: \( 4 y'' + 4y' + y = 0 \)
+ 
+ Supondo \( y_1 = e^{r t} \Rightarrow y_1' = ry_1 \Rightarrow y_1'' = r^2 y_1\) e disso segue que \( y \left( 4r^2 + 4r
+   + 1 \right) = 0 \Rightarrow (2r + 1)^2 = 0 \Rightarrow r = -\frac{1}{2} \) é uma solução. Aplicamos a redução de
+ ordem para encontrar a segunda solução.
+
+ \[ y_2 = v y_1 \Rightarrow \begin{cases}
+                    y_2' = v' y_1 + vy_1' \\
+                    y_2'' = v''y_1 + 2v'y_1' + vy_1''
+                  \end{cases}  \]
+
+       
+  \[ \left( v'' y_1 + 2 v' y_1' + vy_1'' \right)  + p  () + q \left( vy_1 \right)  =  0\]                
+  \[ \Rightarrow v'' y_1 + v' \left( 2y_1' + p y_1 \right) = 0  \]
+
+  Resolvendo essa EDO para encontrar \( y_2 \) :
+  \[ y_1' = - \frac{1}{2} y1 , y_1'' = \frac{1}{4} y_1 \]
+  \[ y_2 = vy_1 \Rightarrow \begin{cases}
+                    y_2' = v' y_1 - \frac{v}{2}y_1'\\
+                    y_2'' = v''y_1 - \underbrace{\frac{v'y_1}{2}- \frac{vy_1'}{2}}_{= - v y_1} + \frac{vy_1}{4}
+                  \end{cases} \]
+
+  Substituindo na equação original:
+                
+\[ 4 \left\right( v'' y_1 - v y_1 + \frac{v}{4}y_1 \right) + 4 \left\bigg( v' y_1 - \frac{v}{2}y_1
+\right) + v y_1 = 0 \] 
+\[ \Rightarrow 4 v'' y_1 = 0 \Rightarrow v'' = 0 \Rightarrow v' = a \Rightarrow v = a t + b \]
+
+\[ y_2 = v y_1 = at e^{-t/2} + b e^{-t/2} \]
+                
+\section{Lineares e inomogêneas}
+\subsection{Solução com coeficientes constantes}
+Para EDOS com a cara
+\[ a y''+ b y' + c y = 0 \]
+onde \( a, b \)  e \( c \) são constantes, soluções podem sembre ser dadas
+pelo chute \( y_1(x) = e^{r x} \) e a solução geral \( y(x) = C_1 e^{r_1 t} + C_2 e^{r_2 t}  \).
+
+Substituindo na EDO genérica dada:
+\[ a r^2 e^{rx} + b r e^{rx} + c e^{rx} = 0  \]
+\[ e^{rx} \left( a r^2 + b r + c \right) = 0 \]
+
+\[ \Leftrightarrow ar^2 + br + c = 0 \]
+
+
+\begin{theorem}[Equação caractéristica de uma EDO]
+  Dada uma EDO linear homogênea de segunda ordem com coeficientes constantes:
+  $a y'' + b y' + cy = 0$, a equação \( a r^2 + br + c = 0 \) é a equação caractéristica
+  da EDO dada.
+\end{theorem}
+
+Sejam \( r_1  \) e \( r_2 \) solução da equação caractéristica, temos três possíveis casos:
+
+\paragraph{$\blacksquare$ Caso} \( r_1, r_2 \in \mathbb{R} \)  e \( r_1 \neq r_2 \): \( y(x) =  \alpha e^{r_1 x} + \beta e^{r_2 x}\) 
+\paragraph{$\blacksquare$ Caso} \( r_1 = r_2 \), usar método do Wronskiano ou redução de ordem.
+\paragraph{$\blacksquare$ Caso} \( r_1 \neq r_2 \)  e \( r_1 = \overline{r_2} \in \mathbb{C} \): \( y(x) = \alpha e^{r_1x} + \beta e^{r_2 x} \) 
+  Nesse caso é necessário fazer uma mudança de coordenadas e passar a trabalhar com coordenadas
+  polares e tratar usando formúla de Euler. Lembrando que as EDOs que estamos trabalhando estão em
+  \( \mathbb{R} \), logo temos que sempre tomar cuidado em checar se a solução final está nesse domínio.
+
+\subsection{Solução para coeficientes não constantes}
+Equações com a cara 
+\[ a(t) y''(t) + b(t) y'(t) + c(t) y(t) = f(t) \]
+
+Solução geral: \( y(t) = y_{H} (t) + y_{P} (t) \) 
+
+onde \( y_H \) é uma solução geral da EDO homogênea associada (obtida substituindo
+$f(t)$ por zero e resolvendo a EDO homogênea resultante) e \( y_P \) é uma solução particular
+qualquer da EDO inomogênea dada.
+
+Supondo que já resolvemos a EDO homogênea por algum método:
+
+\[ y_H(t) = \alpha  y_1 (t) + \beta y_2(t) \]
+onde já conhecemos as funções \( y_1 \) e \( y_2 \) .
+
+
+\subsection{Método da variação de parâmetros para encontrar \( y_P(t) \)}
+
+Reescrevendo a solução particular da inomogênea como :
+
+\[ y_P(t) = \alpha (t) y_1(t) + \beta (t) y_2(t) \]
+
+E colocando a EDO original na forma canônica:
+\[ y_P' = \alpha y_1 ' + \alpha ' y_1 + \beta  y_2 ' + \beta ' y_2 \]
+
+Impomos a relação:
+\begin{equation}
+  \alpha ' y_1 + \beta ' y_2 = 0  
+  \label{eq:inomogeneas_1}
+\end{equation}
+
+segue que \( y_P ' = \alpha (t) y_1 '(t) + \beta (t) y_2 ' (t) \) 
+
+
+\[ y_P '' =  \alpha ' y_1 ' + \alpha y_1 ''  + \beta ' y_2 ' + \beta y_2 '' \]
+
+
+Substituindo na EDO dada:
+   
+\[ y_P '' + p y_P ' + q y_P  = \alpha y_1 '' + \alpha ' y_1 ' + \beta y_2 '' + \beta ' y_2 ' + p
+  \left( \alpha y_1 ' + \beta  y_2 '  \right) + q \left( \alpha y_1 + \beta  y_2 \right) = r(t) \]
+\[ \alpha (t) \underbrace{\left[ y_1 '' (t) + p(t) y_1' (t)  + q(t) y_1(t) \right]}_{ =  0}  + \beta (t) \underbrace{\left[
+      y_2''(t) + p(t) y_2 ' (t) + q(t) y_2 (t)  \right]}_{ = 0 } + \alpha ' y_1' + \beta ' y_2' = r(t) \]
+
+\begin{equation}
+  \alpha ' y_1 ' + \beta ' y_2 ' = r(t) 
+  \label{eq:inomogeneas_2}
+\end{equation}
+
+
+Com as duas equações (\ref{eq:inomogeneas_1}) e (\ref{eq:inomogeneas_2}) temos o sistema linear:
+
+\[ \begin{cases}
+     y_1 \alpha ' + y_2 \beta ' = 0 \\
+     y_1 ' \alpha ' + y_2 ' \beta ' = r(t)   
+   \end{cases}\]
+ 
+ \[ \begin{bmatrix}
+      y_1 & y_2 \\ y_1 ' & y_2 '
+    \end{bmatrix} =  \begin{bmatrix} \alpha ' \\ \beta ' \end{bmatrix}
+    = \begin{bmatrix}  0 \\ r(t)    \end{bmatrix} \]
+  
+  \[  \alpha  ' = \frac{\det \begin{bmatrix} 0 && y_2 \\ r && y_2' \end{bmatrix}}
+      {\det \begin{bmatrix} y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+      \frac{r(t) y_2 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_2(t) }{W[y_1, y_2](t)} \]
+    \[ \beta  ' = \frac{\det \begin{bmatrix} y_1 & 0 \\ y_1 ' & r(t) \end{bmatrix} }
+    {\det \begin{bmatrix} y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+    \frac{r(t) y_1 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_1(t) }{W[y_1, y_2](t)} \]
+
+Integrando as soluções temos \( \alpha , \beta \) , após isso substituimos em \( y_P(t) = \alpha (t)
+y_1(t) + \beta (t) y_2(t)\)  e a
+solução geral da EDO será :
+
+\[ y(t) = \left( \alpha _0 + \alpha (t) \right) y_1(t) + \left( \beta _0 + \beta (t) \right)y_2(t) \]
+
+ \paragraph{$\blacksquare$ Exemplo}: \( x^2 y '' - 3x y' + 4y = x^2 \ln |x| , y(x) = ?, x> 0 \) 
+
+ Considerando a EDO homogênea associada temos
+ \[ x^2 y'' - 3xy' + 4y = 0  \]
+ 
+ Suponto \( y(x) = x^{\lambda } \Rightarrow y' = \lambda x^{\lambda -1} \Rightarrow y'' = \lambda
+ (\lambda - 1) x^{\lambda - 2}  \) 
+ 
+ \[ x^{\lambda } \left[ \lambda (\lambda - 1) - 3 \lambda  + 4  \right] = 0 \Rightarrow \lambda
+   ^2 - 4 \lambda  + 4 = 0 \Rightarrow \left( \lambda - 2 \right)^2 = 0 \Rightarrow \lambda  = 2 \]
+ Logo, \( \lambda = 2 \) e uma das soluções da EDO homogenea associada é \( y_1 (x) = x^2 \) 
+
+
+ Usando método do Wronskiano para encontrar \( y_2(t) \)
+
+ \[ y_1 y_2 ' - y_1 ' y_2 = W_0 e^{- \int p(x) dx}, p(x) = - \frac{3}{x} \]
+ \[ x^2 y_2 ' - 2x y_2 = e^{3 \ln x} = e^{x^3}  \]
+ \[ y_2 ' - \frac{2}{x} y_2 = x \Rightarrow \mu = \frac{1}{x^2} \]
+ \[ \left( \mu y_2 \right)' = \frac{1}{x} \Rightarrow \frac{y_2}{x^2} = \ln x + \mathbb{C}
+   \Rightarrow y_2(x) = x^2 \ln x + x^2 \mathbb{C}\]
+ Fazendo \( \mathbb{C} = 0 \), temos que \( y_2(x) = x^2 \ln x \) 
+ uma possível solução é \( y_2(x) = x^2 \ln x \)   e a outra é \( y_1(x) = x^2 \) 
+ Para encontrar \( y_P(x) \) impomos:
+ \[ y_P(x) = \alpha (x) y_1(x) + \beta (x) y_2 (x) = \alpha (x) x^2 + \beta (x) x^2 \ln x\]
+ \[ y_P'(x) =  \alpha ' x^2 + 2 \alpha  x + \beta ' x^2 \ln x + \beta (2x\lnx + x) \]
+ impondo também \( \alpha ' x^2 + \beta ' x^2 \ln x = 0  \) 
+ 
+ \[ y_P '   =  2 \alpha x + \beta (2x \ln x + x) \]
+ \[ y_P'' = 2 \alpha ' x + 2 \alpha + \beta ' (2x \ln x + x ) + \beta (2 \ln x + 3) \]
+ Substituindo na EDO:
+ \[ y_P '' - \frac{3}{x} y_P ' + \frac{4}{x^2} y_P = \ln x \]
+ \begin{multline*}
+   \Leftrightarrow \left[ 2 \alpha ' x + 2 \alpha  + \beta ' (2x \ln x + x) + \beta (2 \ln x + 3)
+   \right] - \frac{3}{x} \left[ 2 \alpha x + \beta \left( 2x \ln x + x \right) \right]+
+   \\ \frac{4}{x^2} \left( \alpha x^2 + \beta x^2 \ln x  \right) = \ln x \end{multline*}
+ \[ 2 \alpha ' x + \left( 2x \ln x + x \right)\beta ' = \ln x \]
+ Temos então o sistema
+ $$\begin{cases}
+     x^2 \alpha ' + 2 x \ln x \beta ' = 0 \\
+     2 \alpha ' x + \left( 2x \ln x + x \right) \beta ' = \ln x  
+   \end{cases}$$
+   
+   \[ \Leftrightarrow \begin{cases}
+          \alpha ' + \ln x \beta ' = 0 \\ 2 \alpha ' + \left( 2 \ln x + 1\right) \beta ' = \frac{\ln x}{x}
+        \end{cases} \]
+
+      \[ \alpha ' = - \beta ' \ln x   \]
+      \[ - \beta ' \ln x + 2\ln x \beta' + \beta ' = \frac{\ln x}{x} \]
+      \[ \beta ' = \frac{\ln x }{x} \Rightarrow \alpha ' = - \frac{(\ln x)^2}{x} \]
+
+      \[ \beta = \int \frac{\ln x}{x} dx \text{ e } \alpha = - \int \frac{(\ln x)^2}{x} dx \]
+      \[ \beta = \frac{(\ln x)^2}{2} \text{ e } \alpha = - \frac{(\ln x )^3}{3} \]
+
+      \[ y_P(x) = - \frac{(\ln x )^3 x^2}{3} + \frac{(\ln x)^2 x^2 \ln x}{2}\]
+      \[ y_P(x) = \frac{x^2 (\ln x)^3}{6} \]
+
+      A solução geral é:
+
+      \[ y(x) =  \alpha _0 x^2 + \beta _0 x^2 \ln x + \frac{x^2 (\ln x)^3 }{6}\]
+      onde \( \alpha_0 \)   e \( \beta_0 \) são as condições de contorno.
+
+      
+
+      \[ a(t) y''(t) + b(t) y'(t) + c(t) y(t) = f(t) \]
+      
+      Solução geral: \( y(t) = y_{H} (t) + y_{P} (t) \) 
+
+      onde \( y_H \) é uma solução geral da EDO homogênea associada (obtida substituindo
+      f(t) por zero e resolvendo a EDO homogênea resultante) e \( y_P \) é uma solução particular
+      qualquer da EDO inomogênea dada.
+      
+      Supondo que já resolvemos a EDO homogênea por algum método:
+      
+      \[ y_H(t) = \alpha  y_1 (t) + \beta y_2(t) \]
+      onde já conhecemos as funções \( y_1 \) e \( y_2 \) .
+      
+      
+      Método da variação de parâmetros para encontrar \( y_P(t) \) 
+
+      Reescrevendo a solução particular da inomogênea como :
+
+      \[ y_P(t) = \alpha (t) y_1(t) + \beta (t) y_2(t) \]
+      
+   E colocando a EDO original na forma canônica:
+   \[ y_P' = \alpha y_1 ' + \alpha ' y_1 + \beta  y_2 ' + \beta ' y_2 \]
+
+   Impomos a relação:
+   \begin{equation}
+   \alpha ' y_1 + \beta ' y_2 = 0  
+   \label{eq:inomogeneas_1}
+   \end{equation}
+   segue que \( y_P ' = \alpha (t) y_1 '(t) + \beta (t) y_2 ' (t) \) 
+
+
+   \[ y_P '' =  \alpha ' y_1 ' + \alpha y_1 ''  + \beta ' y_2 ' + \beta y_2 '' \]
+
+
+   Substituindo na EDO dada:
+
+   \[ y_P '' + p y_P ' + q y_P  = \alpha y_1 '' + \alpha ' y_1 ' + \beta y_2 '' + \beta ' y_2 ' + p
+   \left( \alpha y_1 ' + \beta  y_2 '  \right) + q \left( \alpha y_1 + \beta  y_2 \right) = r(t) \]
+
+
+   \[ \alpha (t) \underbrace{\left[ y_1 '' (t) + p(t) y_1' (t)  + q(t) y_1(t) \right]}_{ =  0}  + \beta (t) \underbrace{\left[
+   y_2''(t) + p(t) y_2 ' (t) + q(t) y_2 (t)  \right]}_{ = 0 } + \alpha ' y_1' + \beta ' y_2' = r(t) \]
+
+   \begin{equation}
+   \alpha ' y_1 ' + \beta ' y_2 ' = r(t) 
+   \label{inomogeneas_2}
+   \end{equation}
+
+
+   Com as duas equações (\ref{inomogeneas_1}) e (\ref{eq:inomogeneas_2}) temos o sistema linear:
+
+   \[ \begin{cases}
+   y_1 \alpha ' + y_2 \beta ' = 0 \\
+   y_1 ' \alpha ' + y_2 ' \beta ' = r(t)   
+    \end{cases}\]
+
+   \[ \begin{bmatrix}
+   y_1 & y_2 \\ y_1 ' & y_2 '
+   \end{bmatrix} =  \begin{bmatrix} \alpha ' \\ \beta ' \end{bmatrix}
+= \begin{bmatrix}  0 \\ r(t)    \end{bmatrix} \]
+
+\[  \alpha  ' = \frac{\det \begin{bmatrix} 0 && y_2 \\ r && y_2' \end{bmatrix} }{\det \begin{bmatrix}
+y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+\frac{r(t) y_2 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_2(t) }{W[y_1, y_2](t)} \]
+
+\[  \beta  ' = \frac{\det \begin{bmatrix} y_1 & 0 \\ y_1 ' & r(t) \end{bmatrix} }{\det \begin{bmatrix}
+y_1 & y_2 \\ y_1 ' & y_2 ' \end{bmatrix}} = -
+\frac{r(t) y_1 (t) }{y_1 y_2' - y_2 y_1 } = - \frac{r(t) y_1(t) }{W[y_1, y_2](t)} \]
+
+
+Integrando as soluções temos \( \alpha , \beta \) , após isso substituimos em \( y_P(t) = \alpha (t)
+y_1(t) + \beta (t) y_2(t)\)  e a
+solução geral da EDO será :
+
+
+\begin{equation}
+  y(t) = \left( \alpha _0 + \alpha (t) \right) y_1(t) + \left( \beta _0 + \beta (t) \right)y_2(t) 
+  \label{eq:solucao_geral_inomogenea}
+\end{equation}
+
+ \paragraph{$\blacksquare$ Exemplo} : \( x^2 y '' - 3x y' + 4y = x^2 \ln |x| , y(x) = ?, x> 0 \) 
+
+ Considerando a EDO homogênea associada temos
+ \[ x^2 y'' - 3xy' + 4y = 0  \]
+
+ Supondo \( y(x) = x^{\lambda } \Rightarrow y' = \lambda x^{\lambda -1} \Rightarrow y'' = \lambda
+ (\lambda - 1) x^{\lambda - 2}  \) 
+ 
+ \[ x^{\lambda } \left[ \lambda (\lambda - 1) - 3 \lambda  + 4  \right] = 0 \Rightarrow \lambda
+   ^2 - 4 \lambda  + 4 = 0 \Rightarrow \left( \lambda - 2 \right)^2 = 0 \Rightarrow \lambda  = 2 \]
+ Logo, \( \lambda = 2 \) e uma das soluções da EDO homogenea associada é \( y_1 (x) = x^2 \) 
+ 
+ 
+ Usando método do Wronskiano para encontrar \( y_2(t) \)
+ 
+ \[ y_1 y_2 ' - y_1 ' y_2 = W_0 e^{- \int p(x) dx}, p(x) = - \frac{3}{x} \]
+ \[ x^2 y_2 ' - 2x y_2 = e^{3 \ln x} = e^{x^3}  \]
+ \[ y_2 ' - \frac{2}{x} y_2 = x \Rightarrow \mu = \frac{1}{x^2} \]
+ \[ \left( \mu y_2 \right)' = \frac{1}{x} \Rightarrow \frac{y_2}{x^2} = \ln x + \mathbb{C}
+   \Rightarrow y_2(x) = x^2 \ln x + x^2 \mathbb{C}\]
+ Fazendo \( \mathbb{C} = 0 \), temos que \( y_2(x) = x^2 \ln x \) 
+ 
+ uma possível solução é \( y_2(x) = x^2 \ln x \)   e a outra é \( y_1(x) = x^2 \) 
+ 
+ 
+ Para encontrar \( y_P(x) \) impomos:
+ 
+ \[ y_P(x) = \alpha (x) y_1(x) + \beta (x) y_2 (x) = \alpha (x) x^2 + \beta (x) x^2 \ln x\]
+ \[ y_P'(x) =  \alpha ' x^2 + 2 \alpha  x + \beta ' x^2 \ln x + \beta (2x\lnx + x) \]
+ 
+ 
+ impondo também \( \alpha ' x^2 + \beta ' x^2 \ln x = 0  \) 
+ 
+ \[ y_P '   =  2 \alpha x + \beta (2x \ln x + x) \]
+ \[ y_P'' = 2 \alpha ' x + 2 \alpha + \beta ' (2x \ln x + x ) + \beta (2 \ln x + 3) \]
+ 
+ Substituindo na EDO:
+ \[ y_P '' - \frac{3}{x} y_P ' + \frac{4}{x^2} y_P = \ln x \]
+ \begin{multline*}
+   \Leftrightarrow \left[ 2 \alpha ' x + 2 \alpha  + \beta ' (2x \ln x + x) + \beta (2 \ln x + 3)
+   \right] - \frac{3}{x} \left[ 2 \alpha x + \beta \left( 2x \ln x + x \right) \right]+
+   \\ \frac{4}{x^2} \left( \alpha x^2 + \beta x^2 \ln x  \right) = \ln x \end{multline*}
+ 
+ \[ 2 \alpha ' x + \left( 2x \ln x + x \right)\beta ' = \ln x \]
+ 
+ 
+ 
+ Temos então o sistema
+ 
+ $$\begin{cases}
+     x^2 \alpha ' + 2 x \ln x \beta ' = 0 \\
+     2 \alpha ' x + \left( 2x \ln x + x \right) \beta ' = \ln x  
+   \end{cases}$$
+   
+   \[ \Leftrightarrow \begin{cases}
+          \alpha ' + \ln x \beta ' = 0 \\ 2 \alpha ' + \left( 2 \ln x + 1\right) \beta ' = \frac{\ln x}{x}
+        \end{cases} \]
+      
+      \[ \alpha ' = - \beta ' \ln x   \]
+      \[ - \beta ' \ln x + 2\ln x \beta' + \beta ' = \frac{\ln x}{x} \]
+      \[ \beta ' = \frac{\ln x }{x} \Rightarrow \alpha ' = - \frac{(\ln x)^2}{x} \]
+      
+      
+      
+      \[ \beta = \int \frac{\ln x}{x} dx \text{ e } \alpha = - \int \frac{(\ln x)^2}{x} dx \]
+      
+      \[ \beta = \frac{(\ln x)^2}{2} \text{ e } \alpha = - \frac{(\ln x )^3}{3} \]
+      
+      
+      \[ y_P(x) = - \frac{(\ln x )^3 x^2}{3} + \frac{(\ln x)^2 x^2 \ln x}{2}\]
+      \[ y_P(x) = \frac{x^2 (\ln x)^3}{6} \]
+      
+   
+      
+      A solução geral é:
+
+      \[ y(x) =  \alpha _0 x^2 + \beta _0 x^2 \ln x + \frac{x^2 (\ln x)^3 }{6}\]
+      onde \( \alpha_0 \)   e \( \beta_0 \) são as condições de contorno.
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% TeX-master: "main.tex"
+%%% End:
+
+

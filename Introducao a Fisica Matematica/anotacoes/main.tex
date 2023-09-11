@@ -1,0 +1,85 @@
+\documentclass[letterpaper, 12pt]{book}
+
+\input{setup_document.tex}
+
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{1} \tableofcontents
+\dominitoc\setcounter{tocdepth}{1}
+
+\chapter*{Prefácio - Descrição dos conteúdos das anotações}
+Essas são minhas anotações feitas no decorrer da disciplina de Introdução à Física Matemática no
+IFSC-USP em 2023.
+A ementa da disciplina pode ser encontrada no site oficial da USP, o
+\href{https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=7600016&codcur=76041&codhab=0}{jupiter}.
+De qualquer forma coloquei os conteúdos ``previstos'' pela ementa abaixo.
+\begin{itemize}
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Números complexos e suas propriedades: interpretações geométricas (cartesiana, polar e vetorial), fórmulas de Euler e de De Moivre. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Funções complexas de um parâmetro real: diferenciação e integração. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Equações diferenciais ordinárias de primeira ordem: equações lineares, equações separáveis e equações exatas, fator integrante. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Equações diferenciais ordinárias de segunda ordem: soluções linearmente independentes, Wronskiano, método da variação das constantes. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Sistemas de equações lineares de primeira ordem: autovalores e autovetores de matrizes, matriz fundamental de sistemas com coeficientes constantes. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Transformada de Laplace: propriedades básicas, funções descontínuas e impulsivas (delta de Dirac), relações com a função gama e equações integrais, conceito de convolução. 
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] Soluções em séries de equações de segunda ordem: pontos ordinários e singulares regulares (método de Frobenius), ênfase nos polinômios de Legendre.
+\end{itemize}
+
+As anotações são baseadas nos que foi escrito em sala pelo professor Vanzella e nos livros/anotações
+de aula, que usei para estudar. Essas referências estão listadas no fim do documento.
+
+% \chapter{Números Complexos}
+%\input{numeros_complexos.tex}
+
+%\chapter{Equações diferenciais}
+%\input{equacoes_diferenciais.tex}
+
+\chapter{EDOs de primeira ordem}
+% \begin{wrapfigure}{r}{0.3\textwidth}
+%   \centering
+%   \includegraphics[width=0.3\textwidth]{./images/xkcd/dPain_over_dt.png}
+% \end{wrapfigure}
+
+\input{edos_primeira_ordem.tex}
+\chapter{EDOs de segunda ordem}
+
+% \begin{wrapfigure}{r}{0.5\textwidth}
+%   \centering
+%   \includegraphics[width=0.3\textwidth]{./images/xkcd/differentiation_and_integration.png}
+% \end{wrapfigure}
+
+\input{edos_segunda_ordem.tex}
+\chapter{Método de Séries}
+\input{metodo_de_series.tex}
+\chapter{Transformada de Laplace}
+\input{transformada_de_laplace.tex}
+
+% \chapter{Extra - Alguns exercicios/exemplos interessantes}
+% \paragraph{Resolvendo circuito RLC}
+
+\chapter*{Apêndice}
+\section{Método de resolução de integral de fração parcial}
+\paragraph{Exemplo} \( f(x) = \frac{1}{ax^2 + bx + c} \Rightarrow \int f(x) dx \) 
+
+Encontrando as raízes do polinômio (e/ou simplificando)
+\[ ax^2 + bx + c = 0 = a(x-r_1)(x_r_2) \]
+onde \( r_1 \) e \( r_2 \) são raízes da equação quadrática.
+Escrevendo em outra forma:
+\[ \frac{1}{a(x-r_1)(x-r_2)} = \frac{A}{x-r_1} + \frac{B}{x-r_2} = \frac{A(x-r_2) +
+    B(x-r_1)}{(x-r_1)(x-r_2)} = \frac{(A+B)x - (Ar_2 + Br_1)}{(x-r_1)(x-r_2)} \]
+como não há termo de \( x \)  no numerador \( A + B = 0 \Rightarrow B = -A \) , então
+\[ \frac{1}{a(x-r_1)(x- r_2)} = - \frac{A(r_2 - r_1)}{(x-r_1)(x - r_2)} \]
+\[ -A \underbrace{(r_2 - r_1)}_{= \sqrt{\Delta}} = \frac{1}{a} \Rightarrow A = - \frac{1}{\sqrt{\Delta}}\]
+
+\[ \int \frac{dx}{ax^2 + bx + c} = - \frac{1}{\sqrt{\Delta}} \bigg\{ \int \frac{dx}{x - r_1} - \int \frac{dx}{x - r_2} \bigg\} \]
+\[ = - \frac{1}{\sqrt{\Delta}} \left( \ln |x - r_1| + \ln | x - r_2 | \right) = \frac{1}{\sqrt{\Delta}} \ln
+  \bigg|\frac{x - r_1}{x - r_2} \bigg| \]
+% fazer um exemplo de casos em que a EDO não é tão simples
+% e falar sobre a relação (x^3 + x^2 + ...) = (Ax + B)/...
+
+
+\nocite{*}
+\printbibliography
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End:
