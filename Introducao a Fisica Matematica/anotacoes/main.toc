@@ -1,0 +1,80 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{\numberline {1}EDOs de primeira ordem}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}EDOs homogêneas, inomogêneas - fator integrante}{4}{section.1.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{4}{section.1.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{5}{equation.1.1.1}%
+\contentsline {section}{\numberline {1.2}Método de variação de paramêtros}{5}{section.1.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}EDOs separáveis}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Modelagem de sistemas usando EDOs}{6}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}EDOs autonômas e crescimento populacional}{6}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Equação logística}{7}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Resolvendo a equação logística}{7}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}EDOs exatas}{8}{section.1.5}%
+\contentsline {paragraph}{Generalizando}{8}{section.1.5}%
+\contentsline {paragraph}{$\blacksquare $}{8}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Caso base}{8}{subsection.1.5.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{8}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Caso que precisa de fator integrante}{9}{subsection.1.5.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{9}{subsection.1.5.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{9}{subsection.1.5.2}%
+\contentsline {paragraph}{$\rightarrow $ Ansatz}{10}{subsection.1.5.2}%
+\contentsline {paragraph}{$\rightarrow $ Ansatz}{10}{subsection.1.5.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{10}{subsection.1.5.2}%
+\contentsline {chapter}{\numberline {2}EDOs de segunda ordem}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lineares homogêneas}{11}{section.2.1}%
+\contentsline {paragraph}{Expandindo um pouco a ideia do Wronskiano}{11}{equation.2.1.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{12}{equation.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.1}Método de redução de ordem}{13}{subsection.2.1.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{13}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Lineares e inomogêneas}{14}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Solução com coeficientes constantes}{14}{subsection.2.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Caso}{14}{theorem.5}%
+\contentsline {paragraph}{$\blacksquare $ Caso}{14}{theorem.5}%
+\contentsline {paragraph}{$\blacksquare $ Caso}{14}{theorem.5}%
+\contentsline {subsection}{\numberline {2.2.2}Solução para coeficientes não constantes}{14}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Método da variação de parâmetros para encontrar \( y_P(t) \)}{15}{subsection.2.2.3}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{16}{equation.2.2.4}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{18}{equation.2.2.7}%
+\contentsline {chapter}{\numberline {3}Método de Séries}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Mini revisão de séries de Taylor}{21}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Multiplicação de duas séries}{21}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Série de taylor em torno de um ponto \( x_0 \):}{21}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Solução em torno de pontos regulares}{21}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Introdução e analiticidade de séries de potências}{21}{subsection.3.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{21}{subsection.3.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Solução em séries em torno de pontos regulares}{22}{subsection.3.2.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{22}{subsection.3.2.2}%
+\contentsline {paragraph}{$\blacksquare $Exemplo}{23}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Método de séries para pontos singulares regulares}{24}{section.3.3}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{24}{section.3.3}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{26}{equation.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.1}Casos para \( \lambda \)}{26}{subsection.3.3.1}%
+\contentsline {subsubsection}{Caso \( \lambda \pm \notin \mathbb {R} ( \lambda _{-} = \lambda _{+}^{*}) \)}{26}{subsection.3.3.1}%
+\contentsline {subsubsection}{Caso \( \lambda \pm \in \mathbb {R} ( \lambda _+ \geq \lambda _-) \) }{26}{subsection.3.3.1}%
+\contentsline {paragraph}{$\blacksquare $Exemplo}{27}{subsection.3.3.1}%
+\contentsline {paragraph}{$\blacksquare $ Exercicio proposto}{27}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Transformada de Laplace}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Propriedades necessárias de $f$}{28}{section.4.1}%
+\contentsline {paragraph}{(1) Seccionalidade contínua}{28}{section.4.1}%
+\contentsline {paragraph}{(2) Limite superior}{29}{section.4.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{29}{section.4.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{29}{section.4.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Propriedades da Transformada de Laplace}{30}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Propriedade da exponencial}{30}{subsection.4.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{30}{subsection.4.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{30}{subsection.4.2.1}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{30}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}propriedade de translação}{30}{subsection.4.2.2}%
+\contentsline {subsubsection}{Função degrau unitário ou função de Heaviside ($\Theta (t - a)$)}{30}{subsection.4.2.2}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{31}{equation.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Delta de Dirac (Função impulso)}{31}{subsection.4.2.3}%
+\contentsline {paragraph}{Propriedade mais útil do Delta de Dirac}{31}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Aplicação em EDOs: usando Transformada de Laplace em PVIs}{32}{section.4.3}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{32}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Teorema da convolução e transformada de Laplace Inversa}{33}{section.4.4}%
+\contentsline {paragraph}{$\blacksquare $ Exemplo}{34}{equation.4.4.5}%
+\contentsline {section}{\numberline {4.5}Método de resolução de integral de fração parcial}{35}{section.4.5}%
+\contentsline {paragraph}{Exemplo}{35}{section.4.5}%

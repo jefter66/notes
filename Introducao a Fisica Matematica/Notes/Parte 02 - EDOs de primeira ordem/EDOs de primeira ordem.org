@@ -1,8 +1,0 @@
-#+title: EDOs de 1ª ordem
-* Homogeneas
-* Inomogêneas: fator integrante
-* EDOs separáveis
-* EDOs autônomas
-* EDOs exatas
-
-
